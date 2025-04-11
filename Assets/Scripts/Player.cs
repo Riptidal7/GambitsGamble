@@ -38,8 +38,8 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        float xAmount = direction.x * GameParameters.PlayerMoveSpeed;
-        float yAmount = direction.y * GameParameters.PlayerMoveSpeed;
+        float xAmount = direction.x * GameParameters.PlayerMoveSpeed * Time.deltaTime;
+        float yAmount = direction.y * GameParameters.PlayerMoveSpeed * Time.deltaTime;
         
         
         if (GambitSpriteRenderer.transform.position.x < GameParameters.MapMinX)
