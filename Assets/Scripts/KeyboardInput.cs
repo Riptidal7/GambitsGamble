@@ -16,24 +16,24 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             Gambit.Move(new Vector2(0,1));
-            print("w");
+            //print("w");
         }
         if (Input.GetKey(KeyCode.S))
         {
             Gambit.Move(new Vector2(0,-1));
-            print("s");
+           // print("s");
         }
         
         if (Input.GetKey(KeyCode.A))
         {
             Gambit.Move(new Vector2(-1,0));
-            print("a");
+           // print("a");
         }
         
         if (Input.GetKey(KeyCode.D))
         {
             Gambit.Move(new Vector2(1,0));
-            print("d");
+         //   print("d");
         }
     }
 }
