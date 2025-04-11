@@ -7,8 +7,10 @@ public class Player : MonoBehaviour
     public SpriteRenderer GambitSpriteRenderer;
     public HPDisplayer HpDisplayer;
     public bool TakingDamage;
-    public int FPSCheck;
+    public bool CanTakeDamage;
+    
     public int HitPoints;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour
         HitPoints = GameParameters.InitialMaxPlayerHitPoints;
         HpDisplayer.UpdateHP(HitPoints);
         TakingDamage = false;
-        FPSCheck = 120;
+        CanTakeDamage = true;
     }
 
     // Update is called once per frame
@@ -24,14 +26,13 @@ public class Player : MonoBehaviour
     {
         if (TakingDamage)
         {
-            if(FPSCheck==120)
+            if (CanTakeDamage)
             {
                 HitPoints--;
                 HpDisplayer.UpdateHP(HitPoints);
-                FPSCheck = 0;
+                CanTakeDamage = false;
+                StartCoroutine(CountdownUntilInvulnerabilityOver());
             }
-
-            FPSCheck++;
         }
         
     }
@@ -77,7 +78,12 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             TakingDamage = false;
-            FPSCheck = 120;
         }
+    }
+
+    IEnumerator CountdownUntilInvulnerabilityOver()
+    {
+        yield return new WaitForSeconds(GameParameters.SecondsOfInvulnerabilityAfterDamage);
+        CanTakeDamage = true;
     }
 }

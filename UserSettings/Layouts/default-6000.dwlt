@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 141
+  controlID: 122
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 51
+  controlID: 16
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -878,7 +878,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 450.18118, y: 246.51857, z: -0.3956537}
     speed: 2
-    m_Value: {x: -16.026768, y: 6.680977, z: 0}
+    m_Value: {x: 450.18118, y: 246.51857, z: -0.3956537}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 120.95939
     speed: 2
-    m_Value: 2.3994105
+    m_Value: 120.95939
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1113,7 +1113,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art
+    - Assets/Scripts
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0

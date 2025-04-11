@@ -8,6 +8,8 @@ public static class GameParameters
 
     public static int InitialMaxPlayerHitPoints = 5;
 
+    public static int SecondsOfInvulnerabilityAfterDamage = 1;
+
     public static float MapMinX = -10;
     public static float MapMaxX = 10;
 
