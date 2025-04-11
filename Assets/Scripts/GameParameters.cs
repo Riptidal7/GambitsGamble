@@ -6,6 +6,8 @@ public static class GameParameters
     public static float PlayerMoveSpeed = 0.04f;
     public static float PlayerConstraintKnockback = 0.05f;
 
+    public static int InitialMaxPlayerHitPoints = 5;
+
     public static float MapMinX = -10;
     public static float MapMaxX = 10;
 

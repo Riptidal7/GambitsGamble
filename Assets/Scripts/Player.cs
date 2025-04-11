@@ -1,18 +1,38 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public SpriteRenderer GambitSpriteRenderer;
+    public HPDisplayer HpDisplayer;
+    public bool TakingDamage;
+    public int FPSCheck;
+    public int HitPoints;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        HitPoints = GameParameters.InitialMaxPlayerHitPoints;
+        HpDisplayer.UpdateHP(HitPoints);
+        TakingDamage = false;
+        FPSCheck = 120;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (TakingDamage)
+        {
+            if(FPSCheck==120)
+            {
+                HitPoints--;
+                HpDisplayer.UpdateHP(HitPoints);
+                FPSCheck = 0;
+            }
+
+            FPSCheck++;
+        }
         
     }
 
@@ -41,6 +61,23 @@ public class Player : MonoBehaviour
         else
         {
             GambitSpriteRenderer.transform.Translate(xAmount, yAmount, 0.0f);
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+            if (other.gameObject.tag == "Enemy")
+            {
+                TakingDamage = true;
+            }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            TakingDamage = false;
+            FPSCheck = 120;
         }
     }
 }
