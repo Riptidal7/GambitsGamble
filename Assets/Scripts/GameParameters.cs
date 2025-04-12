@@ -52,4 +52,6 @@ public static class GameParameters
     public static float DiceRollWaitTime = 2f;
     
     public static float SpellCastWaitTime = 2f;
+
+    public static float AttackRange = 0.5f;
 }

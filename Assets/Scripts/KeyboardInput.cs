@@ -5,6 +5,7 @@ public class KeyboardInput : MonoBehaviour
     public Player Gambit;
     public DiceRoller DiceRoller;
     public SpellCaster SpellCaster;
+    public MeleeAttack MeleeAttack;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +41,7 @@ public class KeyboardInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("Melee attack");
+            MeleeAttack.MakeMeleeAttack();
         }
 
         if (Input.GetMouseButtonDown(0))

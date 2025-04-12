@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7699583783115231440}
   - component: {fileID: 7253084864607130876}
   - component: {fileID: 4115482378602074376}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Mob2
   m_TagString: Mob2
   m_Icon: {fileID: 0}
@@ -179,3 +179,13 @@ MonoBehaviour:
   enemySpeed: 0
   detectionRadius: 0
   isWaitingToFreezeRandomly: 0
+  minSecondsUntilFreeze: 0
+  maxSecondsUntilFreeze: 0
+  currentEnemySpeed: 0
+  HitPoints: 0
+  waveManager: {fileID: 0}
+  isBurning: 0
+  canTakeBurnDamage: 0
+  minSecondsUntilNextBurn: 0
+  maxSecondsUntilNextBurn: 0
+  burnDuration: 0
