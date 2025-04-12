@@ -16,4 +16,5 @@ public static class GameParameters
 
     public static float DiceMinNumber = 1;
     public static float DiceMaxNumber = 7;
+    public static float DiceRollWaitTime = 2f;
 }
