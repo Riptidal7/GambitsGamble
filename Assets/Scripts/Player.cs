@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
                 HitPoints--;
                 HpDisplayer.UpdateHP(HitPoints);
                 FPSCheck = 0;
+                print(HitPoints);
             }
 
             FPSCheck++;

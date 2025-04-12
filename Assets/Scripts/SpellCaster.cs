@@ -24,28 +24,28 @@ public class SpellCaster : MonoBehaviour
         if (SpellOnDie == 0)
         {
             // Boss Baby
-            HealSpell.CastHealSpell();
+            HealSpell.CastHealSpellFirstLevel();
         }
         if (SpellOnDie == 1)
         {
             //Chicken Jockey
-            HealSpell.CastHealSpell();
+            HealSpell.CastHealSpellFirstLevel();
         }
         if (SpellOnDie == 2)
         {
-            print("I... AM STEVE");
+            print("Minecraft Steve Image");
         }
         if (SpellOnDie == 3)
         {
-            print("Mrowr :3");
+            print("Kitty Image");
         }
         if (SpellOnDie == 4)
         {
-            print("MARIA!!!!!!!");
+            print("Shadow Image");
         }
         if (SpellOnDie == 5)
         {
-            print("Shimp");
+            print("Shrimp Image");
         }
     }
 
