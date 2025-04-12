@@ -1,15 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
     public DiceRoller DiceRoller;
-    public bool WaitingToCast = false;
-
 
     public void CastTheSpell(int SpellOnDie)
     {
-        
+        if (DiceRoller.CanICast)
+        {
+            CastAtSlotOnDie(SpellOnDie);
+            DiceRoller.CanICast = false;
+        }
+        else
+        {
+            return;
+        }
     }
     public void CastAtSlotOnDie(int SpellOnDie)
     {
