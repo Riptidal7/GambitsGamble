@@ -7,15 +7,9 @@ using UnityEngine.UI;
 public class DiceRoller : MonoBehaviour
 {
     public int DieValue = 0;
-    public Text DieRollResult;
     public List<Sprite> DieRollSprites;
     public Image DieImage;
     public bool WaitingToRoll = false;
-
-    public void UpdateDieText()
-    {
-        DieRollResult.text = DieValue.ToString();
-    }
     
     public void RollDie()
     {
