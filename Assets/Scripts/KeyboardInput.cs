@@ -3,6 +3,7 @@ using UnityEngine;
 public class KeyboardInput : MonoBehaviour
 {
     public Player Gambit;
+    public DiceRoller DiceRoller;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -38,12 +39,13 @@ public class KeyboardInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            print(DiceRoller.RollDie());
+            DiceRoller.RollDie();
+            DiceRoller.UpdateDieText();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            print("You rolled a " + DiceRoller.DieValue + " !");
+            print("You cast a " + DiceRoller.DieValue + "!");
         }
     }
 }

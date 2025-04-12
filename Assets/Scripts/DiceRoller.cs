@@ -1,16 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DiceRoller : MonoBehaviour
 {
-    public static int DieValue = 0;
+    public int DieValue = 0;
+    public Text DieRollResult;
+    public List<Sprite> DieRollSprites;
 
-    public static int RollDie()
+    public void UpdateDieText()
+    {
+        DieRollResult.text = DieValue.ToString();
+    }
+    
+    public int RollDie()
     {
         RandomDieValue();
         return DieValue;
     }
     
-    public static void RandomDieValue()
+    public void RandomDieValue()
     {
         DieValue = (int)Random.Range(GameParameters.DiceMinNumber, GameParameters.DiceMaxNumber);
     }
