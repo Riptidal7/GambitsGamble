@@ -16,6 +16,12 @@ public static class GameParameters
     public static float Mob2Speed = 3;
     public static float Mob2DetectionRange = 100;
 
+    public static int MinNumberSlimesPerWave = 1;
+    public static int MaxNumberSlimesPerWave = 2;
+
+    public static int MinNumberMob2sPerWave = 0;
+    public static int MaxNumberMob2sPerWave = 1;
+
     public static float MinSecondsUntilSlimeFreeze = 3;
     public static float MaxSecondsUntilSlimeFreeze = 7;
 

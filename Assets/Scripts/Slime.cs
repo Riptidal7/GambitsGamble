@@ -7,9 +7,11 @@ public class Slime : MonoBehaviour
     public float enemySpeed;     // Speed at which the enemy moves
     public float detectionRadius;    // Radius within which the enemy detects the player
     public bool isWaitingToFreezeRandomly;
+    public Vector3 spawnLocation;
     
     private Rigidbody2D rb;
 
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy

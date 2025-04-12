@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool TakingDamageMob2;
     public bool CanTakeDamage;
     
+    
     public int HitPoints;
     
     
