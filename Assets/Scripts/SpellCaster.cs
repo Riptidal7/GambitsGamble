@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpellCaster : MonoBehaviour
 {
     public DiceRoller DiceRoller;
+    public HealSpell HealSpell;
 
     public void CastTheSpell(int SpellOnDie)
     {
@@ -22,11 +23,13 @@ public class SpellCaster : MonoBehaviour
     {
         if (SpellOnDie == 0)
         {
-            print("I'm the boss, baby.");
+            // Boss Baby
+            HealSpell.CastHealSpell();
         }
         if (SpellOnDie == 1)
         {
-            print("CHICKEN JOCKEY");
+            //Chicken Jockey
+            HealSpell.CastHealSpell();
         }
         if (SpellOnDie == 2)
         {
