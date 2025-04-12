@@ -45,7 +45,7 @@ public class KeyboardInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            SpellCaster.CastAtSlot(DiceRoller.DieValue);
+            SpellCaster.CastTheSpell(DiceRoller.DieValue);
         }
     }
 }

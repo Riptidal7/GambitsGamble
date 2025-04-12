@@ -1,22 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpellCaster : MonoBehaviour
 {
     public DiceRoller DiceRoller;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool WaitingToCast = false;
+
+
+    public void CastTheSpell(int SpellOnDie)
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
-
-    public void CastAtSlot(int SpellOnDie)
+    public void CastAtSlotOnDie(int SpellOnDie)
     {
         if (SpellOnDie == 0)
         {
@@ -43,4 +38,7 @@ public class SpellCaster : MonoBehaviour
             print("Shimp");
         }
     }
+
+    
+    
 }
