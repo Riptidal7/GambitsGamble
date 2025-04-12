@@ -38,6 +38,11 @@ public class KeyboardInput : MonoBehaviour
          //   print("d");
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("Melee attack");
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             DiceRoller.RollDie();
