@@ -8,6 +8,6 @@ public class StartScreen : MonoBehaviour
 
     public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
