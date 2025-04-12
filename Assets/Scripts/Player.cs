@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
+    
     public SpriteRenderer GambitSpriteRenderer;
     public HPDisplayer HpDisplayer;
     public bool TakingDamageSlime;
@@ -13,6 +14,9 @@ public class Player : MonoBehaviour
     
     
     public int HitPoints;
+
+    public float currentMoveSpeed;
+    public bool canAttack;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,8 +57,8 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        float xAmount = direction.x * GameParameters.PlayerMoveSpeed * Time.deltaTime;
-        float yAmount = direction.y * GameParameters.PlayerMoveSpeed * Time.deltaTime;
+        float xAmount = direction.x * currentMoveSpeed * Time.deltaTime;
+        float yAmount = direction.y * currentMoveSpeed * Time.deltaTime;
         
         
         if (GambitSpriteRenderer.transform.position.x < GameParameters.MapMinX)
