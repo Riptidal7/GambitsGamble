@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     public float currentMoveSpeed;
     public bool canAttack;
+
+	public DirectionType direction;
+	public Animator animator;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
         HpDisplayer.UpdateHP(HitPoints);
         TakingDamageSlime = false;
         CanTakeDamage = true;
+		direction = DirectionType.Right;
     }
 
     // Update is called once per frame
@@ -82,6 +86,20 @@ public class Player : MonoBehaviour
             GambitSpriteRenderer.transform.Translate(xAmount, yAmount, 0.0f);
         }
     }
+
+	public void ChangeDirection(DirectionType newDirection) 
+	{
+		if (newDirection == DirectionType.Left)
+		{
+			direction = DirectionType.Left;
+			animator.SetBool("facingLeft", true);
+		}
+		else if (newDirection == DirectionType.Right)
+		{
+			direction = DirectionType.Right;
+			animator.SetBool("facingLeft", false);
+		}
+	}
 
     public void OnTriggerEnter2D(Collider2D other)
     {
