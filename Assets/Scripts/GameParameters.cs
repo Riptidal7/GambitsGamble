@@ -6,7 +6,7 @@ public static class GameParameters
     public static float PlayerMoveSpeed = 5f;
     public static float PlayerConstraintKnockback = 0.05f;
 
-    public static int InitialMaxPlayerHitPoints = 5;
+    public static int InitialMaxPlayerHitPoints = 50;
 
     public static int SecondsOfInvulnerabilityAfterDamage = 1;
 

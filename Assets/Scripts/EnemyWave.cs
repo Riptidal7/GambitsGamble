@@ -11,6 +11,7 @@ public class EnemyWave : MonoBehaviour
     public GameObject SlimePrefab;
     public List<GameObject> enemies;
     public GameObject Mob2Prefab;
+    public bool WaveCleared;
 
     public void CreateNewWave(int numberOfSlimes, int numberOfMob2s)
     {
@@ -38,9 +39,11 @@ public class EnemyWave : MonoBehaviour
     {
         if (enemies.Count==0)
         {
-            return true;
+            WaveCleared = true;
+            return WaveCleared;
         }
 
-        return false;
+        WaveCleared = false;
+        return WaveCleared;
     }
 }

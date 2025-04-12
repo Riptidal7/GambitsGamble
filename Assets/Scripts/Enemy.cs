@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
         isWaitingToFreezeRandomly = false;
-        isBurning = true;
+        isBurning = false;
         canTakeBurnDamage = true;
     }
     
@@ -89,12 +89,6 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         waveManager.CurrentWave.enemies.Remove(gameObject);
-
-        if (waveManager.CurrentWave.IsWaveCleared())
-        {
-            print("new wave");
-            waveManager.GenerateNewWave();
-        }
 
         Destroy(gameObject);
     }
