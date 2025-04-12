@@ -29,6 +29,7 @@ public class EnemyWave : MonoBehaviour
                Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
            GameObject tempMob2=Instantiate(Mob2Prefab, Mob2SpawnLocation, Quaternion.identity);
            enemies.Add(tempMob2);
+
         }
     }
     

@@ -7,13 +7,21 @@ public class MeleeAttack : MonoBehaviour
     public LayerMask EnemyLayers;
     public float AttackRange = GameParameters.AttackRange;
 
+
     public void MakeMeleeAttack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+        Debug.Log("Melee attack triggered!");
 
+        if (AttackPoint == null)
+        {
+            Debug.LogWarning("AttackPoint is not assigned.");
+            return;
+        }
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
         foreach (Collider2D enemy in hitEnemies)
         {
-            print("I hit a guy!");
+            Debug.Log($"Hit enemy: {enemy.name}");
         }
     }
 
@@ -21,6 +29,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (AttackPoint == null)
             return;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
     }
 }

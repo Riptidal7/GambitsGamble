@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7699583783115231440}
   - component: {fileID: 7253084864607130876}
   - component: {fileID: 4115482378602074376}
-  m_Layer: 4
+  m_Layer: 3
   m_Name: Mob2
   m_TagString: Mob2
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.010655642, y: 0.01065588}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.02, y: 3.87}
+  m_Size: {x: 4.1691813, y: 3.9765577}
   m_EdgeRadius: 0
 --- !u!50 &7253084864607130876
 Rigidbody2D:

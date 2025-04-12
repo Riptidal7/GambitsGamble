@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
         isWaitingToFreezeRandomly = false;
         isBurning = true;
         canTakeBurnDamage = true;
+        
     }
     
     void FixedUpdate()
