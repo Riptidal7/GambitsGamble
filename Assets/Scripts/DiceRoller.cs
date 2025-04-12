@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DiceRoller : MonoBehaviour
 {
@@ -10,7 +13,13 @@ public class DiceRoller : MonoBehaviour
     public List<Sprite> DieRollSprites;
     public Image DieImage;
     public bool WaitingToRoll = false;
-    
+     public bool CanICast = false;
+
+    void Update()
+    {
+        
+    }
+
     public void RollDie()
     {
         if (WaitingToRoll)
@@ -21,6 +30,7 @@ public class DiceRoller : MonoBehaviour
         {
             UpdateDieImage();
             StartCoroutine(WaitTimerToRollAgain());
+            CanICast = true;
         }
     }
     
