@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    
     public SpriteRenderer GambitSpriteRenderer;
     public HPDisplayer HpDisplayer;
     public bool TakingDamage;
     public int FPSCheck;
     public int HitPoints;
+
+    public float currentMoveSpeed;
+    public bool canAttack;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +21,7 @@ public class Player : MonoBehaviour
         HpDisplayer.UpdateHP(HitPoints);
         TakingDamage = false;
         FPSCheck = 120;
+        currentMoveSpeed = GameParameters.PlayerMoveSpeed;
     }
 
     // Update is called once per frame
@@ -38,8 +43,8 @@ public class Player : MonoBehaviour
 
     public void Move(Vector2 direction)
     {
-        float xAmount = direction.x * GameParameters.PlayerMoveSpeed * Time.deltaTime;
-        float yAmount = direction.y * GameParameters.PlayerMoveSpeed * Time.deltaTime;
+        float xAmount = direction.x * currentMoveSpeed * Time.deltaTime;
+        float yAmount = direction.y * currentMoveSpeed * Time.deltaTime;
         
         
         if (GambitSpriteRenderer.transform.position.x < GameParameters.MapMinX)
