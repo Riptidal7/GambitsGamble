@@ -9,6 +9,7 @@ public class EnemyWave : MonoBehaviour
     public int NumberOfSlimes;
     public int NumberOfMob2s;
     public GameObject SlimePrefab;
+    public List<GameObject> enemies;
     public GameObject Mob2Prefab;
 
     public void CreateNewWave(int numberOfSlimes, int numberOfMob2s)
@@ -19,14 +20,15 @@ public class EnemyWave : MonoBehaviour
         {
             Vector3 SlimeSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
                 Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
-            Instantiate(SlimePrefab, SlimeSpawnLocation, Quaternion.identity);
+            GameObject tempSlime=Instantiate(SlimePrefab, SlimeSpawnLocation, Quaternion.identity);
+            enemies.Add(tempSlime);
         } 
-        for (int a = 0; a < numberOfMob2s;a++)
+        for (int a = 0; a < NumberOfMob2s;a++)
         {
            Vector3 Mob2SpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
                Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
-           Instantiate(Mob2Prefab, Mob2SpawnLocation, Quaternion.identity);
-           NumberOfMob2s++;
+           GameObject tempMob2=Instantiate(Mob2Prefab, Mob2SpawnLocation, Quaternion.identity);
+           enemies.Add(tempMob2);
         }
     }
     
@@ -34,7 +36,7 @@ public class EnemyWave : MonoBehaviour
 
     public bool IsWaveCleared()
     {
-        if (NumberOfMob2s== 0 && NumberOfMob2s== 0)
+        if (enemies.Count==0)
         {
             return true;
         }

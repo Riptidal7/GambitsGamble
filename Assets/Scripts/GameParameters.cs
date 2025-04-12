@@ -16,6 +16,19 @@ public static class GameParameters
     public static float Mob2Speed = 3;
     public static float Mob2DetectionRange = 100;
 
+    public static int SlimeHP = 5;
+
+    public static int Mob2HP = 5;
+
+    public static int SlimeBurnDuration = 15;
+    public static int Mob2BurnDuration = 15;
+
+    public static float MinSecondsBeforeNextSlimeBurn = 1;
+    public static float MaxSecondsBeforeNextSlimeBurn = 3;
+    
+    public static float MinSecondsBeforeNextMob2Burn = 1;
+    public static float MaxSecondsBeforeNextMob2Burn = 3;
+
     public static int MinNumberSlimesPerWave = 1;
     public static int MaxNumberSlimesPerWave = 2;
 

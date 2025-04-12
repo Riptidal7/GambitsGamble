@@ -3,7 +3,7 @@ using UnityEngine;
 public  class WaveManager : MonoBehaviour
 {
     public  int waveNumber=1;
-    public bool AddMob2s=true;
+    public bool AddMob2s=false;
     public int MaxEnemies;
     public EnemyWave CurrentWave = new EnemyWave();
 
@@ -23,6 +23,7 @@ public  class WaveManager : MonoBehaviour
         else
         {
             AddMob2s = true;
+            numbMob2s = waveNumber - 1;
         }
         CurrentWave.CreateNewWave(numbSlimes,numbMob2s);
         waveNumber++;
