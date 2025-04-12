@@ -364,6 +364,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &100894887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100894889}
+  - component: {fileID: 100894888}
+  m_Layer: 0
+  m_Name: Spells
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &100894888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100894887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bda6151163ea46ceab0e3be5d84ebb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DiceRoller: {fileID: 132890381}
+--- !u!4 &100894889
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100894887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1163.813, y: 671.50854, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &132890380
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gambit: {fileID: 1808506182}
   DiceRoller: {fileID: 132890381}
+  SpellCaster: {fileID: 100894888}
 --- !u!4 &182847311
 Transform:
   m_ObjectHideFlags: 0
@@ -1330,3 +1376,4 @@ SceneRoots:
   - {fileID: 1861643681}
   - {fileID: 90831165}
   - {fileID: 132890382}
+  - {fileID: 100894889}
