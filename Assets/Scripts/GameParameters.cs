@@ -13,4 +13,7 @@ public static class GameParameters
 
     public static float MapMinY = -10;
     public static float MapMaxY = 10;
+
+    public static float DiceMinNumber = 1;
+    public static float DiceMaxNumber = 7;
 }

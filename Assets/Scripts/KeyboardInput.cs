@@ -35,5 +35,15 @@ public class KeyboardInput : MonoBehaviour
             Gambit.Move(new Vector2(1,0));
          //   print("d");
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            print(DiceRoller.RollDie());
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            print("You rolled a " + DiceRoller.DieValue + " !");
+        }
     }
 }
