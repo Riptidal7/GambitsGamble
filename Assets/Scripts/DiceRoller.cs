@@ -20,7 +20,7 @@ public class DiceRoller : MonoBehaviour
         else
         {
             UpdateDieImage();
-            StartCoroutine(WaitToRollAgain());
+            StartCoroutine(WaitTimerToRollAgain());
         }
     }
     
@@ -35,7 +35,7 @@ public class DiceRoller : MonoBehaviour
         DieImage.sprite = DieRollSprites[DieValue];
     }
 
-    IEnumerator WaitToRollAgain()
+    IEnumerator WaitTimerToRollAgain()
     {
         WaitingToRoll = true;
         yield return new WaitForSeconds(GameParameters.DiceRollWaitTime);
