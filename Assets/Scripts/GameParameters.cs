@@ -10,6 +10,12 @@ public static class GameParameters
 
     public static int SecondsOfInvulnerabilityAfterDamage = 1;
 
+    public static float SlimeSpeed = 1.5f;
+    public static float SlimeDetectionRadius=100;
+
+    public static float MinSecondsUntilSlimeFreeze = 3;
+    public static float MaxSecondsUntilSlimeFreeze = 7;
+
     public static float MapMinX = -10;
     public static float MapMaxX = 10;
 

@@ -1,16 +1,46 @@
+using System.Collections;
 using UnityEngine;
 
 public class Slime : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Transform player;    // Reference to the player's Transform component for tracking the player's position
+    public float enemySpeed;     // Speed at which the enemy moves
+    public float detectionRadius;    // Radius within which the enemy detects the player
+    public bool isWaitingToFreezeRandomly;
+    
+    private Rigidbody2D rb;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy
+        enemySpeed = GameParameters.SlimeSpeed;
+        player = GameObject.FindWithTag("Player").transform;
+        isWaitingToFreezeRandomly = false;
+    }
+    
+    void FixedUpdate()
+    {
+        if (player != null && Vector3.Distance(player.position, transform.position) <= detectionRadius)
+        {
+            // Calculate the normalized direction vector from the enemy to the player
+            Vector3 direction = (player.position - transform.position).normalized;
+            // Moves enemy towards player
+            rb.MovePosition(transform.position + direction * enemySpeed * Time.fixedDeltaTime);
+        }
+
+        if (!isWaitingToFreezeRandomly)
+        {
+            StartCoroutine(CountdownUntilFreezeRandomly());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator CountdownUntilFreezeRandomly()
     {
-        
+        isWaitingToFreezeRandomly = true;
+        yield return new WaitForSeconds(Random.Range(GameParameters.MinSecondsUntilSlimeFreeze,GameParameters.MaxSecondsUntilSlimeFreeze));
+        enemySpeed = 0;
+        yield return new WaitForSeconds(1);
+        enemySpeed = GameParameters.SlimeSpeed;
+        isWaitingToFreezeRandomly = false;
     }
 }
