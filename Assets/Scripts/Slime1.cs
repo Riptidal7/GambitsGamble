@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime1 : MonoBehaviour
 {
     public Transform player;    // Reference to the player's Transform component for tracking the player's position
     public float enemySpeed;     // Speed at which the enemy moves
@@ -13,8 +13,8 @@ public class Slime : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy
-        enemySpeed = GameParameters.SlimeSpeed;
-        detectionRadius = GameParameters.SlimeDetectionRadius;
+        enemySpeed = GameParameters.Mob2Speed;
+        detectionRadius = GameParameters.Mob2DetectionRange;
         player = GameObject.FindWithTag("Player").transform;
         isWaitingToFreezeRandomly = false;
     }
@@ -38,7 +38,7 @@ public class Slime : MonoBehaviour
     IEnumerator CountdownUntilFreezeRandomly()
     {
         isWaitingToFreezeRandomly = true;
-        yield return new WaitForSeconds(Random.Range(GameParameters.MinSecondsUntilSlimeFreeze,GameParameters.MaxSecondsUntilSlimeFreeze));
+        yield return new WaitForSeconds(Random.Range(GameParameters.MinSecondsUntilMob2Freeze,GameParameters.MaxSecondsUntilMob2Freeze));
         enemySpeed = 0;
         yield return new WaitForSeconds(1);
         enemySpeed = GameParameters.SlimeSpeed;

@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
     public SpriteRenderer GambitSpriteRenderer;
     public HPDisplayer HpDisplayer;
-    public bool TakingDamage;
+    public bool TakingDamageSlime;
+    public bool TakingDamageMob2;
     public bool CanTakeDamage;
     
     public int HitPoints;
@@ -17,18 +19,29 @@ public class Player : MonoBehaviour
     {
         HitPoints = GameParameters.InitialMaxPlayerHitPoints;
         HpDisplayer.UpdateHP(HitPoints);
-        TakingDamage = false;
+        TakingDamageSlime = false;
         CanTakeDamage = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TakingDamage)
+        if (TakingDamageSlime)
         {
             if (CanTakeDamage)
             {
                 HitPoints--;
+                HpDisplayer.UpdateHP(HitPoints);
+                CanTakeDamage = false;
+                StartCoroutine(CountdownUntilInvulnerabilityOver());
+            }
+        }
+        
+        if (TakingDamageMob2)
+        {
+            if (CanTakeDamage)
+            {
+                HitPoints-=2;
                 HpDisplayer.UpdateHP(HitPoints);
                 CanTakeDamage = false;
                 StartCoroutine(CountdownUntilInvulnerabilityOver());
@@ -67,17 +80,25 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Slime")
             {
-                TakingDamage = true;
+                TakingDamageSlime = true;
+            }
+            if (other.gameObject.tag == "Mob2")
+            {
+                TakingDamageMob2 = true;
             }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Slime")
         {
-            TakingDamage = false;
+            TakingDamageSlime = false;
+        }
+        if (other.gameObject.tag == "Mob2")
+        {
+            TakingDamageMob2 = false;
         }
     }
 

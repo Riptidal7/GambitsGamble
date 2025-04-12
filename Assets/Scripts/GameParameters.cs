@@ -13,8 +13,14 @@ public static class GameParameters
     public static float SlimeSpeed = 1.5f;
     public static float SlimeDetectionRadius=100;
 
+    public static float Mob2Speed = 3;
+    public static float Mob2DetectionRange = 100;
+
     public static float MinSecondsUntilSlimeFreeze = 3;
     public static float MaxSecondsUntilSlimeFreeze = 7;
+
+    public static float MinSecondsUntilMob2Freeze = 5;
+    public static float MaxSecondsUntilMob2Freeze = 10;
 
     public static float MapMinX = -10;
     public static float MapMaxX = 10;
