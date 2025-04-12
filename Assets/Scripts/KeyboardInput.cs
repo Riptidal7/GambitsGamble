@@ -40,7 +40,6 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             DiceRoller.RollDie();
-            DiceRoller.UpdateDieText();
         }
 
         if (Input.GetMouseButtonDown(1))
