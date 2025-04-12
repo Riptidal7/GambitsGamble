@@ -11,7 +11,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
    GameObject DiceFaceChoice6;
    
    public CanvasGroup DiceFaceChoiceMenuPanel;
-
+   public PowerUpChoiceMenu PowerUpChoiceMenu;
   
    void Start()
    {
@@ -26,7 +26,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
    {
       CanvasGroupDisplayer.Hide(DiceFaceChoiceMenuPanel);
    }
-
+   
    
    public void OnFaceChoice1Clicked()
    {

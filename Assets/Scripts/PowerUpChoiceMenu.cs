@@ -9,6 +9,21 @@ public class PowerUpChoiceMenu : MonoBehaviour
     public CanvasGroup PowerUpChoiceMenuPanel;
     public Player Gambit;
 
+    public void PauseGameDuringAllChoices()
+    {
+        Gambit.currentMoveSpeed = 0;
+        Gambit.canAttack = false;
+        //cannot roll dice/ cast spell
+
+    }
+
+    public void ResumeGameAfterAllChoices()
+    {
+        Gambit.currentMoveSpeed = GameParameters.PlayerMoveSpeed;
+        Gambit.canAttack = true;
+        //can roll dice/ cast spell
+    }
+
     void Start()
     {
         HidePowerUpChoiceMenu();
@@ -26,27 +41,13 @@ public class PowerUpChoiceMenu : MonoBehaviour
         HidePowerUpChoiceMenu();
     }
     
-    public  void OnDeclineChoiceButtonClick()
+    public void OnDeclineChoiceButtonClick()
     {
 
         HidePowerUpChoiceMenu();
     }
 
-    public void PauseGameDuringAllChoices()
-    {
-        Gambit.currentMoveSpeed = 0;
-        Gambit.canAttack = false;
-        //cannot roll dice/ cast spell
-
-    }
-
-    public void ResumeGameAfterAllChoices()
-    {
-        Gambit.currentMoveSpeed = GameParameters.PlayerMoveSpeed;
-        Gambit.canAttack = true;
-        //can roll dice/ cast spell
-    }
-
+  
     public void HidePowerUpChoiceMenu()
     {
         //add delays?
