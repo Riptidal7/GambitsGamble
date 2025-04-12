@@ -1,16 +1,20 @@
+using System.Collections;
 using UnityEngine;
 
-public class Slime : MonoBehaviour
+public class Slime : Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    private void Start()
     {
-        
+        enemySpeed = GameParameters.SlimeSpeed;
+        currentEnemySpeed = enemySpeed;
+        detectionRadius = GameParameters.SlimeDetectionRadius;
+        minSecondsUntilFreeze = GameParameters.MinSecondsUntilSlimeFreeze;
+        maxSecondsUntilFreeze = GameParameters.MaxSecondsUntilSlimeFreeze;
+        HitPoints = GameParameters.SlimeHP;
+        minSecondsUntilNextBurn = GameParameters.MinSecondsBeforeNextSlimeBurn;
+        maxSecondsUntilNextBurn = GameParameters.MaxSecondsBeforeNextSlimeBurn;
+        burnDuration = GameParameters.SlimeBurnDuration;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
