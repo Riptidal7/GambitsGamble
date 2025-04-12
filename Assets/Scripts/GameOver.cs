@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
 
     public void OnRetryButtonClick()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
     
     public void OnQuitButtonClick()
