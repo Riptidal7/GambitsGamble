@@ -29,13 +29,15 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             Gambit.Move(new Vector2(-1,0));
-           // print("a");
+            Gambit.ChangeDirection(DirectionType.Left);
+            // print("a");
         }
         
         if (Input.GetKey(KeyCode.D))
         {
             Gambit.Move(new Vector2(1,0));
-         //   print("d");
+            Gambit.ChangeDirection(DirectionType.Right);
+            //   print("d");
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
