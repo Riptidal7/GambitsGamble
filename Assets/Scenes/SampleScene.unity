@@ -726,6 +726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GambitSpriteRenderer: {fileID: 1808506183}
   HpDisplayer: {fileID: 63479394}
+  TakingDamage: 0
+  FPSCheck: 0
   HitPoints: 0
 --- !u!212 &1808506183
 SpriteRenderer:
