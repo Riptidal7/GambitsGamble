@@ -51,6 +51,8 @@ public class PowerUpChoiceMenu : MonoBehaviour
     {
         //add delays?
         CanvasGroupDisplayer.Hide(PowerUpChoiceMenuPanel);
+        
+        //this method will have to extend into both menus and then resume after the second menu
         ResumeGameAfterAllChoices();
     }
     
