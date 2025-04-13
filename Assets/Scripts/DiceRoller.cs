@@ -13,7 +13,10 @@ public class DiceRoller : MonoBehaviour
     public List<Sprite> DieRollSprites;
     public Image DieImage;
     public bool WaitingToRoll = false;
-     public bool CanICast = false;
+    public bool CanICast = false;
+
+    public GameObject StillImage;
+    public GameObject RollingDie;
 
     void Update()
     {
@@ -49,8 +52,12 @@ public class DiceRoller : MonoBehaviour
     {
         WaitingToRoll = true;
         //run animation
+        StillImage.SetActive(false);
+        RollingDie.SetActive(true);
         yield return new WaitForSeconds(GameParameters.DiceRollWaitTime);
         //stop animation
+        StillImage.SetActive(true);
+        RollingDie.SetActive(false);
         WaitingToRoll = false;
     }
 }
