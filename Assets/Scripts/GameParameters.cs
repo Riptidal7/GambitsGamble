@@ -31,6 +31,9 @@ public static class GameParameters
     public static int SlimeSlowDuration = 5;
     public static int Mob2SlowDuration = 5;
 
+    public static int SlimeFreezeDuration = 5;
+    public static int Mob2FreezeDuration = 5;
+
     public static int FireSpell1DFlatDamage = 5;
     public static int IceSpell1FlatDamage = 5;
     public static int HealSpell1Heal = 1;
