@@ -569,7 +569,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &170449414
 SpriteRenderer:
@@ -1002,7 +1002,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &304941108
 SpriteRenderer:
@@ -1346,7 +1346,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &361682209
 SpriteRenderer:
@@ -1433,7 +1433,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &382737418
 SpriteRenderer:
@@ -1601,7 +1601,7 @@ MonoBehaviour:
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
   DiceFace4Image: {fileID: 1677124107}
-  DiceFace5Image: {fileID: 581866897}
+  DiceFace5Image: {fileID: 0}
   DiceFace6Image: {fileID: 1948178633}
   currentSpellSlot1: 
   currentSpellSlot2: 
@@ -1984,7 +1984,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2147,7 +2147,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &582324695
 SpriteRenderer:
@@ -2304,7 +2304,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2464,7 +2464,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792732100
 GameObject:
@@ -2710,7 +2710,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &968142593
 SpriteRenderer:
@@ -2997,7 +2997,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3773,7 +3773,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4068,7 +4068,7 @@ Transform:
   m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1175692456}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1651944493
 SpriteRenderer:
@@ -4337,7 +4337,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4771,7 +4771,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
+      objectReference: {fileID: 279705527, guid: e0bad94a10da08d4e98fa27eb9a1940e, type: 3}
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -5589,7 +5589,6 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 1808506184}
   - {fileID: 182847311}
-  - {fileID: 1175692456}
   - {fileID: 1861643681}
   - {fileID: 90831165}
   - {fileID: 132890382}
@@ -5600,3 +5599,13 @@ SceneRoots:
   - {fileID: 1285578986}
   - {fileID: 1459683029}
   - {fileID: 1193818370}
+  - {fileID: 170449413}
+  - {fileID: 304941107}
+  - {fileID: 344085232}
+  - {fileID: 361682208}
+  - {fileID: 382737417}
+  - {fileID: 582324694}
+  - {fileID: 731507112}
+  - {fileID: 968142592}
+  - {fileID: 1533233953}
+  - {fileID: 1651944492}
