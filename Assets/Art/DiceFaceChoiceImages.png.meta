@@ -273,7 +273,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceFaceBlank
+      name: DiceFaceHeal
       rect:
         serializedVersion: 2
         x: 121
@@ -295,7 +295,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiceFaceChoiceImages_9
+      name: DiceFaceBlank
       rect:
         serializedVersion: 2
         x: 145
@@ -374,7 +374,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DiceFaceBlank: 1615264447
+      DiceFaceBlank: 279705527
       DiceFaceChoiceImages_0: 1219985518
       DiceFaceChoiceImages_1: -828804847
       DiceFaceChoiceImages_10: 579350057
@@ -383,8 +383,8 @@ TextureImporter:
       DiceFaceChoiceImages_5: 922270921
       DiceFaceChoiceImages_6: -1796973041
       DiceFaceChoiceImages_7: -441196205
-      DiceFaceChoiceImages_9: 279705527
       DiceFaceFire: -322875571
+      DiceFaceHeal: 1615264447
       DiceFaceIce: 2006805436
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
