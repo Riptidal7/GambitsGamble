@@ -1,9 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class HealSpell : MonoBehaviour
 {
     public Player Player;
     public HPDisplayer HPDisplayer;
+    public GameObject healAnimation;
 
     public void CastHealSpellFirstLevel()
     {
@@ -11,6 +13,7 @@ public class HealSpell : MonoBehaviour
         {
             Player.HitPoints+=GameParameters.HealSpell1Heal;
             HPDisplayer.UpdateHP(Player.HitPoints);
+            PlayAnimation();
         }
     }
 
@@ -20,6 +23,7 @@ public class HealSpell : MonoBehaviour
         {
             Player.HitPoints+=GameParameters.HealSpell2Heal;
             HPDisplayer.UpdateHP(Player.HitPoints);
+            PlayAnimation();
         }
     }
 
@@ -27,5 +31,19 @@ public class HealSpell : MonoBehaviour
     {
         Player.HitPoints++;
         HPDisplayer.UpdateHP(Player.HitPoints);
+    }
+
+    private void PlayAnimation()
+    {
+       // print("animating");
+        GameObject heal = Instantiate(healAnimation, Player.transform.position, Quaternion.identity);
+        heal.transform.SetParent(Player.transform);
+        StartCoroutine(CountdownUntilAnimationOver(heal));
+    }
+
+    IEnumerator CountdownUntilAnimationOver(GameObject healToDestroy)
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(healToDestroy);
     }
 }

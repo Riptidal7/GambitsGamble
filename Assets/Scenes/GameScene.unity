@@ -3590,6 +3590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
+  healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &1459683029
 Transform:
   m_ObjectHideFlags: 0
@@ -3749,6 +3750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
+  healAnimation: {fileID: 0}
 --- !u!4 &1533233953
 Transform:
   m_ObjectHideFlags: 0
