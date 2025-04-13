@@ -2871,7 +2871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.7, y: 0}
+  m_AnchoredPosition: {x: 0.45, y: 1.99}
   m_SizeDelta: {x: 125, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285578987
@@ -5170,8 +5170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.48, y: -2.68}
-  m_SizeDelta: {x: 160, y: 100}
+  m_AnchoredPosition: {x: -13.1, y: -8.1}
+  m_SizeDelta: {x: 180.267, y: 156.941}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047469317
 MonoBehaviour:
@@ -5208,9 +5208,20 @@ MonoBehaviour:
     m_LineSpacing: 1.5
   m_Text: 'WASD to move
 
-    Left click to attack
+    Space to melee attack
 
-    Collect spells
+    Collect spells and put them
+    on your die
+
+    Left click to roll the die and right click to cast the spell
+    you roll
+
+    Fire: Burns enemies
+
+    Ice: Slows enemies
+
+    Heal: Restors
+    health
 
     Survive!'
 --- !u!222 &2047469318
