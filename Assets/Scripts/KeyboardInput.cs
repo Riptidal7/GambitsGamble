@@ -5,7 +5,7 @@ public class KeyboardInput : MonoBehaviour
     public Player Gambit;
     public DiceRoller DiceRoller;
     public SpellCaster SpellCaster;
-    public GameObject fireSpellPrefab;
+   
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,10 +68,5 @@ public class KeyboardInput : MonoBehaviour
             SpellCaster.CastTheSpell(DiceRoller.DieValue);
         }
         
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-          GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
-          fireBall.transform.SetParent(Gambit.transform);
-        }
     }
 }

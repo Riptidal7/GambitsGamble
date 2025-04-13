@@ -92,8 +92,10 @@ public class Enemy : MonoBehaviour
     IEnumerator CountdownUntilSlowOver()
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
+        currentEnemySpeed = enemySpeed / 2;
         yield return new WaitForSeconds(slowDuration);
-        isBurning = false;
+        currentEnemySpeed = enemySpeed;
+        isSlowed= false;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
     }
 
