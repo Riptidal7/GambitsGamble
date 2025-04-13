@@ -672,6 +672,189 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &153058462
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153058465}
+  - component: {fileID: 153058464}
+  - component: {fileID: 153058463}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &153058463
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153058462}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &153058464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153058462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81634446464f898f85f66dda43cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEffects:
+  - name: Bane
+    clip: {fileID: 8300000, guid: d9a913c0f507340729549fbb57576993, type: 3}
+  - name: Boon
+    clip: {fileID: 8300000, guid: 638a9b09a121541b39065444bde7c66d, type: 3}
+  - name: CasinoAmbiance
+    clip: {fileID: 8300000, guid: 8f8b05a180a4f4f528c2fc606afff3b3, type: 3}
+  - name: ChaChing
+    clip: {fileID: 8300000, guid: 75f23339afb374a519562c92e72c9258, type: 3}
+  - name: CoinsJingling
+    clip: {fileID: 8300000, guid: 9522f1ef74baa4441b1a075e98d8dcb2, type: 3}
+  - name: DiceRolling1
+    clip: {fileID: 8300000, guid: aae86eae05e2f4f72acf28878b60a52c, type: 3}
+  - name: DiceRolling2
+    clip: {fileID: 8300000, guid: 34a51ca274f8b4bed93bd9003961b254, type: 3}
+  - name: EnemyTakesMeleeDamage
+    clip: {fileID: 8300000, guid: 07b1d7be1f4bd465698265a49680dff4, type: 3}
+  - name: EnemyTakesSpellDamage
+    clip: {fileID: 8300000, guid: 891ea9bc78be647f2944d01d4bd4ae18, type: 3}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: 2d6fae556c0b044e58257086e27f4fe9, type: 3}
+  - name: FailedDiceRoll1
+    clip: {fileID: 8300000, guid: c891d365aafe246aeb87403080aa5f00, type: 3}
+  - name: FailedDiceRoll2
+    clip: {fileID: 8300000, guid: d5692e8d8ee2c437d83401ad65c657a6, type: 3}
+  - name: FireSpell
+    clip: {fileID: 8300000, guid: a931d1bbaa7134903a5a102d48dbbd38, type: 3}
+  - name: Footsteps
+    clip: {fileID: 8300000, guid: 2ed2bfad1e93d411b80e1130ff3946f3, type: 3}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 4432e7de568334e43b0c719db72d1e37, type: 3}
+  - name: HealSpell
+    clip: {fileID: 8300000, guid: ac99d34b4dce744d5ab8d59f2b9238d3, type: 3}
+  - name: IceSpell
+    clip: {fileID: 8300000, guid: d9db2a58942c244cc99a7bf152099f56, type: 3}
+  - name: PlayerTakesDamage
+    clip: {fileID: 8300000, guid: 9b55d3fd72ade49a8a0035e5c44e632f, type: 3}
+  - name: SelectEffect
+    clip: {fileID: 8300000, guid: 199d4a62be51941ffaf4a015713f2d7b, type: 3}
+  - name: Success
+    clip: {fileID: 8300000, guid: 9dfd1ed6d8f464d6388cb345e06035d8, type: 3}
+--- !u!4 &153058465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153058462}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0859466, y: 0.5008352, z: -40.15356}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170449412
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2695,7 @@ MonoBehaviour:
   CurrentWave: {fileID: 708677844}
   powerUpChoiceMenu: {fileID: 509406404}
   waveClearedSwitch: 0
+  sfxManager: {fileID: 153058464}
 --- !u!1 &731507110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3555,7 +3739,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 6e2fe2762d245459cb710925535071e5, type: 3}
   m_Resource: {fileID: 8300000, guid: 6e2fe2762d245459cb710925535071e5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5973,3 +6157,4 @@ SceneRoots:
   - {fileID: 1533233953}
   - {fileID: 1651944492}
   - {fileID: 1386807739}
+  - {fileID: 153058465}

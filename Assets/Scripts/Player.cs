@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     public bool TakingDamageMob2;
     public bool CanTakeDamage;
     
-    
     public int HitPoints;
 
     public float currentMoveSpeed;
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
             if (CanTakeDamage)
             {
                 HitPoints--;
+				SFXManager.Play("PlayerTakesDamage");
                 if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
                 {
                     Game.ChangeSceneToGameOver();
@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
             if (CanTakeDamage)
             {
                 HitPoints-=2;
+				SFXManager.Play("PlayerTakesDamage");
                 if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
                 {
                     Game.ChangeSceneToGameOver();

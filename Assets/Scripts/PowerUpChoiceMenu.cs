@@ -30,12 +30,14 @@ public class PowerUpChoiceMenu : MonoBehaviour
 
     public void OnChoice1ButtonClick()
     {
+        SFXManager.Play("SelectEffect");
         diceFaceChoiceMenu.spellToBeApplied = Choice1;
         HidePowerUpChoiceMenu();
     }
     
     public  void OnChoice2ButtonClick()
     {
+        SFXManager.Play("SelectEffect");
         diceFaceChoiceMenu.spellToBeApplied = Choice2;
         HidePowerUpChoiceMenu();
     }

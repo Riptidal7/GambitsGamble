@@ -24,11 +24,12 @@ public class SpellCaster : MonoBehaviour
     {
         SlotOneCast = new Action(()=>CastFire());
         SlotTwoCast = new Action(() => CastFire());
-        SlotThreeCast = new Action(() => {});
-        SlotFourCast = new Action(() => { });
-        SlotFiveCast = new Action(() => { });
-        SlotSixCast = new Action(() => { });
+        SlotThreeCast = new Action(() => CastNothing());
+        SlotFourCast = new Action(() => CastNothing());
+        SlotFiveCast = new Action(() => CastNothing());
+        SlotSixCast = new Action(() => CastNothing());
     }
+    
     
     public void CastTheSpell(int SpellOnDie)
     {
@@ -99,27 +100,36 @@ public class SpellCaster : MonoBehaviour
         SlotSixCast();
     }
 
+    public void CastNothing()
+    {
+        SFXManager.Play("FailedDiceRoll1");
+    }
+
     public void CastFire()
     {
         GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
         fireBall.transform.SetParent(Gambit.transform);
+        SFXManager.Play("FireSpell");
     }
 
     public void CastIce()
     {
         GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
         iceAoE.transform.SetParent(Gambit.transform);
+        SFXManager.Play("IceSpell");
     }
 
     public void CastHeal()
     {
         HealSpell.CastHealSpellFirstLevel();
+        SFXManager.Play("HealSpell");
     }
 
     public void CastFire2()
     {
         GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
         fireBall2.transform.SetParent(Gambit.transform);
+        SFXManager.Play("Explosion");
     }
 
     public void CastFire3()

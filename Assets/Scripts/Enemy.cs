@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
 
     
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy

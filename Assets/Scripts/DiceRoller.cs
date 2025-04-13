@@ -36,6 +36,12 @@ public class DiceRoller : MonoBehaviour
             print("waiting");
         }
     }
+
+    public int RandomSound()
+    {
+        int audioVersion = Random.Range(0, 2);
+        return audioVersion;
+    }
     
     public void RandomDieValue()
     {
@@ -47,6 +53,7 @@ public class DiceRoller : MonoBehaviour
         RandomDieValue();
         DieImage.sprite = DieRollSprites[DieValue];
     }
+    
 
     IEnumerator WaitTimerToRollAgain()
     {
@@ -54,6 +61,20 @@ public class DiceRoller : MonoBehaviour
         //run animation
         StillImage.SetActive(false);
         RollingDie.SetActive(true);
+
+        if (RandomSound() == 0)
+        {
+            SFXManager.Play("DiceRolling1");
+        }
+        else if (RandomSound() == 1)
+        {
+            SFXManager.Play("DiceRolling2");
+        }
+        else
+        {
+            SFXManager.Play("DiceRolling1");
+        }
+        
         yield return new WaitForSeconds(GameParameters.DiceRollWaitTime);
         //stop animation
         StillImage.SetActive(true);
