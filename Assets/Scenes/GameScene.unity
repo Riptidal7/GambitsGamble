@@ -2656,7 +2656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 615ded411f25cea478e51acb7e8cdb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeAttackPrefab: {fileID: 5083640476174371723, guid: 09bd877564bac6849aed3f6dd9dcb664, type: 3}
+  meleeAttackPrefab: {fileID: 3879151138222042870, guid: 0465e4da4df5a744387f1d7a05e455f6, type: 3}
+  meleeAttackLeftPrefab: {fileID: 984713526466169728, guid: a1ceaa2b7db14ee4e82206291bfb6344, type: 3}
   Gambit: {fileID: 1808506182}
   canUseMelee: 0
 --- !u!4 &1193818370
