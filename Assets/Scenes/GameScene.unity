@@ -1687,11 +1687,11 @@ MonoBehaviour:
   Choice2Button: {fileID: 1602785429}
   DeclineChoiceButton: {fileID: 1334269122}
   PowerUpChoiceMenuPanel: {fileID: 509406405}
-  choice1: {fileID: 0}
-  choice2: {fileID: 0}
-  powerUpRandomizer: {fileID: 0}
+  choice1: {fileID: 103886297}
+  choice2: {fileID: 443496323}
+  powerUpRandomizer: {fileID: 1768509680}
   Gambit: {fileID: 1808506182}
-  waveManager: {fileID: 0}
+  waveManager: {fileID: 708677845}
 --- !u!225 &509406405
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   AddMob2s: 1
   MaxEnemies: 0
   CurrentWave: {fileID: 708677844}
-  powerUpChoiceMenu: {fileID: 0}
+  powerUpChoiceMenu: {fileID: 509406404}
   waveClearedSwitch: 0
 --- !u!1 &731507110
 GameObject:
@@ -3580,6 +3580,7 @@ MonoBehaviour:
   currentMoveSpeed: 0
   canAttack: 0
   direction: 0
+  isMoving: 0
   animator: {fileID: 1808506187}
 --- !u!212 &1808506183
 SpriteRenderer:
