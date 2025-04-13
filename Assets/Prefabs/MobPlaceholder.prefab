@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1575684982045768316}
   - component: {fileID: 5889932334928880850}
   - component: {fileID: 953631078401146894}
+  - component: {fileID: 5078342038935940803}
   m_Layer: 0
   m_Name: MobPlaceholder
   m_TagString: Slime
@@ -152,6 +153,21 @@ MonoBehaviour:
   enemySpeed: 1
   detectionRadius: 100
   isWaitingToFreezeRandomly: 0
+  minSecondsUntilFreeze: 0
+  maxSecondsUntilFreeze: 0
+  currentEnemySpeed: 0
+  HitPoints: 0
+  waveManager: {fileID: 0}
+  isBurning: 0
+  canTakeBurnDamage: 0
+  minSecondsUntilNextBurn: 0
+  maxSecondsUntilNextBurn: 0
+  burnDuration: 0
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  isSlowed: 0
+  slowDuration: 0
+  isFrozen: 0
+  freezeDuration: 0
 --- !u!50 &953631078401146894
 Rigidbody2D:
   serializedVersion: 5
@@ -179,3 +195,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &5078342038935940803
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6087474744443983331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f3b3e30e84cec478fafc66787e92caa6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
