@@ -387,6 +387,7 @@ MonoBehaviour:
   fireSpellPrefab: {fileID: 7646157203384026909, guid: b5ba39d7f7a67434e858407df28b5eef, type: 3}
   fireSpell2Prefab: {fileID: 3927395889199321502, guid: c5d5ceb4b77325c4a9ccd8bba810f02a, type: 3}
   iceSpellPrefab: {fileID: 3904535997295702219, guid: 865e69343e0c8834489824c78a24c295, type: 3}
+  iceSpell2Prefab: {fileID: 5483207243854435631, guid: 021fa2f62861e9f48be4c7721e04176d, type: 3}
   HealSpell: {fileID: 1459683028}
 --- !u!4 &100894889
 Transform:
@@ -515,12 +516,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DieValue: 0
   DieRollSprites:
-  - {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
-  - {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
-  - {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
-  - {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
-  - {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
-  - {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  - {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   DieImage: {fileID: 340911149}
   WaitingToRoll: 0
   CanICast: 0
@@ -1214,10 +1215,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86016937caab5d4fbc2cdce37bbb3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IconIceSpell: {fileID: 21300000, guid: 43dbbf6e025f2dd41b7f8dc5e52c0113, type: 3}
-  IconFireSpell: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
-  IconHealSpell: {fileID: 21300000, guid: 60a28524965faac4b91e595feca3dad9, type: 3}
-  IconFire2Spell: {fileID: 21300000, guid: 46f89cd48d4315d41b72637dead6dc37, type: 3}
+  IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconIce2Spell: {fileID: 1229545794, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconHeal2Spell: {fileID: -1058212267, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   DiceFace1Image: {fileID: 873969026}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
@@ -1605,7 +1608,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1718,9 +1721,9 @@ MonoBehaviour:
   Gambit: {fileID: 1808506182}
   waveManager: {fileID: 708677845}
   diceFaceChoiceMenu: {fileID: 394217920}
-  IconIceSpell: {fileID: 21300000, guid: 43dbbf6e025f2dd41b7f8dc5e52c0113, type: 3}
-  IconFireSpell: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
-  IconHealSpell: {fileID: 21300000, guid: 60a28524965faac4b91e595feca3dad9, type: 3}
+  IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
 --- !u!225 &509406405
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1849,7 +1852,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2455,7 +2458,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3185,7 +3188,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3662,7 +3665,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b002a707a80d05d46b78267032a728ed, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4096,7 +4099,7 @@ PrefabInstance:
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 435e1ee6f713cf348b5c8187ff5a3638, type: 3}
+      objectReference: {fileID: 158056139, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
     - target: {fileID: 8990529255841237867, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
       propertyPath: m_Color.a
       value: 1

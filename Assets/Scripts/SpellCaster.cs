@@ -11,6 +11,8 @@ public class SpellCaster : MonoBehaviour
     public GameObject fireSpell2Prefab;
     
     public GameObject iceSpellPrefab;
+    public GameObject iceSpell2Prefab;
+    
     public HealSpell HealSpell;
 
     public Action SlotOneCast;
@@ -22,8 +24,8 @@ public class SpellCaster : MonoBehaviour
 
     void Start()
     {
-        SlotOneCast = new Action(()=>CastFire());
-        SlotTwoCast = new Action(() => CastFire());
+        SlotOneCast = new Action(()=> {});
+        SlotTwoCast = new Action(() => {});
         SlotThreeCast = new Action(() => {});
         SlotFourCast = new Action(() => { });
         SlotFiveCast = new Action(() => { });
@@ -129,7 +131,8 @@ public class SpellCaster : MonoBehaviour
 
     public void CastIce2()
     {
-        
+        GameObject iceAoE2= Instantiate(iceSpell2Prefab, Gambit.transform.position, Quaternion.identity);
+        iceAoE2.transform.SetParent(Gambit.transform);
     }
 
     public void CastIce3()
@@ -139,7 +142,7 @@ public class SpellCaster : MonoBehaviour
 
     public void CastHeal2()
     {
-        
+        HealSpell.CastHealSpellSecondLevel();
     }
 
     public void CastHeal3()

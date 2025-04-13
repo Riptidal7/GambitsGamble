@@ -18,6 +18,7 @@ public class Slime1 : Enemy
         defaultColor = GameParameters.defaultMob2Color;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         slowDuration = GameParameters.Mob2SlowDuration;
+        freezeDuration = GameParameters.Mob2FreezeDuration;
     }
     
     

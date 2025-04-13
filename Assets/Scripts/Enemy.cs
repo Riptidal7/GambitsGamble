@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     public Color defaultColor;
     public bool isSlowed;
     public int slowDuration;
+    public bool isFrozen;
+    public int freezeDuration;
     
     private Rigidbody2D rb;
 
@@ -68,6 +70,11 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(CountdownUntilSlowOver());
         }
+
+        if (isFrozen)
+        {
+            StartCoroutine(CountdownUntilFreezeOver());
+        }
         
     }
 
@@ -85,8 +92,8 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.red;
         yield return new WaitForSeconds(burnDuration);
-        isBurning = false;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+        isBurning = false;
     }
     
     IEnumerator CountdownUntilSlowOver()
@@ -95,8 +102,19 @@ public class Enemy : MonoBehaviour
         currentEnemySpeed = enemySpeed / 2;
         yield return new WaitForSeconds(slowDuration);
         currentEnemySpeed = enemySpeed;
-        isSlowed= false;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+        isSlowed= false;
+    }
+
+    IEnumerator CountdownUntilFreezeOver()
+    {
+        
+        gameObject.GetComponent<SpriteRenderer>().color=Color.magenta;
+        currentEnemySpeed = 0;
+        yield return new WaitForSeconds(freezeDuration);
+        currentEnemySpeed = enemySpeed;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+        isFrozen= false;
     }
 
     IEnumerator CountdownUntilNextBurnDamage()
