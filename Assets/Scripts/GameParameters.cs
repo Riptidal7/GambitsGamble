@@ -28,8 +28,8 @@ public static class GameParameters
     public static int SlimeBurnDuration = 5;
     public static int Mob2BurnDuration = 5;
 
-    public static int SlimeSlowDuration = 5;
-    public static int Mob2SlowDuration = 5;
+    public static int SlimeSlowDuration = 8;
+    public static int Mob2SlowDuration = 8;
 
     public static int SlimeFreezeDuration = 5;
     public static int Mob2FreezeDuration = 5;
