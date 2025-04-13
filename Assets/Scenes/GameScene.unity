@@ -1733,7 +1733,7 @@ MonoBehaviour:
   IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   IconIce2Spell: {fileID: 1229545794, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   IconHeal2Spell: {fileID: -1058212267, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
-  DiceFace1Image: {fileID: 873969026}
+  DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
   DiceFace4Image: {fileID: 1584566214}
