@@ -119,9 +119,6 @@ public class DiceFaceChoiceMenu : MonoBehaviour
 
         currentSpellSlot1 = spellToBeApplied;
         //print("currentSpell: " + currentSpellSlot1);
-        HideDiceFaceChoiceMenu();
-        
-        SFXManager.Play("Boon");
         StartCoroutine(MenuSelectDelay());
     }
  

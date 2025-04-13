@@ -2122,7 +2122,7 @@ MonoBehaviour:
   Choice2: 
   powerUpRandomizer: {fileID: 1768509680}
   Gambit: {fileID: 1808506182}
-  waveManager: {fileID: 708677845}
+  waveManager: {fileID: 0}
   diceFaceChoiceMenu: {fileID: 394217920}
   IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
@@ -2314,8 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c2896054d3a7645940f80e4eef91d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 1
-  AddMob2s: 1
+  waveNumber: 0
   MaxEnemies: 0
   CurrentWave: {fileID: 708677844}
   powerUpChoiceMenu: {fileID: 509406404}
@@ -5599,6 +5598,6 @@ SceneRoots:
   - {fileID: 1193818370}
   - {fileID: 731507112}
   - {fileID: 1533233953}
-  - {fileID: 1651944492}
   - {fileID: 1386807739}
   - {fileID: 153058465}
+  - {fileID: 170449413}
