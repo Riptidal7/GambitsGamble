@@ -383,10 +383,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DiceRoller: {fileID: 132890381}
-  HealSpell: {fileID: 0}
   Gambit: {fileID: 1808506182}
   fireSpellPrefab: {fileID: 7646157203384026909, guid: b5ba39d7f7a67434e858407df28b5eef, type: 3}
   iceSpellPrefab: {fileID: 3904535997295702219, guid: 865e69343e0c8834489824c78a24c295, type: 3}
+  HealSpell: {fileID: 0}
 --- !u!4 &100894889
 Transform:
   m_ObjectHideFlags: 0
@@ -2361,7 +2361,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3070,3 +3070,4 @@ SceneRoots:
   - {fileID: 708677843}
   - {fileID: 2092239010}
   - {fileID: 1768509681}
+  - {fileID: 1285578986}

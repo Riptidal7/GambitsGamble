@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public bool canAttack;
 
 	public DirectionType direction;
+	public bool isMoving;
 	public Animator animator;
     
     
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour
         TakingDamageSlime = false;
         CanTakeDamage = true;
 		direction = DirectionType.Right;
+		isMoving = false;
     }
 
     // Update is called once per frame
@@ -106,6 +108,21 @@ public class Player : MonoBehaviour
 		{
 			direction = DirectionType.Right;
 			animator.SetBool("facingLeft", false);
+		}
+	}
+
+	public void ChangeMovingStatus(bool isGambitMoving)
+	{
+		if (isGambitMoving)
+		{
+			isMoving = true;
+			animator.SetBool("isMoving", true);
+		}
+		
+		else 
+		{
+			isMoving = false;
+			animator.SetBool("isMoving", false);
 		}
 	}
 

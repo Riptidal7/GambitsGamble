@@ -19,11 +19,13 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             Gambit.Move(new Vector2(0,1));
+            Gambit.ChangeMovingStatus(true);
             //print("w");
         }
         if (Input.GetKey(KeyCode.S))
         {
             Gambit.Move(new Vector2(0,-1));
+            Gambit.ChangeMovingStatus(true);
            // print("s");
         }
         
@@ -31,6 +33,7 @@ public class KeyboardInput : MonoBehaviour
         {
             Gambit.Move(new Vector2(-1,0));
             Gambit.ChangeDirection(DirectionType.Left);
+            Gambit.ChangeMovingStatus(true);
             // print("a");
         }
         
@@ -38,7 +41,16 @@ public class KeyboardInput : MonoBehaviour
         {
             Gambit.Move(new Vector2(1,0));
             Gambit.ChangeDirection(DirectionType.Right);
+            Gambit.ChangeMovingStatus(true);
             //   print("d");
+        }
+
+        if (!Input.GetKey(KeyCode.W) &&
+            !Input.GetKey(KeyCode.A) &&
+            !Input.GetKey(KeyCode.S) &&
+            !Input.GetKey(KeyCode.D))
+        {
+            Gambit.ChangeMovingStatus(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
