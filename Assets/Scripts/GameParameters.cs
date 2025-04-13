@@ -6,7 +6,7 @@ public static class GameParameters
     public static float PlayerMoveSpeed = 5f;
     public static float PlayerConstraintKnockback = 0.05f;
 
-    public static int InitialMaxPlayerHitPoints = 5;
+    public static int InitialMaxPlayerHitPoints = 50;
 
     public static int SecondsOfInvulnerabilityAfterDamage = 1;
 
@@ -16,12 +16,18 @@ public static class GameParameters
     public static float Mob2Speed = 3;
     public static float Mob2DetectionRange = 100;
 
-    public static int SlimeHP = 5;
+    public static int SlimeHP = 20;
 
-    public static int Mob2HP = 5;
+    public static int Mob2HP = 20;
 
-    public static int SlimeBurnDuration = 15;
-    public static int Mob2BurnDuration = 15;
+    public static Color defaultSlimeColor = Color.white;
+    public static Color defaultMob2Color = Color.blue;
+
+    public static int SlimeBurnDuration = 5;
+    public static int Mob2BurnDuration = 5;
+
+    public static int SlimeSlowDuration = 5;
+    public static int Mob2SlowDuration = 5;
 
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;

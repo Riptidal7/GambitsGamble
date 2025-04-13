@@ -15,6 +15,9 @@ public class Slime : Enemy
         minSecondsUntilNextBurn = GameParameters.MinSecondsBeforeNextSlimeBurn;
         maxSecondsUntilNextBurn = GameParameters.MaxSecondsBeforeNextSlimeBurn;
         burnDuration = GameParameters.SlimeBurnDuration;
+        defaultColor = GameParameters.defaultSlimeColor;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+        slowDuration = GameParameters.SlimeSlowDuration;
     }
     
 }

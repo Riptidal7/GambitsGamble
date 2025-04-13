@@ -40,6 +40,10 @@ public class Player : MonoBehaviour
             if (CanTakeDamage)
             {
                 HitPoints--;
+                if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
+                {
+                    Game.ChangeSceneToGameOver();
+                }
                 HpDisplayer.UpdateHP(HitPoints);
                 CanTakeDamage = false;
                 StartCoroutine(CountdownUntilInvulnerabilityOver());
@@ -51,6 +55,10 @@ public class Player : MonoBehaviour
             if (CanTakeDamage)
             {
                 HitPoints-=2;
+                if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
+                {
+                    Game.ChangeSceneToGameOver();
+                }
                 HpDisplayer.UpdateHP(HitPoints);
                 CanTakeDamage = false;
                 StartCoroutine(CountdownUntilInvulnerabilityOver());

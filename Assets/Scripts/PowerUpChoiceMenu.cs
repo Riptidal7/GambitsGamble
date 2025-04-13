@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUpChoiceMenu : MonoBehaviour
 {
@@ -7,11 +8,15 @@ public class PowerUpChoiceMenu : MonoBehaviour
     public GameObject Choice2Button;
     public GameObject DeclineChoiceButton;
     public CanvasGroup PowerUpChoiceMenuPanel;
+    public Text choice1;
+    public Text choice2;
+    public PowerUpRandomizer powerUpRandomizer;
     public Player Gambit;
+    public WaveManager waveManager;
 
     void Start()
     {
-        HidePowerUpChoiceMenu();
+        StartHidePowerUpChoiceMenu();
     }
 
     public  void OnChoice1ButtonClick()
@@ -52,12 +57,26 @@ public class PowerUpChoiceMenu : MonoBehaviour
         //add delays?
         CanvasGroupDisplayer.Hide(PowerUpChoiceMenuPanel);
         ResumeGameAfterAllChoices();
+        waveManager.GenerateNewWave();
+        waveManager.waveClearedSwitch = false;
+
+    }
+    
+    public void StartHidePowerUpChoiceMenu()
+    {
+        //add delays?
+        print(GameParameters.PlayerMoveSpeed);
+        CanvasGroupDisplayer.Hide(PowerUpChoiceMenuPanel);
+        ResumeGameAfterAllChoices();
+
     }
     
     public void ShowPowerUpChoiceMenu()
     {
         //add delays?
         CanvasGroupDisplayer.Show(PowerUpChoiceMenuPanel);
+        choice1.text = "Choice 1: " + powerUpRandomizer.RandomPowerUp().name;
+        choice2.text = "Choice 2: " + powerUpRandomizer.RandomPowerUp().name;
         PauseGameDuringAllChoices();
     }
     

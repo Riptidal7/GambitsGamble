@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public float minSecondsUntilNextBurn;
     public float maxSecondsUntilNextBurn;
     public int burnDuration;
+    public Color defaultColor;
+    public bool isSlowed;
+    public int slowDuration;
     
     private Rigidbody2D rb;
 
@@ -27,7 +30,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
         isWaitingToFreezeRandomly = false;
-        isBurning = true;
+        isBurning = false;
         canTakeBurnDamage = true;
     }
     
@@ -61,6 +64,10 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(CountdownUntilBurningOver());
             }
         }
+        if (isSlowed)
+        {
+            StartCoroutine(CountdownUntilSlowOver());
+        }
         
     }
 
@@ -76,8 +83,18 @@ public class Enemy : MonoBehaviour
     
     IEnumerator CountdownUntilBurningOver()
     {
+        gameObject.GetComponent<SpriteRenderer>().color=Color.red;
         yield return new WaitForSeconds(burnDuration);
         isBurning = false;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+    }
+    
+    IEnumerator CountdownUntilSlowOver()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
+        yield return new WaitForSeconds(slowDuration);
+        isBurning = false;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
     }
 
     IEnumerator CountdownUntilNextBurnDamage()
@@ -89,12 +106,6 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         waveManager.CurrentWave.enemies.Remove(gameObject);
-
-        if (waveManager.CurrentWave.IsWaveCleared())
-        {
-            print("new wave");
-            waveManager.GenerateNewWave();
-        }
 
         Destroy(gameObject);
     }
