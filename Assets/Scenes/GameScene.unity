@@ -2213,9 +2213,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberOfSlimes: 0
   NumberOfMob2s: 0
-  SlimePrefab: {fileID: 6087474744443983331, guid: 28f207961410b704f9d17b0d657923cd, type: 3}
+  SlimePrefab: {fileID: 3845882319545647403, guid: 854fe7851e69d43b58bd1c758d93eb19, type: 3}
   enemies: []
-  Mob2Prefab: {fileID: 2107956283960453199, guid: b071b1b0671edf84996c6c632ed558f7, type: 3}
+  Mob2Prefab: {fileID: 3903257011225345089, guid: 2783309823b534e2892afb3590e85ae6, type: 3}
   Gambit: {fileID: 1808506182}
   WaveCleared: 0
 --- !u!114 &708677845
