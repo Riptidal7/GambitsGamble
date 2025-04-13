@@ -36,12 +36,12 @@ public static class GameParameters
 
     public static int FireSpell1DFlatDamage = 5;
     public static int IceSpell1FlatDamage = 5;
-    public static int HealSpell1Heal = 1;
+    public static int HealSpell1Heal = 2;
     public static int MeleeAttackDamage = 3;
     
     public static int FireSpell2DFlatDamage = 7;
     public static int IceSpell2FlatDamage = 7;
-    public static int HealSpell2Heal = 2;
+    public static int HealSpell2Heal = 4;
     
     public static int FireSpell3DFlatDamage = 10;
     public static int IceSpell3FlatDamage = 10;
