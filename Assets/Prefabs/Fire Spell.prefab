@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3380355281792158261}
   - component: {fileID: 8043388902048381566}
   m_Layer: 0
-  m_Name: FireSpellHitbox
+  m_Name: Fire Spell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b860fc3153db10149b5d473256fe5680, type: 3}
-  m_Color: {r: 0.43921572, g: 0.43921572, b: 0.43921572, a: 0}
+  m_Sprite: {fileID: 21300000, guid: 46f8e5eb537d7cf4480680567083ca32, type: 3}
+  m_Color: {r: 0.43921572, g: 0.43921572, b: 0.43921572, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,5 +137,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e316b4a5dffa034eba7815da23376b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  canActivate: 0

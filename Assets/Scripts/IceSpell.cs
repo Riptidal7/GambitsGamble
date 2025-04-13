@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class FireSpell : MonoBehaviour
-{
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+public class IceSpell : MonoBehaviour
+{// Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
@@ -23,14 +20,14 @@ public class FireSpell : MonoBehaviour
         if (other.gameObject.tag == "Slime")
         {
             other.gameObject.GetComponent<Slime>().HitPoints -=5;
-            other.gameObject.GetComponent<Slime>().isBurning = true;
+            other.gameObject.GetComponent<Slime>().isSlowed = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
             other.gameObject.GetComponent<Slime1>().HitPoints -=5;
-            other.gameObject.GetComponent<Slime1>().isBurning = true;
+            other.gameObject.GetComponent<Slime1>().isSlowed = true;
         }
     }
 

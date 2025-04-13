@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public float minSecondsUntilNextBurn;
     public float maxSecondsUntilNextBurn;
     public int burnDuration;
+    public Color defaultColor;
+    public bool isSlowed;
+    public int slowDuration;
     
     private Rigidbody2D rb;
 
@@ -61,6 +64,10 @@ public class Enemy : MonoBehaviour
                 StartCoroutine(CountdownUntilBurningOver());
             }
         }
+        if (isSlowed)
+        {
+            StartCoroutine(CountdownUntilSlowOver());
+        }
         
     }
 
@@ -76,8 +83,18 @@ public class Enemy : MonoBehaviour
     
     IEnumerator CountdownUntilBurningOver()
     {
+        gameObject.GetComponent<SpriteRenderer>().color=Color.red;
         yield return new WaitForSeconds(burnDuration);
         isBurning = false;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
+    }
+    
+    IEnumerator CountdownUntilSlowOver()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
+        yield return new WaitForSeconds(slowDuration);
+        isBurning = false;
+        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
     }
 
     IEnumerator CountdownUntilNextBurnDamage()

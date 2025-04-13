@@ -75,8 +75,8 @@ public class PowerUpChoiceMenu : MonoBehaviour
     {
         //add delays?
         CanvasGroupDisplayer.Show(PowerUpChoiceMenuPanel);
-        choice1.text = "Choice 1: " + powerUpRandomizer.RandomPowerUp();
-        choice2.text = "Choice 2: " + powerUpRandomizer.RandomPowerUp();
+        choice1.text = "Choice 1: " + powerUpRandomizer.RandomPowerUp().name;
+        choice2.text = "Choice 2: " + powerUpRandomizer.RandomPowerUp().name;
         PauseGameDuringAllChoices();
     }
     

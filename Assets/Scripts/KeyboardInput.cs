@@ -56,7 +56,8 @@ public class KeyboardInput : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
+          GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
+          fireBall.transform.SetParent(Gambit.transform);
         }
     }
 }
