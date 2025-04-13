@@ -1,9 +1,11 @@
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class MeleeAttackCooldownHandler : MonoBehaviour
 {
     public GameObject meleeAttackPrefab;
+    public GameObject meleeAttackLeftPrefab;
     public Player Gambit;
     public bool canUseMelee;
     
@@ -26,20 +28,20 @@ public class MeleeAttackCooldownHandler : MonoBehaviour
         {
             if (Gambit.direction == DirectionType.Right)
             {
-                GameObject meleeAttackPrefab = Instantiate(this.meleeAttackPrefab,
+                GameObject meleeAttack = Instantiate(meleeAttackPrefab,
                     new Vector3(Gambit.transform.position.x + 0.5f, Gambit.transform.position.y,
                         Gambit.transform.position.z),
                     Quaternion.identity);
-                meleeAttackPrefab.transform.SetParent(Gambit.transform);
+                meleeAttack.transform.SetParent(Gambit.transform);
             }
 
             else if (Gambit.direction == DirectionType.Left)
             {
-                GameObject meleeAttackPrefab = Instantiate(this.meleeAttackPrefab,
+                GameObject meleeAttackLeft = Instantiate(meleeAttackLeftPrefab,
                     new Vector3(Gambit.transform.position.x - 0.5f, Gambit.transform.position.y,
                         Gambit.transform.position.z),
                     Quaternion.identity);
-                meleeAttackPrefab.transform.SetParent(Gambit.transform);
+                meleeAttackLeft.transform.SetParent(Gambit.transform);
             }
 
             StartCoroutine(MeleeCooldown());
