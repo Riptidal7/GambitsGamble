@@ -23,7 +23,7 @@ public static class GameParameters
     public static int Mob2HP = 20;
 
     public static Color defaultSlimeColor = Color.white;
-    public static Color defaultMob2Color = Color.blue;
+    public static Color defaultMob2Color = Color.magenta;
 
     public static int SlimeBurnDuration = 5;
     public static int Mob2BurnDuration = 5;

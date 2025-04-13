@@ -2234,8 +2234,8 @@ MonoBehaviour:
   MaxEnemies: 0
   CurrentWave: {fileID: 708677844}
   powerUpChoiceMenu: {fileID: 509406404}
-  tutorialBackground: {fileID: 1285578982}
   WaveDisplayer: {fileID: 1141975586}
+  tutorialBackground: {fileID: 1285578982}
   waveClearedSwitch: 0
   sfxManager: {fileID: 153058464}
   waveClearDisplayer: {fileID: 1857307553}

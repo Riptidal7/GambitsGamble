@@ -110,7 +110,7 @@ public class Enemy : MonoBehaviour
     IEnumerator CountdownUntilFreezeOver()
     {
         
-        gameObject.GetComponent<SpriteRenderer>().color=Color.magenta;
+        gameObject.GetComponent<SpriteRenderer>().color=Color.blue;
         currentEnemySpeed = 0;
         yield return new WaitForSeconds(freezeDuration);
         currentEnemySpeed = enemySpeed;
