@@ -10,6 +10,7 @@ public  class WaveManager : MonoBehaviour
     public int MaxEnemies;
     public EnemyWave CurrentWave = new EnemyWave();
     public PowerUpChoiceMenu powerUpChoiceMenu;
+    public WaveDisplayer WaveDisplayer;
 
     public GameObject tutorialBackground;
 
@@ -26,7 +27,7 @@ public  class WaveManager : MonoBehaviour
     }
     public void GenerateNewWave()
     {
-        print("new wave");
+        WaveDisplayer.UpdateWaveCount(waveNumber);
         int numbSlimes = Random.Range(GameParameters.MinNumberSlimesPerWave, GameParameters.MaxNumberSlimesPerWave+1)/2 + waveNumber;
         int numbMob2s = 0;
         if(waveNumber % 3 == 0)
