@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+    
     void Start()
     {
 
@@ -11,10 +12,10 @@ public class MeleeAttack : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D other)
     {
+        SFXManager.Play("EnemyTakesMeleeDamage");
         if (other.gameObject.tag == "Slime")
         {
             other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.MeleeAttackDamage;
-         
         }
         
         if (other.gameObject.tag == "Mob2")

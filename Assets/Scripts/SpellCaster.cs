@@ -32,6 +32,7 @@ public class SpellCaster : MonoBehaviour
         SlotSixCast = new Action(() => { });
     }
     
+    
     public void CastTheSpell(int SpellOnDie)
     {
         if (DiceRoller.CanICast)
@@ -101,27 +102,36 @@ public class SpellCaster : MonoBehaviour
         SlotSixCast();
     }
 
+    public void CastNothing()
+    {
+        SFXManager.Play("FailedDiceRoll1");
+    }
+
     public void CastFire()
     {
         GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
         fireBall.transform.SetParent(Gambit.transform);
+        SFXManager.Play("FireSpell");
     }
 
     public void CastIce()
     {
         GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
         iceAoE.transform.SetParent(Gambit.transform);
+        SFXManager.Play("IceSpell");
     }
 
     public void CastHeal()
     {
         HealSpell.CastHealSpellFirstLevel();
+        SFXManager.Play("HealSpell");
     }
 
     public void CastFire2()
     {
         GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
         fireBall2.transform.SetParent(Gambit.transform);
+        SFXManager.Play("Explosion");
     }
 
     public void CastFire3()

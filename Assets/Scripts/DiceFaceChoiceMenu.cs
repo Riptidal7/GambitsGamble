@@ -119,6 +119,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot1 = spellToBeApplied;
         //print("currentSpell: " + currentSpellSlot1);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
  
     public void OnFaceChoice2Clicked()
@@ -180,6 +182,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot2 = spellToBeApplied;
     //    print("currentSpell: " + currentSpellSlot2);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
  
     public void OnFaceChoice3Clicked()
@@ -241,6 +245,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot3 = spellToBeApplied;
     //    print("currentSpell: " + currentSpellSlot3);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
  
     public void OnFaceChoice4Clicked()
@@ -302,6 +308,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot4 = spellToBeApplied;
       //  print("currentSpell: " + currentSpellSlot4);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
  
     public void OnFaceChoice5Clicked()
@@ -362,6 +370,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot5 = spellToBeApplied;
        // print("currentSpell: " + currentSpellSlot5);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
  
     public void OnFaceChoice6Clicked()
@@ -423,5 +433,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         currentSpellSlot6 = spellToBeApplied;
        // print("currentSpell: " + currentSpellSlot6);
         HideDiceFaceChoiceMenu();
+        
+        SFXManager.Play("Boon");
     }
+    
 }

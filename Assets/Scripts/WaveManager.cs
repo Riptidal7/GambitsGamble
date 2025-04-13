@@ -12,6 +12,8 @@ public  class WaveManager : MonoBehaviour
     public PowerUpChoiceMenu powerUpChoiceMenu;
 
     public bool waveClearedSwitch;
+    
+    public SFXManager sfxManager;
 
     void Start()
     {
@@ -54,6 +56,7 @@ public  class WaveManager : MonoBehaviour
     {
         waveClearedSwitch = true;
         //PLAY WAVE CLEAR SOUND
+        SFXManager.Play("Success");
         yield return new WaitForSeconds(2);
         powerUpChoiceMenu.ShowPowerUpChoiceMenu();
         //GenerateNewWave();

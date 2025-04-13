@@ -5,6 +5,7 @@ public class StartScreen : MonoBehaviour
 {
 
     public GameObject StartButton;
+    public GameObject BackgroundMusic;
 
     public void OnStartButtonClicked()
     {
