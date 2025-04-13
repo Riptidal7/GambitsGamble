@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -42,10 +43,19 @@ public  class WaveManager : MonoBehaviour
     {
         if (CurrentWave.IsWaveCleared() && !waveClearedSwitch)
         {
-            print("cleared");
-            waveClearedSwitch = true;
-            powerUpChoiceMenu.ShowPowerUpChoiceMenu();
+            StartCoroutine(ClearWave());
+           // waveClearedSwitch = true;
+           // powerUpChoiceMenu.ShowPowerUpChoiceMenu();
             //GenerateNewWave();
         }
+    }
+
+    IEnumerator ClearWave()
+    {
+        waveClearedSwitch = true;
+        //PLAY WAVE CLEAR SOUND
+        yield return new WaitForSeconds(2);
+        powerUpChoiceMenu.ShowPowerUpChoiceMenu();
+        //GenerateNewWave();
     }
 }

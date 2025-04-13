@@ -6,7 +6,10 @@ public class SpellCaster : MonoBehaviour
 {
     public DiceRoller DiceRoller;
     public Player Gambit;
+    
     public GameObject fireSpellPrefab;
+    public GameObject fireSpell2Prefab;
+    
     public GameObject iceSpellPrefab;
     public HealSpell HealSpell;
 
@@ -112,6 +115,37 @@ public class SpellCaster : MonoBehaviour
     {
         HealSpell.CastHealSpellFirstLevel();
     }
-    
-    
+
+    public void CastFire2()
+    {
+        GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
+        fireBall2.transform.SetParent(Gambit.transform);
+    }
+
+    public void CastFire3()
+    {
+        
+    }
+
+    public void CastIce2()
+    {
+        
+    }
+
+    public void CastIce3()
+    {
+        
+    }
+
+    public void CastHeal2()
+    {
+        
+    }
+
+    public void CastHeal3()
+    {
+        
+    }
+
+
 }

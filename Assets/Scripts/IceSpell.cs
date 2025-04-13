@@ -19,14 +19,14 @@ public class IceSpell : MonoBehaviour
     {
         if (other.gameObject.tag == "Slime")
         {
-            other.gameObject.GetComponent<Slime>().HitPoints -=5;
+            other.gameObject.GetComponent<Slime>().HitPoints-=GameParameters.IceSpell1FlatDamage;
             other.gameObject.GetComponent<Slime>().isSlowed = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
-            other.gameObject.GetComponent<Slime1>().HitPoints -=5;
+            other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell1FlatDamage;
             other.gameObject.GetComponent<Slime1>().isSlowed = true;
         }
     }

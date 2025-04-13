@@ -1,10 +1,8 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class FireSpell : MonoBehaviour
+public class FireSpell2 : MonoBehaviour
 {
-    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,14 +20,14 @@ public class FireSpell : MonoBehaviour
     {
         if (other.gameObject.tag == "Slime")
         {
-            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
+            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell2DFlatDamage;
             other.gameObject.GetComponent<Slime>().isBurning = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
-            other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
+            other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell2DFlatDamage;
             other.gameObject.GetComponent<Slime1>().isBurning = true;
         }
     }
