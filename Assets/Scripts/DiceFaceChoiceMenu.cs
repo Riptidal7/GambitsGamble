@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
@@ -118,7 +119,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
 
         currentSpellSlot1 = spellToBeApplied;
         //print("currentSpell: " + currentSpellSlot1);
-        HideDiceFaceChoiceMenu();
+        StartCoroutine(MenuSelectDelay());
     }
  
     public void OnFaceChoice2Clicked()
@@ -179,7 +180,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         }
         currentSpellSlot2 = spellToBeApplied;
     //    print("currentSpell: " + currentSpellSlot2);
-        HideDiceFaceChoiceMenu();
+        StartCoroutine(MenuSelectDelay());
     }
  
     public void OnFaceChoice3Clicked()
@@ -240,7 +241,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         }
         currentSpellSlot3 = spellToBeApplied;
     //    print("currentSpell: " + currentSpellSlot3);
-        HideDiceFaceChoiceMenu();
+        StartCoroutine(MenuSelectDelay());
     }
  
     public void OnFaceChoice4Clicked()
@@ -301,7 +302,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         }
         currentSpellSlot4 = spellToBeApplied;
       //  print("currentSpell: " + currentSpellSlot4);
-        HideDiceFaceChoiceMenu();
+      StartCoroutine(MenuSelectDelay());
     }
  
     public void OnFaceChoice5Clicked()
@@ -361,7 +362,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         }
         currentSpellSlot5 = spellToBeApplied;
        // print("currentSpell: " + currentSpellSlot5);
-        HideDiceFaceChoiceMenu();
+       StartCoroutine(MenuSelectDelay());
     }
  
     public void OnFaceChoice6Clicked()
@@ -422,6 +423,12 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         }
         currentSpellSlot6 = spellToBeApplied;
        // print("currentSpell: " + currentSpellSlot6);
+       StartCoroutine(MenuSelectDelay());
+    }
+
+    IEnumerator MenuSelectDelay()
+    {
+        yield return new WaitForSeconds(1);
         HideDiceFaceChoiceMenu();
     }
 }
