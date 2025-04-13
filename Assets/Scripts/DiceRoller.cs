@@ -14,6 +14,7 @@ public class DiceRoller : MonoBehaviour
     public Image DieImage;
     public bool WaitingToRoll = false;
     public bool CanICast = false;
+    public Player Gambit;
 
     public GameObject StillImage;
     public GameObject RollingDie;
@@ -25,15 +26,18 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDie()
     {
-        if (!WaitingToRoll)
+        if (Gambit.canAttack)
         {
-            UpdateDieImage();
-            StartCoroutine(WaitTimerToRollAgain());
-            CanICast = true;
-        }
-        else
-        {
-            print("waiting");
+            if (!WaitingToRoll)
+            {
+                UpdateDieImage();
+                StartCoroutine(WaitTimerToRollAgain());
+                CanICast = true;
+            }
+            else
+            {
+                print("waiting");
+            }
         }
     }
 

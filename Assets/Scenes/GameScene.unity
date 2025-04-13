@@ -214,6 +214,7 @@ MonoBehaviour:
   DieImage: {fileID: 340911149}
   WaitingToRoll: 0
   CanICast: 0
+  Gambit: {fileID: 0}
   StillImage: {fileID: 340911148}
   RollingDie: {fileID: 1886639101}
 --- !u!1 &28796533
@@ -515,10 +516,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DiceRoller: {fileID: 132890381}
   Gambit: {fileID: 1808506182}
-  fireSpellPrefab: {fileID: 7646157203384026909, guid: b5ba39d7f7a67434e858407df28b5eef, type: 3}
-  fireSpell2Prefab: {fileID: 3927395889199321502, guid: c5d5ceb4b77325c4a9ccd8bba810f02a, type: 3}
-  iceSpellPrefab: {fileID: 3904535997295702219, guid: 865e69343e0c8834489824c78a24c295, type: 3}
-  iceSpell2Prefab: {fileID: 5483207243854435631, guid: 021fa2f62861e9f48be4c7721e04176d, type: 3}
+  fireSpellPrefab: {fileID: 7340058537743084810, guid: 7537a5dab7935844cbbe87e15213d13f, type: 3}
+  fireSpell2Prefab: {fileID: 4393446294252543987, guid: bfd44c1b9d450134ebab0690444374ab, type: 3}
+  iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
+  iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
   HealSpell: {fileID: 1459683028}
 --- !u!4 &100894889
 Transform:
@@ -656,6 +657,7 @@ MonoBehaviour:
   DieImage: {fileID: 340911149}
   WaitingToRoll: 0
   CanICast: 0
+  Gambit: {fileID: 1808506182}
   StillImage: {fileID: 340911148}
   RollingDie: {fileID: 1886639101}
 --- !u!4 &132890382
@@ -1640,6 +1642,7 @@ MonoBehaviour:
   spellCaster: {fileID: 100894888}
   waveManager: {fileID: 708677845}
   diceRoller: {fileID: 132890381}
+  powerUpChoiceMenu: {fileID: 509406404}
   DiceFaceChoiceMenuPanel: {fileID: 394217917}
 --- !u!1 &410087039
 GameObject:
@@ -2122,7 +2125,7 @@ MonoBehaviour:
   Choice2: 
   powerUpRandomizer: {fileID: 1768509680}
   Gambit: {fileID: 1808506182}
-  waveManager: {fileID: 0}
+  waveManager: {fileID: 708677845}
   diceFaceChoiceMenu: {fileID: 394217920}
   IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}

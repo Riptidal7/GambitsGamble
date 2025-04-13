@@ -57,7 +57,10 @@ public class KeyboardInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            meleeAttackCooldownHandler.UseMeleeAttack();
+            if(Gambit.canAttack)
+            {
+                meleeAttackCooldownHandler.UseMeleeAttack();
+            }
         }
 
         if (Input.GetMouseButtonDown(0))

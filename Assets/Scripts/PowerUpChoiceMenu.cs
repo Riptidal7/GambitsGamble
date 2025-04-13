@@ -42,10 +42,13 @@ public class PowerUpChoiceMenu : MonoBehaviour
         HidePowerUpChoiceMenu();
     }
     
+    
     public  void OnDeclineChoiceButtonClick()
     {
-
-        HidePowerUpChoiceMenu();
+        SFXManager.Play("SelectEffect");
+        DeclineHidePowerUpChoiceMenu();
+        waveManager.GenerateNewWave();
+        waveManager.waveClearedSwitch = false;
     }
 
     public void PauseGameDuringAllChoices()
@@ -67,11 +70,17 @@ public class PowerUpChoiceMenu : MonoBehaviour
     {
         //add delays?
         CanvasGroupDisplayer.Hide(PowerUpChoiceMenuPanel);
-        ResumeGameAfterAllChoices();
+        //ResumeGameAfterAllChoices();
         diceFaceChoiceMenu.ShowDiceFaceChoiceMenu();
         //waveManager.GenerateNewWave();
         //waveManager.waveClearedSwitch = false;
 
+    }
+
+    public void DeclineHidePowerUpChoiceMenu()
+    {
+        CanvasGroupDisplayer.Hide(PowerUpChoiceMenuPanel);
+        ResumeGameAfterAllChoices();
     }
     
     public void StartHidePowerUpChoiceMenu()
