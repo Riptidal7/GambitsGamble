@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class DiceFaceChoiceMenu : MonoBehaviour
 {
     
-    
     public Sprite IconIceSpell;
     public Sprite IconFireSpell;
     public Sprite IconHealSpell;
@@ -35,6 +34,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public SpellCaster spellCaster;
     public WaveManager waveManager;
     public DiceRoller diceRoller;
+
+    public PowerUpChoiceMenu powerUpChoiceMenu;
  
     public CanvasGroup DiceFaceChoiceMenuPanel;
     
@@ -52,6 +53,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         CanvasGroupDisplayer.Hide(DiceFaceChoiceMenuPanel);
         waveManager.GenerateNewWave();
         waveManager.waveClearedSwitch = false;
+        powerUpChoiceMenu.ResumeGameAfterAllChoices();
     }
 
     private void StartHideDiceFaceChoiceMenu()

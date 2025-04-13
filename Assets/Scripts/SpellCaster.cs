@@ -143,6 +143,7 @@ public class SpellCaster : MonoBehaviour
     {
         GameObject iceAoE2= Instantiate(iceSpell2Prefab, Gambit.transform.position, Quaternion.identity);
         iceAoE2.transform.SetParent(Gambit.transform);
+        SFXManager.Play("IceSpell");
     }
 
     public void CastIce3()
@@ -153,6 +154,7 @@ public class SpellCaster : MonoBehaviour
     public void CastHeal2()
     {
         HealSpell.CastHealSpellSecondLevel();
+        SFXManager.Play("HealSpell");
     }
 
     public void CastHeal3()
