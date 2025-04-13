@@ -66,10 +66,10 @@ public static class GameParameters
     public static float MaxSecondsUntilMob2Freeze = 10;
 
     public static float MapMinX = -10; //left
-    public static float MapMaxX = 10; //right
+    public static float MapMaxX = 14.7f; //right
 
-    public static float MapMinY = -10; //down
-    public static float MapMaxY = 10; //up
+    public static float MapMinY = -6; //down
+    public static float MapMaxY = 7; //up
 
     public static float DiceMinNumber = 1;
     public static float DiceMaxNumber = 7;

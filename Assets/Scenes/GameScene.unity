@@ -2030,6 +2030,7 @@ MonoBehaviour:
   SlimePrefab: {fileID: 6087474744443983331, guid: 28f207961410b704f9d17b0d657923cd, type: 3}
   enemies: []
   Mob2Prefab: {fileID: 2107956283960453199, guid: b071b1b0671edf84996c6c632ed558f7, type: 3}
+  Gambit: {fileID: 1808506182}
   WaveCleared: 0
 --- !u!114 &708677845
 MonoBehaviour:

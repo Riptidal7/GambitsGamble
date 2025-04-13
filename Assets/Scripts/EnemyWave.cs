@@ -11,6 +11,7 @@ public class EnemyWave : MonoBehaviour
     public GameObject SlimePrefab;
     public List<GameObject> enemies;
     public GameObject Mob2Prefab;
+    public Player Gambit;
     public bool WaveCleared;
 
     public void CreateNewWave(int numberOfSlimes, int numberOfMob2s)
@@ -21,6 +22,11 @@ public class EnemyWave : MonoBehaviour
         {
             Vector3 SlimeSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
                 Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+            while (Vector3.Distance(SlimeSpawnLocation,Gambit.transform.position)<5)
+            {
+                SlimeSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
+                    Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+            }
             GameObject tempSlime=Instantiate(SlimePrefab, SlimeSpawnLocation, Quaternion.identity);
             enemies.Add(tempSlime);
         } 
@@ -28,6 +34,11 @@ public class EnemyWave : MonoBehaviour
         {
            Vector3 Mob2SpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
                Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+           while (Vector3.Distance(Mob2SpawnLocation,Gambit.transform.position)<5)
+           {
+               Mob2SpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
+                   Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+           }
            GameObject tempMob2=Instantiate(Mob2Prefab, Mob2SpawnLocation, Quaternion.identity);
            enemies.Add(tempMob2);
         }
