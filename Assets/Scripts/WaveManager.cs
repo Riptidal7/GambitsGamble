@@ -14,7 +14,7 @@ public  class WaveManager : MonoBehaviour
     public bool waveClearedSwitch;
     
     public SFXManager sfxManager;
-
+    public WaveClearDisplayer waveClearDisplayer;
     void Start()
     {
         waveNumber = 1;
@@ -56,8 +56,10 @@ public  class WaveManager : MonoBehaviour
     {
         waveClearedSwitch = true;
         //PLAY WAVE CLEAR SOUND
+        waveClearDisplayer.ShowWaveClearPanel();
         SFXManager.Play("Success");
         yield return new WaitForSeconds(2);
+        waveClearDisplayer.HideWaveClearPanel();
         powerUpChoiceMenu.ShowPowerUpChoiceMenu();
         //GenerateNewWave();
     }
