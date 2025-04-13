@@ -7,7 +7,7 @@ public class HealSpell : MonoBehaviour
 
     public void CastHealSpellFirstLevel()
     {
-        if (Player.HitPoints < 5)
+        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints)
         {
             HealThePlayer();
             

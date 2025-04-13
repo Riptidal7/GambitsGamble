@@ -22,15 +22,15 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDie()
     {
-        if (WaitingToRoll)
-        {
-            return;
-        }
-        else
+        if (!WaitingToRoll)
         {
             UpdateDieImage();
             StartCoroutine(WaitTimerToRollAgain());
             CanICast = true;
+        }
+        else
+        {
+            print("waiting");
         }
     }
     
@@ -48,7 +48,9 @@ public class DiceRoller : MonoBehaviour
     IEnumerator WaitTimerToRollAgain()
     {
         WaitingToRoll = true;
+        //run animation
         yield return new WaitForSeconds(GameParameters.DiceRollWaitTime);
+        //stop animation
         WaitingToRoll = false;
     }
 }

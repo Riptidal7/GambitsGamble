@@ -4,20 +4,23 @@ using UnityEngine;
 public class PowerUpRandomizer : MonoBehaviour
 {
     
-    public List<GameObject> powerUps;
+    public List<string> powerUps;
+    
+  //  public GameObject fireSpellPrefab;
 
-    public GameObject fireSpellPrefab;
+  //  public GameObject iceSpellPrefab;
 
-    public GameObject iceSpellPrefab;
+  //  public GameObject HealSpell;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        powerUps.Add(fireSpellPrefab);
-        powerUps.Add(iceSpellPrefab);
+        powerUps.Add("Fire Spell");
+        powerUps.Add("Ice Spell");
+        powerUps.Add("Heal Spell");
     }
 
-    public GameObject RandomPowerUp()
+    public string RandomPowerUp()
     {
         int randIndex = Random.Range(0, powerUps.Count);
         return powerUps[randIndex];

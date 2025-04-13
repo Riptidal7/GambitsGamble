@@ -8,6 +8,8 @@ public static class GameParameters
 
     public static int InitialMaxPlayerHitPoints = 50;
 
+    public static float MeleeCooldownSeconds = 1;
+
     public static int SecondsOfInvulnerabilityAfterDamage = 1;
 
     public static float SlimeSpeed = 1.5f;
@@ -28,6 +30,19 @@ public static class GameParameters
 
     public static int SlimeSlowDuration = 5;
     public static int Mob2SlowDuration = 5;
+
+    public static int FireSpell1DFlatDamage = 5;
+    public static int IceSpell1FlatDamage = 5;
+    public static int HealSpell1Heal = 1;
+    public static int MeleeAttackDamage = 3;
+    
+    public static int FireSpell2DFlatDamage = 7;
+    public static int IceSpell2FlatDamage = 7;
+    public static int HealSpell2Heal = 2;
+    
+    public static int FireSpell3DFlatDamage = 10;
+    public static int IceSpell3FlatDamage = 10;
+    public static int HealSpell3Heal = 3;
 
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;

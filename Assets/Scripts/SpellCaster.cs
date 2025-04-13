@@ -6,10 +6,30 @@ public class SpellCaster : MonoBehaviour
 {
     public DiceRoller DiceRoller;
     public Player Gambit;
+    
     public GameObject fireSpellPrefab;
+    public GameObject fireSpell2Prefab;
+    
     public GameObject iceSpellPrefab;
     public HealSpell HealSpell;
 
+    public Action SlotOneCast;
+    public Action SlotTwoCast;
+    public Action SlotThreeCast;
+    public Action SlotFourCast;
+    public Action SlotFiveCast;
+    public Action SlotSixCast;
+
+    void Start()
+    {
+        SlotOneCast = new Action(()=>CastFire());
+        SlotTwoCast = new Action(() => CastFire());
+        SlotThreeCast = new Action(() => {});
+        SlotFourCast = new Action(() => { });
+        SlotFiveCast = new Action(() => { });
+        SlotSixCast = new Action(() => { });
+    }
+    
     public void CastTheSpell(int SpellOnDie)
     {
         if (DiceRoller.CanICast)
@@ -26,40 +46,106 @@ public class SpellCaster : MonoBehaviour
     {
         if (SpellOnDie == 0)
         {
-            HealSpell.CastHealSpellFirstLevel();
-            print("Healing");
+           CastOnSlotOne();
         }
         if (SpellOnDie == 1)
         {
-            HealSpell.CastHealSpellFirstLevel();
-            print("Healing");
+            CastOnSlotTwo();
         }
         if (SpellOnDie == 2)
         {
-            print("I... AM STEVE");
-            GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
-            fireBall.transform.SetParent(Gambit.transform);
+           CastOnSlotThree();
         }
         if (SpellOnDie == 3)
         {
-            print("Mrowr :3");
-            GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-            iceAoE.transform.SetParent(Gambit.transform);
+            CastOnSlotFour();
         }
         if (SpellOnDie == 4)
         {
-            print("MARIA!!!!!!!");
-            GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-            iceAoE.transform.SetParent(Gambit.transform);
+            CastOnSlotFive();
         }
         if (SpellOnDie == 5)
         {
-            print("Shimp");
-            GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-            iceAoE.transform.SetParent(Gambit.transform);
+            CastOnSlotSix();
         }
     }
 
+    private void CastOnSlotOne()
+    {
+        SlotOneCast();
+    }
+    private void CastOnSlotTwo()
+    {
+        SlotTwoCast();
+    }
+
+    private void CastOnSlotThree()
+    {
+        SlotThreeCast();
+    }
     
+    private void CastOnSlotFour()
+    {
+        SlotFourCast();
+    }
     
+    private void CastOnSlotFive()
+    {
+        SlotFiveCast();
+    }
+    
+    private void CastOnSlotSix()
+    {
+        SlotSixCast();
+    }
+
+    public void CastFire()
+    {
+        GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
+        fireBall.transform.SetParent(Gambit.transform);
+    }
+
+    public void CastIce()
+    {
+        GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
+        iceAoE.transform.SetParent(Gambit.transform);
+    }
+
+    public void CastHeal()
+    {
+        HealSpell.CastHealSpellFirstLevel();
+    }
+
+    public void CastFire2()
+    {
+        GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
+        fireBall2.transform.SetParent(Gambit.transform);
+    }
+
+    public void CastFire3()
+    {
+        
+    }
+
+    public void CastIce2()
+    {
+        
+    }
+
+    public void CastIce3()
+    {
+        
+    }
+
+    public void CastHeal2()
+    {
+        
+    }
+
+    public void CastHeal3()
+    {
+        
+    }
+
+
 }
