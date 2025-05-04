@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class HealSpell : MonoBehaviour
+public class HealSpell : SpellParent
 {
-    public Player Player;
+    //make spellflatdamage = 0 
+    public Player Player; 
     public HPDisplayer HPDisplayer;
     public GameObject healAnimation;
-
+    
     public void CastHealSpellFirstLevel()
     {
         if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints-GameParameters.HealSpell1Heal)

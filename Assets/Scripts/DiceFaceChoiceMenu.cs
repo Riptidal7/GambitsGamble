@@ -16,6 +16,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public Sprite IconIce2Spell;
     public Sprite IconHeal2Spell;
     
+    //make list
     public Image DiceFace1Image;
     public Image DiceFace2Image;
     public Image DiceFace3Image;
@@ -23,6 +24,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public Image DiceFace5Image;
     public Image DiceFace6Image;
 
+    //make list
     public string currentSpellSlot1;
     public string currentSpellSlot2;
     public string currentSpellSlot3;
@@ -62,7 +64,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     }
 
 
- 
+ //make the 6 methods 1 that recognizes the number button clicked 
+ //in Keypad project
     public void OnFaceChoice1Clicked()
     {
         if (spellToBeApplied=="Fire Spell")

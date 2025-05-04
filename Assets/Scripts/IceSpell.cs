@@ -1,19 +1,59 @@
 using System.Collections;
 using UnityEngine;
 
-public class IceSpell : MonoBehaviour
-{// Start is called once before the first execution of Update after the MonoBehaviour is created
+public class IceSpell : SpellParent
+{
     void Start()
+    {
+        SpellFlatDamage = GameParameters.IceSpell1FlatDamage;
+        
+        base.Start();
+    }
+    
+    void Update()
+    {
+        if (hasCollided)
+        {
+            enemy.isSlowed = true;
+        }
+    }
+} 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //==============================================================
+    // everything below is commented and added to SpellParent class 
+    //==============================================================
+    
+    /*void Start()
     {
 
         StartCoroutine(CountdownUntilDisappear());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    
 
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,9 +61,9 @@ public class IceSpell : MonoBehaviour
         {
             other.gameObject.GetComponent<Slime>().HitPoints-=GameParameters.IceSpell1FlatDamage;
             other.gameObject.GetComponent<Slime>().isSlowed = true;
-         
+
         }
-        
+
         if (other.gameObject.tag == "Mob2")
         {
             other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell1FlatDamage;
@@ -35,5 +75,5 @@ public class IceSpell : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         GameObject.Destroy(gameObject);
-    }
-}
+    } */
+
