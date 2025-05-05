@@ -32,13 +32,5 @@ public class HealSpell : SpellParent
 
     }
     
-    private void HealThePlayer()
-    {
-        Player.HitPoints++;
-        HPDisplayer.UpdateHP(Player.HitPoints);
-    }
-    
-    
-    
     
 }
