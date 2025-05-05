@@ -32,18 +32,6 @@ public class DiceFaceChoiceMenu : MonoBehaviour
    public Image DiceFace4Image;
    public Image DiceFace5Image;
    public Image DiceFace6Image;
-/*
-
-   //remove below if code is working
-   public string currentSpellSlot1;
-   public string currentSpellSlot2;
-   public string currentSpellSlot3;
-   public string currentSpellSlot4;
-   public string currentSpellSlot5;
-   public string currentSpellSlot6;
-   //remove above if code works
-
-   */
     
     public SpellCaster spellCaster;
     public WaveManager waveManager;
@@ -52,10 +40,6 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public PowerUpChoiceMenu powerUpChoiceMenu;
  
     public CanvasGroup DiceFaceChoiceMenuPanel;
-    
-    
-    
-    
     
     void Start()
     {
@@ -89,6 +73,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         };
     }
 
+    
+    //Li: i heavily crutched on ChatGPT for the methods below!! need to learn what they ACTUALLY do lol
     public void OnFaceChoiceClicked(int slotIndex)
 {
     // Determine the spell to be applied and the corresponding spell level (standard or level 2)
