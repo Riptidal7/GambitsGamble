@@ -113,7 +113,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace1Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[0] = IconHealSpell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotOneCast = new Action(() => spellCaster.CastHeal1());
             }
         }
 
@@ -174,7 +174,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace2Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[1] = IconHealSpell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastHeal1());
             }
            
         }
@@ -236,7 +236,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace3Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[2] = IconHealSpell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastHeal1());
             }
         }
 
@@ -297,7 +297,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace4Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[3] = IconHealSpell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotFourCast = new Action(() => spellCaster.CastHeal1());
             }
         }
 
@@ -357,7 +357,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace5Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[4] = IconHealSpell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastHeal1());
             }
         }
 
@@ -418,7 +418,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {
                 DiceFace6Image.sprite = IconHealSpell;
                 diceRoller.DieRollSprites[5] = IconHealSpell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastHeal());
+                spellCaster.SlotSixCast = new Action(() => spellCaster.CastHeal1());
             }
         }
 
