@@ -1275,7 +1275,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -2255,7 +2255,7 @@ GameObject:
   - component: {fileID: 731507112}
   - component: {fileID: 731507111}
   m_Layer: 0
-  m_Name: FootballFieldBackground
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2325,8 +2325,8 @@ Transform:
   m_GameObject: {fileID: 731507110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.3465595, y: 0.4994642, z: -6.6235437}
-  m_LocalScale: {x: 4, y: 3.6917875, z: 0.42523786}
+  m_LocalPosition: {x: 2.4913, y: 0.0224, z: -6.6235437}
+  m_LocalScale: {x: 7.3481827, y: 6.950379, z: 0.42523783}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
