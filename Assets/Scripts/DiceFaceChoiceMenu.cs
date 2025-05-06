@@ -18,6 +18,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public Dictionary<string, Sprite> spellSprites; 
     public Dictionary<string, Action> spellActions;
     
+    public bool HasBeenClicked = false;
+    
     public Sprite IconFireSpell;
     public Sprite IconFire2Spell;
     public Sprite IconIceSpell;
@@ -77,6 +79,9 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     //Li: i heavily crutched on ChatGPT for the methods below!! need to learn what they ACTUALLY do lol
     public void OnFaceChoiceClicked(int slotIndex)
 {
+    
+    if (HasBeenClicked)
+        return;
     // Determine the spell to be applied and the corresponding spell level (standard or level 2)
     string spellKey = spellToBeApplied;
     string spellKey2 = spellToBeApplied + "2"; // For "Fire Spell2", "Ice Spell2", "Heal Spell2"
@@ -104,6 +109,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
 
     // Delay and hide the menu after the selection
     StartCoroutine(MenuSelectDelay());
+    
 }
 
 void AssignSlotCastAction(int slotIndex, Action spellCastAction)
@@ -153,10 +159,12 @@ void AssignSlotCastAction(int slotIndex, Action spellCastAction)
 
     IEnumerator MenuSelectDelay()
     {
+        HasBeenClicked = true;
         yield return new WaitForSeconds(1);
         HideDiceFaceChoiceMenu();
         
         SFXManager.Play("Boon");
+        HasBeenClicked = false;
     }
     
 }
