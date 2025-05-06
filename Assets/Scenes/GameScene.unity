@@ -521,6 +521,7 @@ MonoBehaviour:
   iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
   HealSpell: {fileID: 1459683028}
+  healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
 Transform:
   m_ObjectHideFlags: 0
@@ -915,16 +916,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice6Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DiceFaceChoiceMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1533,11 +1542,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86016937caab5d4fbc2cdce37bbb3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  diceFaceImages: []
+  currentSpellSlots: []
+  spellToBeApplied: 
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
-  IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconIce2Spell: {fileID: 1229545794, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconHeal2Spell: {fileID: -1058212267, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
@@ -1545,13 +1557,6 @@ MonoBehaviour:
   DiceFace4Image: {fileID: 1584566214}
   DiceFace5Image: {fileID: 1035013692}
   DiceFace6Image: {fileID: 1948178633}
-  currentSpellSlot1: 
-  currentSpellSlot2: 
-  currentSpellSlot3: 
-  currentSpellSlot4: 
-  currentSpellSlot5: 
-  currentSpellSlot6: 
-  spellToBeApplied: 
   spellCaster: {fileID: 100894888}
   waveManager: {fileID: 708677845}
   diceRoller: {fileID: 132890381}
@@ -2504,16 +2509,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice5Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DiceFaceChoiceMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3097,16 +3110,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice4Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DiceFaceChoiceMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -3588,9 +3609,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hasCollided: 0
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
-  healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
+  HealAmount: 0
 --- !u!4 &1459683029
 Transform:
   m_ObjectHideFlags: 0
@@ -3615,12 +3638,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice1Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -3748,9 +3775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  hasCollided: 0
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
-  healAnimation: {fileID: 0}
+  HealAmount: 0
 --- !u!4 &1533233953
 Transform:
   m_ObjectHideFlags: 0
@@ -5101,6 +5130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  hasCollided: 0
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0
@@ -5439,16 +5469,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice3Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DiceFaceChoiceMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5727,16 +5765,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1576710429}
     m_Modifications:
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 394217920}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnFaceChoice2Clicked
+      value: OnFaceChoiceClicked
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DiceFaceChoiceMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4640405736890504774, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

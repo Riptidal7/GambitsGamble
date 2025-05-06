@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FireSpell : SpellParent
 {
-    
+    //NOTE BURNING DOES NOT EFFECT STRONGER PUPRLE MOB YET
     void Start()
     {
         SpellFlatDamage = GameParameters.FireSpell1DFlatDamage;
@@ -16,7 +16,7 @@ public class FireSpell : SpellParent
 
     void Update()
     {
-        if (hasCollided)
+        if  (hasCollided)
         {
             enemy.isBurning = true;
         }

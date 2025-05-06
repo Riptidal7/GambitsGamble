@@ -3,48 +3,34 @@ using UnityEngine;
 
 public class HealSpell : SpellParent
 {
-    //make spellflatdamage = 0 
+  
     public Player Player; 
     public HPDisplayer HPDisplayer;
-    public GameObject healAnimation;
+    public int HealAmount;
     
-    public void CastHealSpellFirstLevel()
+    public bool CanPlayerHeal()
     {
-        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints-GameParameters.HealSpell1Heal)
+        //PLEASE READ: this causes healing logic bug where u can't heal at a certain point under max health
+        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints - HealAmount)
         {
-            Player.HitPoints+=GameParameters.HealSpell1Heal;
-            HPDisplayer.UpdateHP(Player.HitPoints);
-            PlayAnimation();
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-    public void CastHealSpellSecondLevel()
+    public void HealPlayer()
     {
-        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints-GameParameters.HealSpell1Heal)
+        if (CanPlayerHeal())
         {
-            Player.HitPoints+=GameParameters.HealSpell2Heal;
+            Player.HitPoints += HealAmount;
             HPDisplayer.UpdateHP(Player.HitPoints);
-            PlayAnimation();
         }
-    }
+        
 
-    private void HealThePlayer()
-    {
-        Player.HitPoints++;
-        HPDisplayer.UpdateHP(Player.HitPoints);
     }
-
-    private void PlayAnimation()
-    {
-       // print("animating");
-        GameObject heal = Instantiate(healAnimation, Player.transform.position, Quaternion.identity);
-        heal.transform.SetParent(Player.transform);
-        StartCoroutine(CountdownUntilAnimationOver(heal));
-    }
-
-    IEnumerator CountdownUntilAnimationOver(GameObject healToDestroy)
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(healToDestroy);
-    }
+    
+    
 }

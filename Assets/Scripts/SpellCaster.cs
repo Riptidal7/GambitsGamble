@@ -14,7 +14,8 @@ public class SpellCaster : MonoBehaviour
     public GameObject iceSpell2Prefab;
     
     public HealSpell HealSpell;
-
+    public GameObject healAnimation;
+    
     public Action SlotOneCast;
     public Action SlotTwoCast;
     public Action SlotThreeCast;
@@ -114,29 +115,56 @@ public class SpellCaster : MonoBehaviour
         SFXManager.Play("FireSpell");
     }
 
-    public void CastIce()
-    {
-        GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-        iceAoE.transform.SetParent(Gambit.transform);
-        SFXManager.Play("IceSpell");
-    }
-
-    public void CastHeal()
-    {
-        HealSpell.CastHealSpellFirstLevel();
-        SFXManager.Play("HealSpell");
-    }
-
     public void CastFire2()
     {
         GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
         fireBall2.transform.SetParent(Gambit.transform);
         SFXManager.Play("Explosion");
     }
-
+    
     public void CastFire3()
     {
         
+    }
+   
+    public void CastHeal1()
+    {
+        HealSpell.HealAmount = GameParameters.HealSpell1Heal;
+        HealSpell.HealPlayer();
+        InstantiateHealSpell();
+        SFXManager.Play("HealSpell");
+    }
+    
+    public void CastHeal2()
+    {
+        HealSpell.HealAmount = GameParameters.HealSpell2Heal;
+        HealSpell.HealPlayer();
+        InstantiateHealSpell();
+        SFXManager.Play("HealSpell");
+    }
+
+    public void CastHeal3()
+    {
+        
+    }
+
+    private void InstantiateHealSpell()
+    {
+        GameObject heal = Instantiate(healAnimation, Gambit.transform.position, Quaternion.identity);
+        heal.transform.SetParent(Gambit.transform);
+        StartCoroutine(CountdownUntilHealAnimationOver(heal));
+    }
+    
+    IEnumerator CountdownUntilHealAnimationOver(GameObject healToDestroy)
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(healToDestroy);
+    }
+    public void CastIce()
+    {
+        GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
+        iceAoE.transform.SetParent(Gambit.transform);
+        SFXManager.Play("IceSpell");
     }
 
     public void CastIce2()
@@ -151,16 +179,7 @@ public class SpellCaster : MonoBehaviour
         
     }
 
-    public void CastHeal2()
-    {
-        HealSpell.CastHealSpellSecondLevel();
-        SFXManager.Play("HealSpell");
-    }
-
-    public void CastHeal3()
-    {
-        
-    }
+  
 
 
 }
