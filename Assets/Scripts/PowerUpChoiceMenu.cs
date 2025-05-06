@@ -4,6 +4,12 @@ using UnityEngine.UI;
 public class PowerUpChoiceMenu : MonoBehaviour
 {
     
+    //make a dictionary that connects string to icon -> have this pull from DiceFace??
+    //could i make this a child of DiceFaceChoiceMenu???
+    //finished turning if statement into DisplayChoice method
+    
+    //can refine the if statement WAY more in the DisplayChoiceIcon method
+    
     public GameObject Choice1Button;
     public GameObject Choice2Button;
     public GameObject DeclineChoiceButton;
@@ -91,46 +97,40 @@ public class PowerUpChoiceMenu : MonoBehaviour
         ResumeGameAfterAllChoices();
 
     }
-    
+
+    public void DisplayChosenChoiceIcon(string choiceNumber, Image choiceIcon)
+    {
+        if (choiceNumber == "Fire Spell")
+        {
+            choiceIcon.sprite = IconFireSpell;
+        }
+        else if (choiceNumber == "Ice Spell")
+        {
+            choiceIcon.sprite = IconIceSpell;
+        }
+        else if (choiceNumber == "Heal Spell")
+        {
+            choiceIcon.sprite = IconHealSpell;
+        }
+        else
+        {
+            print("choice 1 spell doesn't exist");
+
+        }
+    }
+
     public void ShowPowerUpChoiceMenu()
     {
         //add delays?
         CanvasGroupDisplayer.Show(PowerUpChoiceMenuPanel);
+        
         Choice1 = powerUpRandomizer.RandomPowerUp();
-        if (Choice1 == "Fire Spell")
-        {
-            Choice1Image.sprite = IconFireSpell;
-        }
-        else if (Choice1 == "Ice Spell")
-        {
-            Choice1Image.sprite = IconIceSpell;
-        }
-        else if (Choice1 == "Heal Spell")
-        {
-            Choice1Image.sprite = IconHealSpell;
-        }
-        else
-        {
-            print("choice 1 spell doesn't exist");
-        }
+        DisplayChosenChoiceIcon(Choice1, Choice1Image);
         
         Choice2 = powerUpRandomizer.RandomPowerUp();
-        if (Choice2 == "Fire Spell")
-        {
-            Choice2Image.sprite = IconFireSpell;
-        }
-        else if (Choice2 == "Ice Spell")
-        {
-            Choice2Image.sprite = IconIceSpell;
-        }
-        else if (Choice2 == "Heal Spell")
-        {
-            Choice2Image.sprite = IconHealSpell;
-        }
-        else
-        {
-            print("choice 1 spell doesn't exist");
-        }
+        DisplayChosenChoiceIcon(Choice2, Choice2Image);
+        
+      
         choice1.text = "Choice 1: " + Choice1;
         choice2.text = "Choice 2: " + Choice2;
         PauseGameDuringAllChoices();
