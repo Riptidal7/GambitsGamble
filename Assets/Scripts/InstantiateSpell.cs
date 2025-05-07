@@ -79,25 +79,33 @@ public class InstantiateSpell : MonoBehaviour
         SFXManager.Play("FailedDiceRoll1");
     }
 
+    public void InstantiateASpell(GameObject spellPrefab, string spellSoundEffectName)
+    {
+        GameObject spell = Instantiate(spellPrefab, Gambit.transform.position, Quaternion.identity);
+        spell.transform.SetParent(Gambit.transform);
+        SFXManager.Play(spellSoundEffectName);
+    }
+
     public void InstantiateFire1()
     {
-        GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
-        fireBall.transform.SetParent(Gambit.transform);
-        SFXManager.Play("FireSpell");
+        InstantiateASpell(fireSpellPrefab, "FireSpell");
     }
 
     public void InstantiateFire2()
     {
-        GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
-        fireBall2.transform.SetParent(Gambit.transform);
-        SFXManager.Play("Explosion");
+        InstantiateASpell(fireSpellPrefab, "Explosion");
     }
     
-    public void CastFire3()
+    public void InstantiateIce1()
     {
-        
+        InstantiateASpell(iceSpellPrefab, "IceSpell");
     }
-   
+
+    public void InstantiateIce2()
+    {
+        InstantiateASpell(iceSpell2Prefab, "IceSpell");
+    }
+    
     public void InstantiateHeal1()
     {
         HealSpell.HealAmount = GameParameters.HealSpell1Heal;
@@ -114,11 +122,6 @@ public class InstantiateSpell : MonoBehaviour
         SFXManager.Play("HealSpell");
     }
 
-    public void CastHeal3()
-    {
-        
-    }
-
     private void InstantiateHealAnimation()
     {
         GameObject heal = Instantiate(healAnimation, Gambit.transform.position, Quaternion.identity);
@@ -131,24 +134,7 @@ public class InstantiateSpell : MonoBehaviour
         yield return new WaitForSeconds(1);
         Destroy(healToDestroy);
     }
-    public void InstantiateIce1()
-    {
-        GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-        iceAoE.transform.SetParent(Gambit.transform);
-        SFXManager.Play("IceSpell");
-    }
-
-    public void InstantiateIce2()
-    {
-        GameObject iceAoE2= Instantiate(iceSpell2Prefab, Gambit.transform.position, Quaternion.identity);
-        iceAoE2.transform.SetParent(Gambit.transform);
-        SFXManager.Play("IceSpell");
-    }
-
-    public void CastIce3()
-    {
-        
-    }
+    
 
   
 
