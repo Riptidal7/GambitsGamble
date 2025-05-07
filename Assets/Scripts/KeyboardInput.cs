@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class KeyboardInput : MonoBehaviour
 {
     public Player Gambit;
     public DiceRoller DiceRoller;
-    public SpellCaster SpellCaster;
+    [FormerlySerializedAs("spellInstantiator")] [FormerlySerializedAs("SpellCaster")] public InstantiateSpell instantiateSpell;
     public MeleeAttackCooldownHandler meleeAttackCooldownHandler;
    
     
@@ -70,7 +71,7 @@ public class KeyboardInput : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1))
         {
-            SpellCaster.CastTheSpell(DiceRoller.DieValue);
+            instantiateSpell.CastTheSpell(DiceRoller.DieValue);
         }
         
     }

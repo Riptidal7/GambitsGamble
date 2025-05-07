@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
@@ -35,7 +36,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
    public Image DiceFace5Image;
    public Image DiceFace6Image;
     
-    public SpellCaster spellCaster;
+    [FormerlySerializedAs("spellInstantiator")] [FormerlySerializedAs("spellCaster")] public InstantiateSpell instantiateSpell;
     public WaveManager waveManager;
     public DiceRoller diceRoller;
 
@@ -66,12 +67,12 @@ public class DiceFaceChoiceMenu : MonoBehaviour
 
         spellActions = new Dictionary<string, Action>
         {
-            { "Fire Spell", new Action(() => spellCaster.CastFire()) },
-            { "Fire Spell2", new Action(() => spellCaster.CastFire2()) },
-            { "Ice Spell", new Action(() => spellCaster.CastIce()) },
-            { "Ice Spell2", new Action(() => spellCaster.CastIce2()) },
-            { "Heal Spell", new Action(() => spellCaster.CastHeal1()) },
-            { "Heal Spell2", new Action(() => spellCaster.CastHeal2()) }
+            { "Fire Spell", new Action(() => instantiateSpell.InstantiateFire1()) },
+            { "Fire Spell2", new Action(() => instantiateSpell.InstantiateFire2()) },
+            { "Ice Spell", new Action(() => instantiateSpell.InstantiateIce1()) },
+            { "Ice Spell2", new Action(() => instantiateSpell.InstantiateIce2()) },
+            { "Heal Spell", new Action(() => instantiateSpell.InstantiateHeal1()) },
+            { "Heal Spell2", new Action(() => instantiateSpell.InstantiateHeal2()) }
         };
     }
 
@@ -117,22 +118,22 @@ void AssignSlotCastAction(int slotIndex, Action spellCastAction)
     switch (slotIndex)
     {
         case 0:
-            spellCaster.SlotOneCast = spellCastAction;
+            instantiateSpell.SlotOneCast = spellCastAction;
             break;
         case 1:
-            spellCaster.SlotTwoCast = spellCastAction;
+            instantiateSpell.SlotTwoCast = spellCastAction;
             break;
         case 2:
-            spellCaster.SlotThreeCast = spellCastAction;
+            instantiateSpell.SlotThreeCast = spellCastAction;
             break;
         case 3:
-            spellCaster.SlotFourCast = spellCastAction;
+            instantiateSpell.SlotFourCast = spellCastAction;
             break;
         case 4:
-            spellCaster.SlotFiveCast = spellCastAction;
+            instantiateSpell.SlotFiveCast = spellCastAction;
             break;
         case 5:
-            spellCaster.SlotSixCast = spellCastAction;
+            instantiateSpell.SlotSixCast = spellCastAction;
             break;
         default:
             Debug.LogError("Invalid slot index");
