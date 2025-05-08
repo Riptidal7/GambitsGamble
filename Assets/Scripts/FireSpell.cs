@@ -1,42 +1,89 @@
 using System;
+using System.Buffers.Text;
 using System.Collections;
 using UnityEngine;
 
-public class FireSpell : MonoBehaviour
+public class FireSpell : SpellParent
 {
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //NOTE BURNING DOES NOT EFFECT STRONGER PUPRLE MOB YET
     void Start()
     {
+        SpellFlatDamage = GameParameters.FireSpell1DFlatDamage;
+        
+        base.Start();
 
-        StartCoroutine(CountdownUntilDisappear());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Slime")
+        if  (hasCollided)
         {
-            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
-            other.gameObject.GetComponent<Slime>().isBurning = true;
-         
-        }
-        
-        if (other.gameObject.tag == "Mob2")
-        {
-            other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
-            other.gameObject.GetComponent<Slime1>().isBurning = true;
+            enemy.isBurning = true;
         }
     }
+    
+    
 
-    IEnumerator CountdownUntilDisappear()
-    {
-        yield return new WaitForSeconds(1);
-        GameObject.Destroy(gameObject);
-    }
 }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //==============================================================
+    // everything below is commented and added to SpellParent class 
+    //==============================================================
+
+
+    /* void Start()
+     {
+
+         StartCoroutine(CountdownUntilDisappear());
+     }
+
+
+
+
+
+     public void OnTriggerEnter2D(Collider2D other)
+     {
+         if (other.gameObject.tag == "Slime")
+         {
+             other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
+             other.gameObject.GetComponent<Slime>().isBurning = true;
+
+         }
+
+         if (other.gameObject.tag == "Mob2")
+         {
+             other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell1DFlatDamage;
+             other.gameObject.GetComponent<Slime1>().isBurning = true;
+         }
+     }
+
+     IEnumerator CountdownUntilDisappear()
+     {
+         yield return new WaitForSeconds(1);
+         GameObject.Destroy(gameObject);
+     }
+     */
+

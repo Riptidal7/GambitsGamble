@@ -1,37 +1,42 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 public class DiceFaceChoiceMenu : MonoBehaviour
 {
-    
-    public Sprite IconIceSpell;
-    public Sprite IconFireSpell;
-    public Sprite IconHealSpell;
 
+
+    public List<Image> diceFaceImages;
+    public List<string> currentSpellSlots;
+    public string spellToBeApplied;
+    
+    //dictionary that connects spell names to sprites and actions
+    public Dictionary<string, Sprite> spellSprites; 
+    public Dictionary<string, Action> spellActions;
+    
+    public bool HasBeenClicked = false;
+    
+    public Sprite IconFireSpell;
     public Sprite IconFire2Spell;
+    public Sprite IconIceSpell;
     public Sprite IconIce2Spell;
+    public Sprite IconHealSpell;
     public Sprite IconHeal2Spell;
     
-    public Image DiceFace1Image;
-    public Image DiceFace2Image;
-    public Image DiceFace3Image;
-    public Image DiceFace4Image;
-    public Image DiceFace5Image;
-    public Image DiceFace6Image;
-
-    public string currentSpellSlot1;
-    public string currentSpellSlot2;
-    public string currentSpellSlot3;
-    public string currentSpellSlot4;
-    public string currentSpellSlot5;
-    public string currentSpellSlot6;
+  
+   public Image DiceFace1Image;
+   public Image DiceFace2Image;
+   public Image DiceFace3Image;
+   public Image DiceFace4Image;
+   public Image DiceFace5Image;
+   public Image DiceFace6Image;
     
-    public string spellToBeApplied;
-    public SpellCaster spellCaster;
+    [FormerlySerializedAs("spellInstantiator")] [FormerlySerializedAs("spellCaster")] public InstantiateSpell instantiateSpell;
     public WaveManager waveManager;
     public DiceRoller diceRoller;
 
@@ -41,9 +46,101 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     
     void Start()
     {
+        InitializeDictionaries();
+        diceFaceImages = new List<Image> { DiceFace1Image, DiceFace2Image, DiceFace3Image, DiceFace4Image, DiceFace5Image, DiceFace6Image };
+        Debug.Log("diceFaceImages count: " + diceFaceImages.Count);
+        currentSpellSlots = new List<string> { "", "", "", "", "", "" };
         StartHideDiceFaceChoiceMenu();
     }
- 
+
+    void InitializeDictionaries()
+    {
+        spellSprites = new Dictionary<string, Sprite>
+        {
+            { "Fire Spell", IconFireSpell },
+            { "Fire Spell2", IconFire2Spell },
+            { "Ice Spell", IconIceSpell },
+            { "Ice Spell2", IconIce2Spell },
+            { "Heal Spell", IconHealSpell },
+            { "Heal Spell2", IconHeal2Spell }
+        };
+
+        spellActions = new Dictionary<string, Action>
+        {
+            { "Fire Spell", new Action(() => instantiateSpell.InstantiateFire1()) },
+            { "Fire Spell2", new Action(() => instantiateSpell.InstantiateFire2()) },
+            { "Ice Spell", new Action(() => instantiateSpell.InstantiateIce1()) },
+            { "Ice Spell2", new Action(() => instantiateSpell.InstantiateIce2()) },
+            { "Heal Spell", new Action(() => instantiateSpell.InstantiateHeal1()) },
+            { "Heal Spell2", new Action(() => instantiateSpell.InstantiateHeal2()) }
+        };
+    }
+
+    
+    //Li: i heavily crutched on ChatGPT for the methods below!! need to learn what they ACTUALLY do lol
+    public void OnFaceChoiceClicked(int slotIndex)
+{
+    
+    if (HasBeenClicked)
+        return;
+    // Determine the spell to be applied and the corresponding spell level (standard or level 2)
+    string spellKey = spellToBeApplied;
+    string spellKey2 = spellToBeApplied + "2"; // For "Fire Spell2", "Ice Spell2", "Heal Spell2"
+
+    // Check if the current slot already contains the selected spell
+    bool isSameSpell = currentSpellSlots[slotIndex] == spellToBeApplied;
+
+    // Determine which sprite to use based on whether it's the same spell or not
+    Sprite selectedSprite = isSameSpell ? spellSprites[spellKey2] : spellSprites[spellKey];
+
+    // Determine the correct spell cast action
+    Action spellCastAction = isSameSpell ? spellActions[spellKey2] : spellActions[spellKey];
+
+    // Update the dice face sprite in the appropriate slot
+    diceFaceImages[slotIndex].sprite = selectedSprite;
+
+    // Update the diceRoller DieRollSprites array with the correct sprite for the selected slot
+    diceRoller.DieRollSprites[slotIndex] = selectedSprite;
+
+    // Set the corresponding spell casting action for the correct slot
+    AssignSlotCastAction(slotIndex, spellCastAction);
+
+    // Update the current spell slot for the selected index
+    currentSpellSlots[slotIndex] = spellToBeApplied;
+
+    // Delay and hide the menu after the selection
+    StartCoroutine(MenuSelectDelay());
+    
+}
+
+void AssignSlotCastAction(int slotIndex, Action spellCastAction)
+{
+    switch (slotIndex)
+    {
+        case 0:
+            instantiateSpell.SlotOneCast = spellCastAction;
+            break;
+        case 1:
+            instantiateSpell.SlotTwoCast = spellCastAction;
+            break;
+        case 2:
+            instantiateSpell.SlotThreeCast = spellCastAction;
+            break;
+        case 3:
+            instantiateSpell.SlotFourCast = spellCastAction;
+            break;
+        case 4:
+            instantiateSpell.SlotFiveCast = spellCastAction;
+            break;
+        case 5:
+            instantiateSpell.SlotSixCast = spellCastAction;
+            break;
+        default:
+            Debug.LogError("Invalid slot index");
+            break;
+    }
+}
+    
     public void ShowDiceFaceChoiceMenu()
     {
         CanvasGroupDisplayer.Show(DiceFaceChoiceMenuPanel);
@@ -61,379 +158,14 @@ public class DiceFaceChoiceMenu : MonoBehaviour
         CanvasGroupDisplayer.Hide(DiceFaceChoiceMenuPanel);
     }
 
-
- 
-    public void OnFaceChoice1Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot1 == spellToBeApplied)
-            {
-                DiceFace1Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[0] = IconFire2Spell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastFire2());
-            }
-            else
-            {
-                DiceFace1Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[0] = IconFireSpell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot1 == spellToBeApplied)
-            {
-                DiceFace1Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[0] = IconIce2Spell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastIce2());
-            }
-
-            else
-            {
-                DiceFace1Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[0] = IconIceSpell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot1 == spellToBeApplied)
-            {
-                DiceFace1Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[0] = IconHeal2Spell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace1Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[0] = IconHealSpell;
-                spellCaster.SlotOneCast = new Action(() => spellCaster.CastHeal());
-            }
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-
-        currentSpellSlot1 = spellToBeApplied;
-        //print("currentSpell: " + currentSpellSlot1);
-        StartCoroutine(MenuSelectDelay());
-    }
- 
-    public void OnFaceChoice2Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot2 == spellToBeApplied)
-            {
-                DiceFace2Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[1] = IconFire2Spell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastFire2());
-            }
-            else
-            {
-                DiceFace2Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[1] = IconFireSpell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot2 == spellToBeApplied)
-            {
-                DiceFace2Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[1] = IconIce2Spell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastIce2());
-            }
-
-            else
-            {
-                DiceFace2Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[1] = IconIceSpell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot2 == spellToBeApplied)
-            {
-                DiceFace2Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[1] = IconHeal2Spell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace2Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[1] = IconHealSpell;
-                spellCaster.SlotTwoCast = new Action(() => spellCaster.CastHeal());
-            }
-           
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-        currentSpellSlot2 = spellToBeApplied;
-    //    print("currentSpell: " + currentSpellSlot2);
-        StartCoroutine(MenuSelectDelay());
-    }
- 
-    public void OnFaceChoice3Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot3 == spellToBeApplied)
-            {
-                DiceFace3Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[2] = IconFire2Spell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastFire2());
-            }
-            else
-            {
-                
-                DiceFace3Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[2] = IconFireSpell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot3 == spellToBeApplied)
-            {
-                DiceFace3Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[2] = IconIce2Spell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastIce2());
-            }
-
-            else
-            {
-                DiceFace3Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[2] = IconIceSpell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot3 == spellToBeApplied)
-            {
-                DiceFace3Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[2] = IconHeal2Spell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace3Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[2] = IconHealSpell;
-                spellCaster.SlotThreeCast = new Action(() => spellCaster.CastHeal());
-            }
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-        currentSpellSlot3 = spellToBeApplied;
-    //    print("currentSpell: " + currentSpellSlot3);
-        StartCoroutine(MenuSelectDelay());
-    }
- 
-    public void OnFaceChoice4Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot4 == spellToBeApplied)
-            {
-                DiceFace4Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[3] = IconFire2Spell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastFire2());
-            }
-
-            else 
-            {
-                DiceFace4Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[3] = IconFireSpell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot4 == spellToBeApplied)
-            {
-                DiceFace4Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[3] = IconIce2Spell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastIce2());
-            }
-
-            else
-            {
-                DiceFace4Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[3] = IconIceSpell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot4 == spellToBeApplied)
-            {
-                DiceFace4Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[3] = IconHeal2Spell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace4Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[3] = IconHealSpell;
-                spellCaster.SlotFourCast = new Action(() => spellCaster.CastHeal());
-            }
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-        currentSpellSlot4 = spellToBeApplied;
-      //  print("currentSpell: " + currentSpellSlot4);
-      StartCoroutine(MenuSelectDelay());
-    }
- 
-    public void OnFaceChoice5Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot5 == spellToBeApplied)
-            {
-                DiceFace5Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[4] = IconFire2Spell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastFire2());
-            }
-
-            else
-            {
-                DiceFace5Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[4] = IconFireSpell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot5 == spellToBeApplied)
-            {
-                DiceFace5Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[4] = IconIce2Spell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastIce2());
-            }
-            else
-            {
-                DiceFace5Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[4] = IconIceSpell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot5 == spellToBeApplied)
-            {
-                DiceFace5Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[4] = IconHeal2Spell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace5Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[4] = IconHealSpell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastHeal());
-            }
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-        currentSpellSlot5 = spellToBeApplied;
-       // print("currentSpell: " + currentSpellSlot5);
-       StartCoroutine(MenuSelectDelay());
-    }
- 
-    public void OnFaceChoice6Clicked()
-    {
-        if (spellToBeApplied=="Fire Spell")
-        {
-            if (currentSpellSlot6 == spellToBeApplied)
-            {
-                DiceFace6Image.sprite = IconFire2Spell;
-                diceRoller.DieRollSprites[5] = IconFire2Spell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastFire2());
-            }
-
-            else
-            {
-                DiceFace6Image.sprite = IconFireSpell;
-                diceRoller.DieRollSprites[5] = IconFireSpell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastFire());
-            }
-        }
-        
-        else if (spellToBeApplied == "Ice Spell")
-        {
-            if (currentSpellSlot6 == spellToBeApplied)
-            {
-                DiceFace6Image.sprite = IconIce2Spell;
-                diceRoller.DieRollSprites[5] = IconIce2Spell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastIce2());
-            }
-
-            else
-            {
-                DiceFace6Image.sprite = IconIceSpell;
-                diceRoller.DieRollSprites[5] = IconIceSpell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastIce());
-            }
-        }
-        
-        else if (spellToBeApplied == "Heal Spell")
-        {
-            if (currentSpellSlot6 == spellToBeApplied)
-            {
-                DiceFace6Image.sprite = IconHeal2Spell;
-                diceRoller.DieRollSprites[5] = IconHeal2Spell;
-                spellCaster.SlotFiveCast = new Action(() => spellCaster.CastHeal2());
-            }
-            else
-            {
-                DiceFace6Image.sprite = IconHealSpell;
-                diceRoller.DieRollSprites[5] = IconHealSpell;
-                spellCaster.SlotSixCast = new Action(() => spellCaster.CastHeal());
-            }
-        }
-
-        else
-        {
-            print("spell to be applied does not exist");
-        }
-        currentSpellSlot6 = spellToBeApplied;
-       // print("currentSpell: " + currentSpellSlot6);
-       StartCoroutine(MenuSelectDelay());
-    }
-
     IEnumerator MenuSelectDelay()
     {
+        HasBeenClicked = true;
         yield return new WaitForSeconds(1);
         HideDiceFaceChoiceMenu();
         
         SFXManager.Play("Boon");
+        HasBeenClicked = false;
     }
     
 }
