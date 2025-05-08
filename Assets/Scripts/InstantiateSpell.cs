@@ -36,7 +36,7 @@ public class InstantiateSpell : MonoBehaviour
     
     public void CastTheSpell(int SpellOnDie)
     {
-        if (DiceRoller.CanICast)
+        if (DiceRoller.CanICast && DiceRoller.StillImage.activeSelf) // can only cast when the spell image is onscreen
         {
             CastAtSlotOnDie(SpellOnDie);
             DiceRoller.CanICast = false;
@@ -46,6 +46,7 @@ public class InstantiateSpell : MonoBehaviour
             return;
         }
     }
+    
     public void CastAtSlotOnDie(int SpellOnDie)
     {
         if (SpellOnDie == 0)

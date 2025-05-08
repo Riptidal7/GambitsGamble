@@ -32,12 +32,10 @@ public class DiceRoller : MonoBehaviour
             {
                 UpdateDieImage();
                 StartCoroutine(WaitTimerToRollAgain());
-                CanICast = true;
+                StartCoroutine(AllowDiceSpellIconToFullyDisplay());
+
             }
-            else
-            {
-                print("waiting");
-            }
+
         }
     }
 
@@ -84,5 +82,11 @@ public class DiceRoller : MonoBehaviour
         StillImage.SetActive(true);
         RollingDie.SetActive(false);
         WaitingToRoll = false;
+    }
+    //this is a method to prevent spells to be spam cast the frame it appears on the still dice image
+    IEnumerator AllowDiceSpellIconToFullyDisplay()
+    {
+        yield return new WaitForSeconds(GameParameters.DiceSpellIconBuffer);
+        CanICast = true;
     }
 }
