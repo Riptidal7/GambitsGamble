@@ -1,49 +1,51 @@
 using System.Collections;
 using UnityEngine;
 
-public class HealSpell : MonoBehaviour
+public class HealSpell : SpellParent
 {
-    public Player Player;
+  
+    public Player Player; 
     public HPDisplayer HPDisplayer;
-    public GameObject healAnimation;
-
-    public void CastHealSpellFirstLevel()
+    public int HealAmount;
+    
+    public bool CanPlayerHeal()
     {
-        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints-GameParameters.HealSpell1Heal)
+        //PLEASE READ: this causes healing logic bug where u can't heal at a certain point under maxhealth
+        //max health = 50
+        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints - HealAmount)
         {
-            Player.HitPoints+=GameParameters.HealSpell1Heal;
-            HPDisplayer.UpdateHP(Player.HitPoints);
-            PlayAnimation();
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
+    
 
-    public void CastHealSpellSecondLevel()
+    public void HealPlayer()
     {
-        if (Player.HitPoints < GameParameters.InitialMaxPlayerHitPoints-GameParameters.HealSpell1Heal)
+        AllowPlayerToHealIfHealSpellGoesOverMaxHealth();
+        
+        if (CanPlayerHeal())
         {
-            Player.HitPoints+=GameParameters.HealSpell2Heal;
+            Player.HitPoints += HealAmount;
             HPDisplayer.UpdateHP(Player.HitPoints);
-            PlayAnimation();
         }
+
     }
 
-    private void HealThePlayer()
+    public void AllowPlayerToHealIfHealSpellGoesOverMaxHealth()
     {
-        Player.HitPoints++;
-        HPDisplayer.UpdateHP(Player.HitPoints);
+        if (Player.HitPoints >= GameParameters.InitialMaxPlayerHitPoints - HealAmount)
+        {
+            Player.HitPoints = GameParameters.InitialMaxPlayerHitPoints;
+            HPDisplayer.UpdateHP(Player.HitPoints);
+        }
+        
     }
 
-    private void PlayAnimation()
-    {
-       // print("animating");
-        GameObject heal = Instantiate(healAnimation, Player.transform.position, Quaternion.identity);
-        heal.transform.SetParent(Player.transform);
-        StartCoroutine(CountdownUntilAnimationOver(heal));
-    }
-
-    IEnumerator CountdownUntilAnimationOver(GameObject healToDestroy)
-    {
-        yield return new WaitForSeconds(1);
-        Destroy(healToDestroy);
-    }
+    //be able to use heal spell until hit 5
+        //if heal amount + playerhealth/hitpoints > initial max health then == initial max health
+    
 }
