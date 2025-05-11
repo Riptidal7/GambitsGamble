@@ -42,9 +42,9 @@ public class Player : MonoBehaviour
             {
                 HitPoints--;
 				SFXManager.Play("PlayerTakesDamage");
-                if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
+                if (GameManager.CheckIfGameOver(gameObject.GetComponent<Player>()))
                 {
-                    Game.ChangeSceneToGameOver();
+                    GameManager.LoadScene("GameOver");
                 }
                 HpDisplayer.UpdateHP(HitPoints);
                 CanTakeDamage = false;
@@ -58,9 +58,9 @@ public class Player : MonoBehaviour
             {
                 HitPoints-=2;
 				SFXManager.Play("PlayerTakesDamage");
-                if (Game.CheckIfGameOver(gameObject.GetComponent<Player>()))
+                if (GameManager.CheckIfGameOver(gameObject.GetComponent<Player>()))
                 {
-                    Game.ChangeSceneToGameOver();
+                    GameManager.LoadScene("GameOver");
                 }
                 HpDisplayer.UpdateHP(HitPoints);
                 CanTakeDamage = false;
@@ -151,9 +151,39 @@ public class Player : MonoBehaviour
         }
     }
 
-    IEnumerator CountdownUntilInvulnerabilityOver()
-    {
-        yield return new WaitForSeconds(GameParameters.SecondsOfInvulnerabilityAfterDamage);
-        CanTakeDamage = true;
-    }
+	IEnumerator CountdownUntilInvulnerabilityOver()
+	{
+		// repetitive code, possible to fix?
+		animator.SetBool("isTakingDamage", true);
+		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
+		
+		animator.SetBool("isTakingDamage", false);
+		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
+		
+		animator.SetBool("isTakingDamage", true);
+		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
+
+		animator.SetBool("isTakingDamage", false);
+
+		float timeSpentFlashingRed = GameParameters.SecondsOfDamageIndicator * 3;
+		float timeLeftUntilInvulnerabilityOver = GameParameters.SecondsOfInvulnerabilityAfterDamage - timeSpentFlashingRed;
+		
+		yield return new WaitForSeconds(timeLeftUntilInvulnerabilityOver);
+		CanTakeDamage = true;
+	}
+
+	// tried to fix repetition in CountdownUntilDamgeIndicatorDone
+	// does not work
+	IEnumerator SetRed()
+	{
+		animator.SetBool("isTakingDamage", true);
+		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
+		animator.SetBool("isTakingDamage", false);
+	}
+
+	IEnumerator SetNormal()
+	{
+		animator.SetBool("isTakingDamage", false);
+		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
+	}
 }

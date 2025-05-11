@@ -819,7 +819,7 @@ MonoBehaviour:
   - name: DiceRolling2
     clip: {fileID: 8300000, guid: 34a51ca274f8b4bed93bd9003961b254, type: 3}
   - name: EnemyTakesMeleeDamage
-    clip: {fileID: 8300000, guid: 07b1d7be1f4bd465698265a49680dff4, type: 3}
+    clip: {fileID: 8300000, guid: cfdfb75b37bd34d5280b864596f81036, type: 3}
   - name: EnemyTakesSpellDamage
     clip: {fileID: 8300000, guid: 891ea9bc78be647f2944d01d4bd4ae18, type: 3}
   - name: Explosion
@@ -1545,6 +1545,7 @@ MonoBehaviour:
   diceFaceImages: []
   currentSpellSlots: []
   spellToBeApplied: 
+  HasBeenClicked: 0
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}

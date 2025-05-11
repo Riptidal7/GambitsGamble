@@ -12,6 +12,7 @@ public static class GameParameters
     public static float MeleeCooldownSeconds = 1;
 
     public static int SecondsOfInvulnerabilityAfterDamage = 1;
+    public static float SecondsOfDamageIndicator = 0.1f;
 
     public static float SlimeSpeed = 1.5f;
     public static float SlimeDetectionRadius=100;
