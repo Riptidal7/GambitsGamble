@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class SpellCaster : MonoBehaviour
+public class InstantiateSpell : MonoBehaviour
 {
     public DiceRoller DiceRoller;
     public Player Gambit;
@@ -36,7 +36,7 @@ public class SpellCaster : MonoBehaviour
     
     public void CastTheSpell(int SpellOnDie)
     {
-        if (DiceRoller.CanICast)
+        if (DiceRoller.CanICast && DiceRoller.StillImage.activeSelf) // can only cast when the spell image is onscreen
         {
             CastAtSlotOnDie(SpellOnDie);
             DiceRoller.CanICast = false;
@@ -46,109 +46,84 @@ public class SpellCaster : MonoBehaviour
             return;
         }
     }
+    
     public void CastAtSlotOnDie(int SpellOnDie)
     {
         if (SpellOnDie == 0)
         {
-           CastOnSlotOne();
+           SlotOneCast();
         }
         if (SpellOnDie == 1)
         {
-            CastOnSlotTwo();
+            SlotTwoCast();
         }
         if (SpellOnDie == 2)
         {
-           CastOnSlotThree();
+           SlotThreeCast();
         }
         if (SpellOnDie == 3)
         {
-            CastOnSlotFour();
+            SlotFourCast();
         }
         if (SpellOnDie == 4)
         {
-            CastOnSlotFive();
+            SlotFiveCast();
         }
         if (SpellOnDie == 5)
         {
-            CastOnSlotSix();
+            SlotSixCast();
         }
     }
-
-    private void CastOnSlotOne()
-    {
-        SlotOneCast();
-    }
-    private void CastOnSlotTwo()
-    {
-        SlotTwoCast();
-    }
-
-    private void CastOnSlotThree()
-    {
-        SlotThreeCast();
-    }
     
-    private void CastOnSlotFour()
-    {
-        SlotFourCast();
-    }
-    
-    private void CastOnSlotFive()
-    {
-        SlotFiveCast();
-    }
-    
-    private void CastOnSlotSix()
-    {
-        SlotSixCast();
-    }
-
     public void CastNothing()
     {
         SFXManager.Play("FailedDiceRoll1");
     }
 
-    public void CastFire()
+    public void InstantiateASpell(GameObject spellPrefab, string spellSoundEffectName)
     {
-        GameObject fireBall= Instantiate(fireSpellPrefab, Gambit.transform.position, Quaternion.identity);
-        fireBall.transform.SetParent(Gambit.transform);
-        SFXManager.Play("FireSpell");
+        GameObject spell = Instantiate(spellPrefab, Gambit.transform.position, Quaternion.identity);
+        spell.transform.SetParent(Gambit.transform);
+        SFXManager.Play(spellSoundEffectName);
     }
 
-    public void CastFire2()
+    public void InstantiateFire1()
     {
-        GameObject fireBall2= Instantiate(fireSpell2Prefab, Gambit.transform.position, Quaternion.identity);
-        fireBall2.transform.SetParent(Gambit.transform);
-        SFXManager.Play("Explosion");
+        InstantiateASpell(fireSpellPrefab, "FireSpell");
+    }
+
+    public void InstantiateFire2()
+    {
+        InstantiateASpell(fireSpellPrefab, "Explosion");
     }
     
-    public void CastFire3()
+    public void InstantiateIce1()
     {
-        
+        InstantiateASpell(iceSpellPrefab, "IceSpell");
     }
-   
-    public void CastHeal1()
+
+    public void InstantiateIce2()
+    {
+        InstantiateASpell(iceSpell2Prefab, "IceSpell");
+    }
+    
+    public void InstantiateHeal1()
     {
         HealSpell.HealAmount = GameParameters.HealSpell1Heal;
         HealSpell.HealPlayer();
-        InstantiateHealSpell();
+        InstantiateHealAnimation();
         SFXManager.Play("HealSpell");
     }
     
-    public void CastHeal2()
+    public void InstantiateHeal2()
     {
         HealSpell.HealAmount = GameParameters.HealSpell2Heal;
         HealSpell.HealPlayer();
-        InstantiateHealSpell();
+        InstantiateHealAnimation();
         SFXManager.Play("HealSpell");
     }
 
-    public void CastHeal3()
-    {
-        
-    }
-
-    private void InstantiateHealSpell()
+    private void InstantiateHealAnimation()
     {
         GameObject heal = Instantiate(healAnimation, Gambit.transform.position, Quaternion.identity);
         heal.transform.SetParent(Gambit.transform);
@@ -160,24 +135,7 @@ public class SpellCaster : MonoBehaviour
         yield return new WaitForSeconds(1);
         Destroy(healToDestroy);
     }
-    public void CastIce()
-    {
-        GameObject iceAoE= Instantiate(iceSpellPrefab, Gambit.transform.position, Quaternion.identity);
-        iceAoE.transform.SetParent(Gambit.transform);
-        SFXManager.Play("IceSpell");
-    }
-
-    public void CastIce2()
-    {
-        GameObject iceAoE2= Instantiate(iceSpell2Prefab, Gambit.transform.position, Quaternion.identity);
-        iceAoE2.transform.SetParent(Gambit.transform);
-        SFXManager.Play("IceSpell");
-    }
-
-    public void CastIce3()
-    {
-        
-    }
+    
 
   
 
