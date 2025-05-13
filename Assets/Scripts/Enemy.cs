@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Enemy : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
     
     private Rigidbody2D rb;
 
-    
+    public VisualEffect burningEffect;
     
     private void Awake()
     {
@@ -92,9 +93,11 @@ public class Enemy : MonoBehaviour
     IEnumerator CountdownUntilBurningOver()
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.red;
+		burningEffect.SendEvent("isBurning");
         yield return new WaitForSeconds(burnDuration);
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isBurning = false;
+		burningEffect.SendEvent("stopBurning");
     }
     
     IEnumerator CountdownUntilSlowOver()

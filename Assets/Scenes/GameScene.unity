@@ -890,7 +890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gambit: {fileID: 1808506182}
   DiceRoller: {fileID: 132890381}
-  SpellCaster: {fileID: 100894888}
+  instantiateSpell: {fileID: 100894888}
   meleeAttackCooldownHandler: {fileID: 1193818369}
 --- !u!4 &182847311
 Transform:
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   DiceFace4Image: {fileID: 1584566214}
   DiceFace5Image: {fileID: 1035013692}
   DiceFace6Image: {fileID: 1948178633}
-  spellCaster: {fileID: 100894888}
+  instantiateSpell: {fileID: 100894888}
   waveManager: {fileID: 708677845}
   diceRoller: {fileID: 132890381}
   powerUpChoiceMenu: {fileID: 509406404}
@@ -3610,8 +3610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  hasCollided: 0
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -3776,8 +3774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  hasCollided: 0
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -5130,8 +5126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2e3cc820b485043aa5738e1eb098c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  hasCollided: 0
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0
