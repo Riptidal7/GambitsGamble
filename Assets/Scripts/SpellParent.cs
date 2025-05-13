@@ -1,46 +1,46 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SpellParent : MonoBehaviour
 {
-    public Enemy enemy;
-        
     [NonSerialized]
     public int SpellFlatDamage;
-    public bool hasCollided;
-    
-    protected void Start()
-    {
 
+    protected HashSet<GameObject> enemiesHit = new HashSet<GameObject>();
+    protected List<Enemy> enemyComponentsHit = new List<Enemy>();
+
+    protected virtual void Start()
+    {
         StartCoroutine(CountdownUntilDisappear());
     }
-    public void OnTriggerEnter2D(Collider2D other)
+
+    protected virtual void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Slime") 
+        GameObject target = other.gameObject;
+
+        if (enemiesHit.Contains(target))
+            return;
+
+        Enemy enemyComponent = target.GetComponent<Enemy>();
+        if (enemyComponent != null)
         {
-            hasCollided = true;
-            enemy = other.gameObject.GetComponent<Slime>();
-            
-            enemy.HitPoints -= SpellFlatDamage;
-         
+            enemyComponent.HitPoints -= SpellFlatDamage;
+            enemiesHit.Add(target);
+            enemyComponentsHit.Add(enemyComponent);
+            OnEnemyHit(enemyComponent); // Extension point for child classes
         }
-        
-        if (other.gameObject.tag == "Mob2")
-        {
-            hasCollided = true;
-            other.gameObject.GetComponent<Slime1>().HitPoints -= SpellFlatDamage;
-        }
+    }
+
+    protected virtual void OnEnemyHit(Enemy enemy)
+    {
+        // Optional override in child class
     }
 
     IEnumerator CountdownUntilDisappear()
     {
         yield return new WaitForSeconds(1);
-        GameObject.Destroy(gameObject);
-    }
-
-    public void OnTriggerExit2D(Collider2D other)
-    {
-        hasCollided = false;
+        Destroy(gameObject);
     }
 }
