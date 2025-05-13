@@ -20,14 +20,14 @@ public class FireSpell2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Slime")
         {
-            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell2DFlatDamage;
+            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell2FlatDamage;
             other.gameObject.GetComponent<Slime>().isBurning = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
-            other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell2DFlatDamage;
+            other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell2FlatDamage;
             other.gameObject.GetComponent<Slime1>().isBurning = true;
         }
     }
