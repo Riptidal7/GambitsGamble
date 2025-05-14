@@ -8,7 +8,7 @@ public class KeyboardInput : MonoBehaviour
     public DiceRoller DiceRoller;
     [FormerlySerializedAs("spellInstantiator")] [FormerlySerializedAs("SpellCaster")] public InstantiateSpell instantiateSpell;
     public MeleeAttackCooldownHandler meleeAttackCooldownHandler;
-   
+    public PauseMenu PauseMenu;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,6 +73,11 @@ public class KeyboardInput : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             instantiateSpell.CastTheSpell(DiceRoller.DieValue);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.ToggleShowingMenu();
         }
         
     }

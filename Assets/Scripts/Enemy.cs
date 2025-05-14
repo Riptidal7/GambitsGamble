@@ -40,6 +40,9 @@ public class Enemy : MonoBehaviour
     
     void FixedUpdate()
     {
+        if (PauseController.IsPaused)
+            return;
+        
         if (player != null && Vector3.Distance(player.position, transform.position) <= detectionRadius)
         {
             // Calculate the normalized direction vector from the enemy to the player
@@ -83,9 +86,9 @@ public class Enemy : MonoBehaviour
     IEnumerator CountdownUntilFreezeRandomly()
     {
         isWaitingToFreezeRandomly = true;
-        yield return new WaitForSeconds(Random.Range(minSecondsUntilFreeze,maxSecondsUntilFreeze));
+        yield return new WaitForSecondsWhileUnpaused(Random.Range(minSecondsUntilFreeze,maxSecondsUntilFreeze));
         currentEnemySpeed = 0;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsWhileUnpaused(1);
         currentEnemySpeed = enemySpeed;
         isWaitingToFreezeRandomly = false;
     }
@@ -94,7 +97,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.red;
 		burningEffect.SendEvent("isBurning");
-        yield return new WaitForSeconds(burnDuration);
+        yield return new WaitForSecondsWhileUnpaused(burnDuration);
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isBurning = false;
 		burningEffect.SendEvent("stopBurning");
@@ -104,7 +107,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
         currentEnemySpeed = enemySpeed / 2;
-        yield return new WaitForSeconds(slowDuration);
+        yield return new WaitForSecondsWhileUnpaused(slowDuration);
         currentEnemySpeed = enemySpeed;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isSlowed= false;
@@ -115,7 +118,7 @@ public class Enemy : MonoBehaviour
         
         gameObject.GetComponent<SpriteRenderer>().color=Color.blue;
         currentEnemySpeed = 0;
-        yield return new WaitForSeconds(freezeDuration);
+        yield return new WaitForSecondsWhileUnpaused(freezeDuration);
         currentEnemySpeed = enemySpeed;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isFrozen= false;
@@ -123,7 +126,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator CountdownUntilNextBurnDamage()
     {
-        yield return new WaitForSeconds(Random.Range(minSecondsUntilNextBurn,maxSecondsUntilNextBurn));
+        yield return new WaitForSecondsWhileUnpaused(Random.Range(minSecondsUntilNextBurn,maxSecondsUntilNextBurn));
         canTakeBurnDamage = true;
     }
 
