@@ -520,6 +520,8 @@ MonoBehaviour:
   fireSpell2Prefab: {fileID: 4393446294252543987, guid: bfd44c1b9d450134ebab0690444374ab, type: 3}
   iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
+  lightningSpellPrefab: {fileID: 8561863174762509988, guid: 7e8572d7cede34b1eb1a7d9ffcef44f1, type: 3}
+  lightningSpell2Prefab: {fileID: 1939616645084462552, guid: e74b92c1c95504df285d5a075fc1f399, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
@@ -1553,6 +1555,8 @@ MonoBehaviour:
   IconIce2Spell: {fileID: 1229545794, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconHeal2Spell: {fileID: -1058212267, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconLightningSpell: {fileID: 21300000, guid: 14eee7f74c9f64a65b87aa2aecc5a596, type: 3}
+  IconLightning2Spell: {fileID: 21300000, guid: aaa1253159ca0475085a4fcbc1347a66, type: 3}
   DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
@@ -2125,6 +2129,7 @@ MonoBehaviour:
   IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconLightningSpell: {fileID: 21300000, guid: 14eee7f74c9f64a65b87aa2aecc5a596, type: 3}
 --- !u!225 &509406405
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3686,6 +3691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxEnemiesToHit: 2147483647
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -3941,53 +3947,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
---- !u!1 &1533233951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1533233953}
-  - component: {fileID: 1533233952}
-  m_Layer: 0
-  m_Name: Heal Spell
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1533233952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533233951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1808506182}
-  HPDisplayer: {fileID: 1734434230}
-  HealAmount: 0
---- !u!4 &1533233953
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533233951}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19204405, y: 1.2792346, z: 6.677587}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1555243214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5561,6 +5520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2e3cc820b485043aa5738e1eb098c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxEnemiesToHit: 2147483647
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0
@@ -6403,7 +6363,6 @@ SceneRoots:
   - {fileID: 1459683029}
   - {fileID: 1193818370}
   - {fileID: 731507112}
-  - {fileID: 1533233953}
   - {fileID: 1386807739}
   - {fileID: 153058465}
   - {fileID: 1285578986}

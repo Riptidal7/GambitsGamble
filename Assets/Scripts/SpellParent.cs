@@ -7,6 +7,7 @@ public class SpellParent : MonoBehaviour
 {
     [NonSerialized]
     public int SpellFlatDamage;
+    public int MaxEnemiesToHit = int.MaxValue;
 
     protected HashSet<GameObject> enemiesHit = new HashSet<GameObject>();
     protected List<Enemy> enemyComponentsHit = new List<Enemy>();
@@ -18,6 +19,9 @@ public class SpellParent : MonoBehaviour
 
     protected virtual void OnTriggerStay2D(Collider2D other)
     {
+        if (enemiesHit.Count >= MaxEnemiesToHit)
+            return;
+        
         GameObject target = other.gameObject;
 
         if (enemiesHit.Contains(target))

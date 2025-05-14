@@ -28,6 +28,7 @@ public class PowerUpChoiceMenu : MonoBehaviour
     public Sprite IconIceSpell;
     public Sprite IconFireSpell;
     public Sprite IconHealSpell;
+    public Sprite IconLightningSpell;
 
     void Start()
     {
@@ -111,6 +112,10 @@ public class PowerUpChoiceMenu : MonoBehaviour
         else if (choiceNumber == "Heal Spell")
         {
             choiceIcon.sprite = IconHealSpell;
+        }
+        else if (choiceNumber == "Lightning Spell")
+        {
+            choiceIcon.sprite = IconLightningSpell;
         }
         else
         {

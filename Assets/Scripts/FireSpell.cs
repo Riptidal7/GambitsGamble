@@ -2,7 +2,7 @@ public class FireSpell : SpellParent
 {
     protected override void Start()
     {
-        SpellFlatDamage = GameParameters.FireSpell1DFlatDamage;
+        SpellFlatDamage = GameParameters.FireSpell1FlatDamage;
         base.Start();
     }
 

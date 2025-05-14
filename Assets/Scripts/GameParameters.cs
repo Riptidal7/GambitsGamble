@@ -36,18 +36,23 @@ public static class GameParameters
     public static int SlimeFreezeDuration = 5;
     public static int Mob2FreezeDuration = 5;
 
-    public static int FireSpell1DFlatDamage = 5;
+    public static int FireSpell1FlatDamage = 5;
     public static int IceSpell1FlatDamage = 5;
+    public static int LightningSpell1Damage = 3;
     public static int HealSpell1Heal = 2;
     public static int MeleeAttackDamage = 3;
     
-    public static int FireSpell2DFlatDamage = 7;
+    public static int FireSpell2FlatDamage = 7;
     public static int IceSpell2FlatDamage = 7;
+    public static int LightningSpell2Damage = 6;
     public static int HealSpell2Heal = 4;
     
     public static int FireSpell3DFlatDamage = 10;
     public static int IceSpell3FlatDamage = 10;
     public static int HealSpell3Heal = 3;
+
+    public static int Lightning1EnemiesHit = 3;
+    public static int Lightning2EnemiesHit = 6;
 
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;
