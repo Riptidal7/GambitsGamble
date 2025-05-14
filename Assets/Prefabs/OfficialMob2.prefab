@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1112074756656315062}
   - component: {fileID: 907086163903172574}
   - component: {fileID: 2060563330697754177}
+  - component: {fileID: -201099613467001506}
   m_Layer: 0
   m_Name: OfficialMob2
   m_TagString: Mob2
@@ -195,6 +196,7 @@ MonoBehaviour:
   slowDuration: 0
   isFrozen: 0
   freezeDuration: 0
+  burningEffect: {fileID: 0}
 --- !u!95 &2060563330697754177
 Animator:
   serializedVersion: 7
@@ -217,3 +219,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-201099613467001506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3903257011225345089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1d794f1ada77142ab25c616bab9934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 1112074756656315062}
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
