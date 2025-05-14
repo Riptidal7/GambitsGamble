@@ -51,6 +51,9 @@ public static class GameParameters
     public static int IceSpell3FlatDamage = 10;
     public static int HealSpell3Heal = 3;
 
+    public static int Lightning1EnemiesHit = 3;
+    public static int Lightning2EnemiesHit = 6;
+
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;
     

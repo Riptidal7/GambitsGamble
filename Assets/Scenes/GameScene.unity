@@ -521,7 +521,7 @@ MonoBehaviour:
   iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
   lightningSpellPrefab: {fileID: 8561863174762509988, guid: 7e8572d7cede34b1eb1a7d9ffcef44f1, type: 3}
-  lightningSpell2Prefab: {fileID: 4432828856168832148, guid: 2b70837232c244f419bb30ad40c73d14, type: 3}
+  lightningSpell2Prefab: {fileID: 1939616645084462552, guid: e74b92c1c95504df285d5a075fc1f399, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
@@ -3615,6 +3615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxEnemiesToHit: 2147483647
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -5084,6 +5085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2e3cc820b485043aa5738e1eb098c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxEnemiesToHit: 2147483647
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0
