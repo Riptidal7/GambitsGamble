@@ -520,6 +520,8 @@ MonoBehaviour:
   fireSpell2Prefab: {fileID: 4393446294252543987, guid: bfd44c1b9d450134ebab0690444374ab, type: 3}
   iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
+  lightningSpellPrefab: {fileID: 0}
+  lightningSpell2Prefab: {fileID: 0}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
@@ -3745,53 +3747,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
---- !u!1 &1533233951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1533233953}
-  - component: {fileID: 1533233952}
-  m_Layer: 0
-  m_Name: Heal Spell
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1533233952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533233951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f85dd015a8a5c43858b87bcc26eaeb06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 1808506182}
-  HPDisplayer: {fileID: 1734434230}
-  HealAmount: 0
---- !u!4 &1533233953
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533233951}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.19204405, y: 1.2792346, z: 6.677587}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1555243214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5968,7 +5923,6 @@ SceneRoots:
   - {fileID: 1459683029}
   - {fileID: 1193818370}
   - {fileID: 731507112}
-  - {fileID: 1533233953}
   - {fileID: 1386807739}
   - {fileID: 153058465}
   - {fileID: 1285578986}
