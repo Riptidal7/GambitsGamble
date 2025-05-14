@@ -110,6 +110,16 @@ public class InstantiateSpell : MonoBehaviour
     {
         InstantiateASpell(iceSpell2Prefab, "IceSpell");
     }
+
+    public void InstantiateLightning1()
+    {
+        InstantiateASpell(lightningSpellPrefab, "LightningSpell");
+    }
+
+    public void InstantiateLightning2()
+    {
+        InstantiateASpell(lightningSpell2Prefab, "LightningSpell");
+    }
     
     public void InstantiateHeal1()
     {

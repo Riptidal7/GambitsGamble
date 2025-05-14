@@ -520,7 +520,7 @@ MonoBehaviour:
   fireSpell2Prefab: {fileID: 4393446294252543987, guid: bfd44c1b9d450134ebab0690444374ab, type: 3}
   iceSpellPrefab: {fileID: 4401035539631354082, guid: f6f4f7c7d5bf69b41b0bd0708bc740a9, type: 3}
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
-  lightningSpellPrefab: {fileID: 0}
+  lightningSpellPrefab: {fileID: 8561863174762509988, guid: 7e8572d7cede34b1eb1a7d9ffcef44f1, type: 3}
   lightningSpell2Prefab: {fileID: 0}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
@@ -1554,6 +1554,8 @@ MonoBehaviour:
   IconIce2Spell: {fileID: 1229545794, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
   IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconHeal2Spell: {fileID: -1058212267, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
+  IconLightningSpell: {fileID: 21300000, guid: 14eee7f74c9f64a65b87aa2aecc5a596, type: 3}
+  IconLightning2Spell: {fileID: 21300000, guid: aaa1253159ca0475085a4fcbc1347a66, type: 3}
   DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
@@ -2051,6 +2053,7 @@ MonoBehaviour:
   IconIceSpell: {fileID: -1906286088, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
+  IconLightningSpell: {fileID: 21300000, guid: 14eee7f74c9f64a65b87aa2aecc5a596, type: 3}
 --- !u!225 &509406405
 CanvasGroup:
   m_ObjectHideFlags: 0
