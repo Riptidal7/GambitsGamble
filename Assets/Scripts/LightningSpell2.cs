@@ -4,7 +4,7 @@ public class LightningSpell2 : SpellParent
 {
     protected override void Start()
     {
-        SpellFlatDamage = GameParameters.LightningSpell1Damage;
+        SpellFlatDamage = GameParameters.LightningSpell2Damage;
         base.Start();
     }
 }
