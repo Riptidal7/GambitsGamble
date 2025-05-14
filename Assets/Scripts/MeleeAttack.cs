@@ -32,7 +32,7 @@ public class MeleeAttack : MonoBehaviour
         {	
 			other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.MeleeAttackDamage;
 
-			if (other.gameObject.GetComponent<Slime>().HitPoints > 0)
+			if (other.gameObject.GetComponent<Slime1>().HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
 				Color defaultColor = other.gameObject.GetComponent<Slime1>().defaultColor;
