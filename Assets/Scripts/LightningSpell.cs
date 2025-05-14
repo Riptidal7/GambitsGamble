@@ -11,6 +11,6 @@ public class LightningSpell : SpellParent
     
     protected override void OnEnemyHit(Enemy enemy)
     {
-        
+        enemy.struckByLightning = true;
     }
 }

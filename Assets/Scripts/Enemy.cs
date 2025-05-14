@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     public int slowDuration;
     public bool isFrozen;
     public int freezeDuration;
+    public bool struckByLightning;
     
     private Rigidbody2D rb;
 
@@ -77,6 +78,11 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(CountdownUntilFreezeOver());
         }
+
+        if (struckByLightning)
+        {
+            StartCoroutine(CountdownForLightningStrike());
+        }
         
     }
 
@@ -119,6 +125,13 @@ public class Enemy : MonoBehaviour
         currentEnemySpeed = enemySpeed;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isFrozen= false;
+    }
+
+    IEnumerator CountdownForLightningStrike()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color=Color.yellow;
+        yield return new WaitForSeconds(1);
+        struckByLightning = false;
     }
 
     IEnumerator CountdownUntilNextBurnDamage()
