@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4586009021162201231}
   - component: {fileID: 5948526571101034082}
   - component: {fileID: -8027949221934373529}
+  - component: {fileID: 7828111255757497119}
   m_Layer: 0
   m_Name: OfficialSlime
   m_TagString: Slime
@@ -390,3 +391,23 @@ MonoBehaviour:
     m_Extent: {x: 0, y: 0, z: 0}
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
+--- !u!114 &7828111255757497119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845882319545647403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1d794f1ada77142ab25c616bab9934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2d: {fileID: 3191260032730941989}
+  delay: 0.15
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
