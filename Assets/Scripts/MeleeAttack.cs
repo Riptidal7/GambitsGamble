@@ -23,6 +23,16 @@ public class MeleeAttack : MonoBehaviour
 	    Vector2 knockbackDirection = Vector2.zero;
 
         SFXManager.Play("EnemyTakesMeleeDamage");
+
+		if (other.gameObject.CompareTag("TutorialEnemy"))
+		{
+			TutorialEnemy tutorialEnemy = other.gameObject.GetComponent<TutorialEnemy>();
+			SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
+			Color defaultColor = Color.white;
+			tutorialEnemy.SetHasBeenHit(true);
+			StartCoroutine(CountdownForDamageIndicator(spriteRenderer, defaultColor));
+		}
+
         if (other.gameObject.CompareTag("Slime"))
         {
 	        Slime slime = other.gameObject.GetComponent<Slime>();

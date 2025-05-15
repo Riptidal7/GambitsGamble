@@ -9,6 +9,6 @@ public class StartScreen : MonoBehaviour
 
     public void OnStartButtonClicked()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TutorialScene");
     }
 }

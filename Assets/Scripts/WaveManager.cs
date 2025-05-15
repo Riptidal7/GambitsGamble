@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public  class WaveManager : MonoBehaviour
 {
@@ -18,12 +19,21 @@ public  class WaveManager : MonoBehaviour
     
     public SFXManager sfxManager;
     public WaveClearDisplayer waveClearDisplayer;
+
     void Start()
     {
+		if (SceneManager.GetActiveScene().name == "TutorialScene")
+		{
+			waveNumber = 0;
+			waveClearedSwitch = false;
+		}
+		else
+		{
         waveNumber = 1;
         //AddMob2s = false;
         waveClearedSwitch = false;
         GenerateNewWave();
+		}
     }
     public void GenerateNewWave()
     {
@@ -46,7 +56,7 @@ public  class WaveManager : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentWave.IsWaveCleared() && !waveClearedSwitch)
+        if (CurrentWave.IsWaveCleared() && !waveClearedSwitch && waveNumber > 0)
         {
             StartCoroutine(ClearWave());
            // waveClearedSwitch = true;
