@@ -173,7 +173,8 @@ MonoBehaviour:
   slowDuration: 0
   isFrozen: 0
   freezeDuration: 0
-  burningEffect: {fileID: 4586009021162201231}
+  struckByLightning: 0
+  mobEffects: {fileID: 4586009021162201231}
 --- !u!50 &3191260032730941989
 Rigidbody2D:
   serializedVersion: 5

@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     
     private Rigidbody2D rb;
 
-    public VisualEffect burningEffect;
+    public VisualEffect mobEffects;
     
     private void Awake()
     {
@@ -102,21 +102,23 @@ public class Enemy : MonoBehaviour
     IEnumerator CountdownUntilBurningOver()
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.red;
-		burningEffect.SendEvent("isBurning");
+		mobEffects.SendEvent("isBurning");
         yield return new WaitForSecondsWhileUnpaused(burnDuration);
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isBurning = false;
-		burningEffect.SendEvent("stopBurning");
+		mobEffects.SendEvent("stopBurning");
     }
     
     IEnumerator CountdownUntilSlowOver()
     {
         gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
         currentEnemySpeed = enemySpeed / 2;
+		mobEffects.SendEvent("isSlow");
         yield return new WaitForSecondsWhileUnpaused(slowDuration);
         currentEnemySpeed = enemySpeed;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
-        isSlowed= false;
+        isSlowed = false;
+		mobEffects.SendEvent("stopSlow");
     }
 
     IEnumerator CountdownUntilFreezeOver()
@@ -124,10 +126,12 @@ public class Enemy : MonoBehaviour
         
         gameObject.GetComponent<SpriteRenderer>().color=Color.blue;
         currentEnemySpeed = 0;
+		mobEffects.SendEvent("isFrozen");
         yield return new WaitForSecondsWhileUnpaused(freezeDuration);
         currentEnemySpeed = enemySpeed;
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
-        isFrozen= false;
+        isFrozen = false;
+		mobEffects.SendEvent("stopFrozen");
     }
 
     IEnumerator CountdownForLightningStrike()
