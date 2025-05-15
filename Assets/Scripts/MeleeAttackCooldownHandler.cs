@@ -1,5 +1,5 @@
 using System.Collections;
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using UnityEngine;
 
 public class MeleeAttackCooldownHandler : MonoBehaviour
