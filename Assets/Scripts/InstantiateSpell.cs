@@ -15,6 +15,8 @@ public class InstantiateSpell : MonoBehaviour
     
     public GameObject lightningSpellPrefab;
     public GameObject lightningSpell2Prefab;
+
+    public GameObject attackSpellPrefab;
     
     
     public HealSpell HealSpell;
@@ -119,6 +121,11 @@ public class InstantiateSpell : MonoBehaviour
     public void InstantiateLightning2()
     {
         InstantiateASpell(lightningSpell2Prefab, "Explosion");
+    }
+
+    public void InstantiateAttackBuff()
+    {
+        InstantiateASpell(attackSpellPrefab, "Explosion");
     }
     
     public void InstantiateHeal1()
