@@ -44,7 +44,7 @@ public class SpellParent : MonoBehaviour
         // Optional override in child class
     }
 
-    IEnumerator CountdownUntilDisappear(int spellLength)
+    protected virtual IEnumerator CountdownUntilDisappear(int spellLength)
     {
         yield return new WaitForSeconds(spellLength);
         Destroy(gameObject);
