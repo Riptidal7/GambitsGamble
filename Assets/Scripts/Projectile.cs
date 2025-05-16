@@ -5,14 +5,18 @@ public class Projectile : MonoBehaviour
 {
     private Rigidbody2D projectileBody;
     private Player Gambit;
+    bool hasBeenHitWithProjectile;
     void Start()
     {
+       
+       
         projectileBody = gameObject.GetComponent<Rigidbody2D>();
         Gambit = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        Vector2 direction=new Vector2(Gambit.transform.position.x,Gambit.transform.position.y); ///I think direction issue is here
-        float ProjectileStrength = 50f; //game parameters
+        Vector3 directionToPlayer = (Gambit.transform.position - transform.position).normalized;
+        //Vector2 direction=new Vector2(Gambit.transform.position.x,Gambit.transform.position.y); ///I think direction issue is here
+        float ProjectileSpeed = 350f; //game parameters
         StartCoroutine(CountdownToDestroy());
-        projectileBody.AddForce(direction*ProjectileStrength);
+        projectileBody.AddForce(directionToPlayer*ProjectileSpeed);
     }
     
     
@@ -22,6 +26,27 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(5f); //rename in game parameters as ProjectileLifespan
         Destroy(gameObject);
     }
+    
+    
+   public void OnTriggerEnter2D(Collider2D other)
+    {
+        bool hasBeenHitWithProjectile = Gambit.TakingDamageRangedMobProjectile;
+        
+        if (hasBeenHitWithProjectile)
+        {
+            DestroyProjectileOnPlayer();
+           
+        }
+        
+
+    }
+
+    public void DestroyProjectileOnPlayer()
+    {
+        Destroy(gameObject);
+    }
+
+    
     
     
 }

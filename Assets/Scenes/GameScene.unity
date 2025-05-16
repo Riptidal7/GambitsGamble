@@ -5060,6 +5060,7 @@ MonoBehaviour:
   HpDisplayer: {fileID: 1734434230}
   TakingDamageSlime: 0
   TakingDamageMob2: 0
+  TakingDamageRangedMobProjectile: 0
   CanTakeDamage: 0
   HitPoints: 0
   currentMoveSpeed: 0
