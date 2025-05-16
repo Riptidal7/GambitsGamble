@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -43,7 +45,6 @@ public class Enemy : MonoBehaviour
     {
         if (PauseController.IsPaused)
             return;
-        
         if (player != null && Vector3.Distance(player.position, transform.position) <= detectionRadius)
         {
             // Calculate the normalized direction vector from the enemy to the player

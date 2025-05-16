@@ -6,8 +6,6 @@ public class Slime : Enemy
     
     private void Start()
     {
-        
-        
         enemySpeed = GameParameters.SlimeSpeed;
         currentEnemySpeed = enemySpeed;
         detectionRadius = GameParameters.SlimeDetectionRadius;

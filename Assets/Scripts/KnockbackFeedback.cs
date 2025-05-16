@@ -14,7 +14,7 @@ public class KnockbackFeedback : MonoBehaviour
    [SerializeField]
    private Rigidbody2D rb2d;
 
-
+//MOVE THESE NUMBERS TO GAME PARAMETERS
    private float strength = 5000f;
    [SerializeField] private float delay = 0.15f;
 
