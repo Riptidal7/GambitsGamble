@@ -19,6 +19,7 @@ public class PowerUpRandomizer : MonoBehaviour
         powerUps.Add("Ice Spell");
         powerUps.Add("Heal Spell");
         powerUps.Add("Lightning Spell");
+        powerUps.Add("Attack Buff Spell");
     }
 
     public string RandomPowerUp()

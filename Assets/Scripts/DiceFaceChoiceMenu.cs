@@ -29,6 +29,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public Sprite IconHeal2Spell;
     public Sprite IconLightningSpell;
     public Sprite IconLightning2Spell;
+    public Sprite IconAttackBuffSpell;
     
   
    public Image DiceFace1Image;
@@ -67,6 +68,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             { "Heal Spell2", IconHeal2Spell },
             {"Lightning Spell", IconLightningSpell},
             {"Lightning Spell2", IconLightning2Spell},
+            {"Attack Buff Spell", IconAttackBuffSpell}
         };
 
         spellActions = new Dictionary<string, Action>
@@ -78,7 +80,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             { "Heal Spell", new Action(() => instantiateSpell.InstantiateHeal1()) },
             { "Heal Spell2", new Action(() => instantiateSpell.InstantiateHeal2()) },
             { "Lightning Spell", new Action(() => instantiateSpell.InstantiateLightning1()) },
-            {"Lightning Spell2", new Action(() => instantiateSpell.InstantiateLightning2()) }
+            {"Lightning Spell2", new Action(() => instantiateSpell.InstantiateLightning2()) },
+            {"Attack Buff Spell", new Action(() => instantiateSpell.InstantiateAttackBuff())}
         };
     }
 
