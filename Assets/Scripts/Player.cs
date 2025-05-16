@@ -60,9 +60,6 @@ public class Player : MonoBehaviour
     
     private void TakeDamage(int damage)
     {
-	    // Start invulnerability period
-	    CanTakeDamage = false; // Disable further damage application
-	    StartCoroutine(CountdownUntilInvulnerabilityOver()); // Start the coroutine to reset invulnerability
 	    
 	    // Apply the damage and play sound
 	    HitPoints -= damage;
@@ -74,7 +71,9 @@ public class Player : MonoBehaviour
 	    {
 		    GameManager.LoadScene("GameOver");
 	    }
-
+	    // Start invulnerability period
+	    CanTakeDamage = false; // Disable further damage application
+	    StartCoroutine(CountdownUntilInvulnerabilityOver()); // Start the coroutine to reset invulnerability
 	    
     }
 
@@ -147,7 +146,7 @@ public class Player : MonoBehaviour
             }
             if (other.CompareTag("EnemyProjectile"))
             {
-	            TakingDamageMob2 = true;
+	            TakingDamageRangedMobProjectile = true;
             }
     }
 
@@ -186,6 +185,12 @@ public class Player : MonoBehaviour
 		
 		yield return new WaitForSeconds(timeLeftUntilInvulnerabilityOver);
 		CanTakeDamage = true;
+		
+		// Reset the damage flags after invulnerability
+		TakingDamageSlime = false;
+		TakingDamageMob2 = false;
+		TakingDamageRangedMobProjectile = false;
+		
 	}
 
 	// tried to fix repetition in CountdownUntilDamgeIndicatorDone

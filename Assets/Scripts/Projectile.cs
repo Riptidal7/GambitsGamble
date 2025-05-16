@@ -28,22 +28,20 @@ public class Projectile : MonoBehaviour
     }
     
     
-   public void OnTriggerEnter2D(Collider2D other)
-    {
-        bool hasBeenHitWithProjectile = Gambit.TakingDamageRangedMobProjectile;
+   public void OnTriggerEnter2D(Collider2D collider)
+   {   
         
-        if (hasBeenHitWithProjectile)
-        {
-            DestroyProjectileOnPlayer();
-           
-        }
-        
-
+       DestroyProjectileOnPlayer(collider);
+       
     }
 
-    public void DestroyProjectileOnPlayer()
+    public void DestroyProjectileOnPlayer(Collider2D collider)
     {
-        Destroy(gameObject);
+        if (collider.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     
