@@ -3,7 +3,8 @@ using UnityEngine;
 public class AttackBuffSpell : SpellParent
 {
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    protected override int SpellDuration => GameParameters.AttackBuff1Length;
+    
     void Start()
     {
         SpellFlatDamage = GameParameters.MeleeAttackDamage;
@@ -14,9 +15,5 @@ public class AttackBuffSpell : SpellParent
         GameParameters.MeleeAttackDamage = SpellFlatDamage;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

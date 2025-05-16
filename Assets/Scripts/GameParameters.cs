@@ -53,6 +53,8 @@ public static class GameParameters
 
     public static int Lightning1EnemiesHit = 3;
     public static int Lightning2EnemiesHit = 6;
+    
+    public static int AttackBuff1Length = 5;
 
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;

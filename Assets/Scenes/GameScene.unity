@@ -522,6 +522,7 @@ MonoBehaviour:
   iceSpell2Prefab: {fileID: 7128234290265366521, guid: 87635be4e0d48ed4193ce8a324e3254b, type: 3}
   lightningSpellPrefab: {fileID: 8561863174762509988, guid: 7e8572d7cede34b1eb1a7d9ffcef44f1, type: 3}
   lightningSpell2Prefab: {fileID: 1939616645084462552, guid: e74b92c1c95504df285d5a075fc1f399, type: 3}
+  attackSpellPrefab: {fileID: 2251005168890153831, guid: 949b84fee1f324aceaa1a5e0252fda1e, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
