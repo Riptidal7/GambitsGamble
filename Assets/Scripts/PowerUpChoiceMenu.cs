@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PowerUpChoiceMenu : MonoBehaviour
 {
@@ -132,12 +133,19 @@ public class PowerUpChoiceMenu : MonoBehaviour
     public void ShowPowerUpChoiceMenu()
     {
         //add delays?
+		if (SceneManager.GetActiveScene().name == "TutorialScene")
+		{
+			Choice1 = "Fire Spell";
+			Choice2 = "Fire Spell";
+		}
+		else {
+			Choice1 = powerUpRandomizer.RandomPowerUp();
+			Choice2 = powerUpRandomizer.RandomPowerUp();
+		}
+	
         CanvasGroupDisplayer.Show(PowerUpChoiceMenuPanel);
         
-        Choice1 = powerUpRandomizer.RandomPowerUp();
         DisplayChosenChoiceIcon(Choice1, Choice1Image);
-        
-        Choice2 = powerUpRandomizer.RandomPowerUp();
         DisplayChosenChoiceIcon(Choice2, Choice2Image);
         
       

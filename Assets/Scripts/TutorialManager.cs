@@ -12,15 +12,22 @@ public class TutorialManager : MonoBehaviour
     public SFXManager sfxManager;
     public GameObject skipButton;
     public PowerUpChoiceMenu powerUpChoiceMenu;
+    public DiceFaceChoiceMenu diceFaceChoiceMenu;
+    
+    public GameObject tutorialCompletePanel;
+    public Button continueButton;
 
     private bool isWaiting;
     private bool hasPowerUpMenuBeenShown;
+    public bool hasSelectedSpell;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        diceFaceChoiceMenu.isInTutorial = true;
         tutorialSequence = 0;
         tutorialEnemy.SetActive(false);
+        tutorialCompletePanel.SetActive(false);
         isWaiting = false;
         hasPowerUpMenuBeenShown = false;
         
@@ -68,14 +75,44 @@ public class TutorialManager : MonoBehaviour
                 powerUpChoiceMenu.ShowPowerUpChoiceMenu();
                 hasPowerUpMenuBeenShown = true;
             }
+
+            if (diceFaceChoiceMenu.hasSelectedSpell)
+            {
+                diceFaceChoiceMenu.isInTutorial = false;
+                StartCoroutine(CountdownForPause());
+            }
         }
 
-        
+        if (tutorialSequence == 3 && !isWaiting)
+        {
+            tutorialText.text = "Left click to roll die";
+            if (Input.GetMouseButtonDown(0)) 
+            {
+                StartCoroutine(CountdownForPause());
+            }
+        }
+
+        if (tutorialSequence == 4 && !isWaiting)
+        {
+            tutorialText.text = "Right click to cast spell";
+            if (Input.GetMouseButtonDown(1))
+            {
+                StartCoroutine(CountdownForPause());
+            }
+        }
+
+        if (tutorialSequence == 5 && !isWaiting)
+        {
+            tutorialText.text = "";
+            tutorialCompletePanel.SetActive(true);
+            skipButton.SetActive(false);
+        }
         
     }
 
     public void OnSkipButtonClicked()
     {
+        diceFaceChoiceMenu.isInTutorial = false;
         SceneManager.LoadScene("GameScene");
     }
 
@@ -83,7 +120,15 @@ public class TutorialManager : MonoBehaviour
     {
         isWaiting = true;
         SFXManager.Play("Success");
-        yield return new WaitForSeconds(1f);
+        if (tutorialSequence < 3)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(2f);
+        }
+        
         tutorialSequence++;
         isWaiting = false;
     }
