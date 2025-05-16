@@ -53,6 +53,9 @@ public static class GameParameters
 
     public static int Lightning1EnemiesHit = 3;
     public static int Lightning2EnemiesHit = 6;
+    
+    public static int AttackBuff1Length = 5;
+    public static int AttackBuff2Length = 7;
 
     public static float MinSecondsBeforeNextSlimeBurn = 1;
     public static float MaxSecondsBeforeNextSlimeBurn = 3;
@@ -85,4 +88,5 @@ public static class GameParameters
     public static float DiceSpellIconBuffer = 1f;
     
     public static float SpellCastWaitTime = 2f;
+    
 }

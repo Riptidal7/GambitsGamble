@@ -9,12 +9,14 @@ public class SpellParent : MonoBehaviour
     public int SpellFlatDamage;
     public int MaxEnemiesToHit = int.MaxValue;
 
+    protected virtual int SpellDuration => 1;
+
     protected HashSet<GameObject> enemiesHit = new HashSet<GameObject>();
     protected List<Enemy> enemyComponentsHit = new List<Enemy>();
 
     protected virtual void Start()
     {
-        StartCoroutine(CountdownUntilDisappear());
+        StartCoroutine(CountdownUntilDisappear(SpellDuration));
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)
@@ -42,9 +44,9 @@ public class SpellParent : MonoBehaviour
         // Optional override in child class
     }
 
-    IEnumerator CountdownUntilDisappear()
+    protected virtual IEnumerator CountdownUntilDisappear(int spellLength)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(spellLength);
         Destroy(gameObject);
     }
 }

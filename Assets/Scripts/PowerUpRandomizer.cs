@@ -15,10 +15,11 @@ public class PowerUpRandomizer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        powerUps.Add("Fire Spell");
-        powerUps.Add("Ice Spell");
-        powerUps.Add("Heal Spell");
-        powerUps.Add("Lightning Spell");
+        //powerUps.Add("Fire Spell");
+        //powerUps.Add("Ice Spell");
+        //powerUps.Add("Heal Spell");
+        //powerUps.Add("Lightning Spell");
+        powerUps.Add("Attack Buff Spell");
     }
 
     public string RandomPowerUp()
