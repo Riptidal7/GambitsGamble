@@ -10,6 +10,8 @@ public class KeyboardInput : MonoBehaviour
     public MeleeAttackCooldownHandler meleeAttackCooldownHandler;
     public PauseMenu PauseMenu;
     
+    public GameObject projectilePrefab;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -79,6 +81,11 @@ public class KeyboardInput : MonoBehaviour
         {
             PauseMenu.ToggleShowingMenu();
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(projectilePrefab, new Vector3(0,0,0), Quaternion.identity);
+        }
+        
         
     }
 }

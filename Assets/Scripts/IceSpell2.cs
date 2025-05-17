@@ -29,6 +29,11 @@ public class IceSpell2 : MonoBehaviour
             other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
             other.gameObject.GetComponent<Slime1>().isFrozen = true;
         }
+        if (other.gameObject.tag == "RangedMob")
+        {
+            other.gameObject.GetComponent<RangedMob>().HitPoints -=GameParameters.IceSpell2FlatDamage;
+            other.gameObject.GetComponent<RangedMob>().isFrozen = true;
+        }
     }
 
     IEnumerator CountdownUntilDisappear()

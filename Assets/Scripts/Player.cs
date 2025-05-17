@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public HPDisplayer HpDisplayer;
     public bool TakingDamageSlime;
     public bool TakingDamageMob2;
+    public bool TakingDamageRangedMobProjectile;
     public bool CanTakeDamage;
     
     public int HitPoints;
@@ -36,38 +37,44 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TakingDamageSlime)
-        {
-            if (CanTakeDamage)
-            {
-                HitPoints--;
-				SFXManager.Play("PlayerTakesDamage");
-                if (GameManager.CheckIfGameOver(gameObject.GetComponent<Player>()))
-                {
-                    GameManager.LoadScene("GameOver");
-                }
-                HpDisplayer.UpdateHP(HitPoints);
-                CanTakeDamage = false;
-                StartCoroutine(CountdownUntilInvulnerabilityOver());
-            }
-        }
+	    if (CanTakeDamage)
+	    {
+		    // Check if the player is in contact with any damaging object
+		    if (TakingDamageSlime)
+		    {
+			    TakeDamage(1); // Apply damage for Slime
+		    }
+
+		    if (TakingDamageMob2)
+		    {
+			    TakeDamage(2); // Apply damage for Mob2
+		    }
+
+		    if (TakingDamageRangedMobProjectile)
+		    {
+			    TakeDamage(1); // Apply damage for Ranged Mob Projectile
+		    }
+	    }
         
-        if (TakingDamageMob2)
-        {
-            if (CanTakeDamage)
-            {
-                HitPoints-=2;
-				SFXManager.Play("PlayerTakesDamage");
-                if (GameManager.CheckIfGameOver(gameObject.GetComponent<Player>()))
-                {
-                    GameManager.LoadScene("GameOver");
-                }
-                HpDisplayer.UpdateHP(HitPoints);
-                CanTakeDamage = false;
-                StartCoroutine(CountdownUntilInvulnerabilityOver());
-            }
-        }
-        
+    }
+    
+    private void TakeDamage(int damage)
+    {
+	    
+	    // Apply the damage and play sound
+	    HitPoints -= damage;
+	    SFXManager.Play("PlayerTakesDamage");
+	    HpDisplayer.UpdateHP(HitPoints);
+
+	    // Check for game over
+	    if (GameManager.CheckIfGameOver(gameObject.GetComponent<Player>()))
+	    {
+		    GameManager.LoadScene("GameOver");
+	    }
+	    // Start invulnerability period
+	    CanTakeDamage = false; // Disable further damage application
+	    StartCoroutine(CountdownUntilInvulnerabilityOver()); // Start the coroutine to reset invulnerability
+	    
     }
 
     public void Move(Vector2 direction)
@@ -129,25 +136,33 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.gameObject.tag == "Slime")
+            if (other.CompareTag("Slime"))
             {
                 TakingDamageSlime = true;
             }
-            if (other.gameObject.tag == "Mob2")
+            if (other.CompareTag("Mob2"))
             {
                 TakingDamageMob2 = true;
+            }
+            if (other.CompareTag("EnemyProjectile"))
+            {
+	            TakingDamageRangedMobProjectile = true;
             }
     }
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Slime")
+	    if (other.CompareTag("Slime"))
         {
             TakingDamageSlime = false;
         }
-        if (other.gameObject.tag == "Mob2")
+	    if (other.CompareTag("Mob2"))
         {
             TakingDamageMob2 = false;
+        }
+	    if (other.CompareTag("EnemyProjectile"))
+        {
+	        TakingDamageRangedMobProjectile = false;
         }
     }
 
@@ -170,6 +185,12 @@ public class Player : MonoBehaviour
 		
 		yield return new WaitForSeconds(timeLeftUntilInvulnerabilityOver);
 		CanTakeDamage = true;
+		
+		// Reset the damage flags after invulnerability
+		TakingDamageSlime = false;
+		TakingDamageMob2 = false;
+		TakingDamageRangedMobProjectile = false;
+		
 	}
 
 	// tried to fix repetition in CountdownUntilDamgeIndicatorDone

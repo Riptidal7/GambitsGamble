@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -39,19 +41,10 @@ public class Enemy : MonoBehaviour
         canTakeBurnDamage = true;
     }
     
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (PauseController.IsPaused)
             return;
-        
-        if (player != null && Vector3.Distance(player.position, transform.position) <= detectionRadius)
-        {
-            // Calculate the normalized direction vector from the enemy to the player
-            Vector3 direction = (player.position - transform.position).normalized;
-            // Moves enemy towards player
-            rb.MovePosition(transform.position + direction * currentEnemySpeed * Time.fixedDeltaTime);
-        }
-
         if (!isWaitingToFreezeRandomly)
         {
             StartCoroutine(CountdownUntilFreezeRandomly());
@@ -86,9 +79,23 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(CountdownForLightningStrike());
         }
+        if (player != null && Vector3.Distance(player.position, transform.position) <= detectionRadius)
+        {
+            MoveTowardsPlayer();
+            
+        }
         
     }
 
+    //"virtual" allows a method to be overridden in child classes
+    public virtual void MoveTowardsPlayer()
+    {
+        // Calculate the normalized direction vector from the enemy to the player
+        Vector3 direction = (player.position - transform.position).normalized;
+        // Moves enemy towards player
+        rb.MovePosition(transform.position + direction * currentEnemySpeed * Time.fixedDeltaTime);
+    }
+    
     IEnumerator CountdownUntilFreezeRandomly()
     {
         isWaitingToFreezeRandomly = true;

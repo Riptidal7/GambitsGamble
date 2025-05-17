@@ -9,6 +9,8 @@ TagManager:
   - Mob2
   - WaveManager
   - TutorialEnemy
+  - EnemyProjectile
+  - RangedMob
   layers:
   - Default
   - TransparentFX

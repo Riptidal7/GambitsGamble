@@ -8,16 +8,20 @@ public class EnemyWave : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public int NumberOfSlimes;
     public int NumberOfMob2s;
+    public int NumberofRangedMobs; //will def need this
     public GameObject SlimePrefab;
     public List<GameObject> enemies;
     public GameObject Mob2Prefab;
     public Player Gambit;
     public bool WaveCleared;
 
-    public void CreateNewWave(int numberOfSlimes, int numberOfMob2s)
+    public GameObject RangedMobPrefab;
+    
+    public void CreateNewWave(int numberOfSlimes, int numberOfMob2s, int numberofRangedMobs)
     {
         NumberOfSlimes = numberOfSlimes;
         NumberOfMob2s = numberOfMob2s;
+        NumberofRangedMobs = numberofRangedMobs;
         for (int a = 0; a < NumberOfSlimes;a++)
         {
             Vector3 SlimeSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
@@ -41,6 +45,18 @@ public class EnemyWave : MonoBehaviour
            }
            GameObject tempMob2=Instantiate(Mob2Prefab, Mob2SpawnLocation, Quaternion.identity);
            enemies.Add(tempMob2);
+        }
+        for (int a = 0; a < NumberofRangedMobs;a++)
+        {
+            Vector3 RangedMobSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
+                Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+            while (Vector3.Distance(RangedMobSpawnLocation,Gambit.transform.position)<5)
+            {
+                RangedMobSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
+                    Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
+            }
+            GameObject tempRangedMob = Instantiate(RangedMobPrefab, RangedMobSpawnLocation, Quaternion.identity);
+            enemies.Add(tempRangedMob);
         }
     }
     

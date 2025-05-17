@@ -897,6 +897,7 @@ MonoBehaviour:
   instantiateSpell: {fileID: 100894888}
   meleeAttackCooldownHandler: {fileID: 1193818369}
   PauseMenu: {fileID: 1645635871}
+  projectilePrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
 --- !u!4 &182847311
 Transform:
   m_ObjectHideFlags: 0
@@ -2305,11 +2306,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NumberOfSlimes: 0
   NumberOfMob2s: 0
+  NumberofRangedMobs: 0
   SlimePrefab: {fileID: 3845882319545647403, guid: 854fe7851e69d43b58bd1c758d93eb19, type: 3}
   enemies: []
   Mob2Prefab: {fileID: 3903257011225345089, guid: 2783309823b534e2892afb3590e85ae6, type: 3}
   Gambit: {fileID: 1808506182}
   WaveCleared: 0
+  RangedMobPrefab: {fileID: 3845882319545647403, guid: 1d804b2e710691d4990ccdb2671efc49, type: 3}
 --- !u!114 &708677845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4529,6 +4532,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1632105996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1632105997}
+  - component: {fileID: 1632105998}
+  m_Layer: 0
+  m_Name: ProjectileAttackHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1632105997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632105996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -104668.78, y: 43853.75, z: -823.81696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632105998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632105996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57da520ffe7e53f4ab9603fdbb786d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolballPrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
 --- !u!224 &1638036633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4815785561577794351, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
@@ -4929,6 +4977,7 @@ MonoBehaviour:
   HpDisplayer: {fileID: 1734434230}
   TakingDamageSlime: 0
   TakingDamageMob2: 0
+  TakingDamageRangedMobProjectile: 0
   CanTakeDamage: 0
   HitPoints: 0
   currentMoveSpeed: 0
@@ -6481,6 +6530,7 @@ SceneRoots:
   - {fileID: 1768509681}
   - {fileID: 1459683029}
   - {fileID: 1193818370}
+  - {fileID: 1632105997}
   - {fileID: 731507112}
   - {fileID: 1386807739}
   - {fileID: 153058465}
