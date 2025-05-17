@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class RangedMob : Enemy
 {
-    private float minDistanceFromGambit = 250;
+    private float minDistanceFromGambit = 3f;  // Minimum distance the mob needs to be from the player to shoot
+    private float maxDistanceToMoveToGambit = 6f; // Maximum distance the mob is allowed to be from the player before it starts moving
+    private float minShootDistance = 3f;
+    private float maxShootDistance = 3.5f;
+
+    private float shootTolerance = 1f; // buffer zone to avoid flickering
+
     public GameObject projectilePrefab;
-
-    private bool canInstantiateProjectile = true;
-
-    private bool isShooting = false; //to track if the mob is alr shooting a projectle
     
+    private bool canInstantiateProjectile = true;
+    private bool isShooting = false; //to track if the mob is alr shooting a projectle
+    private bool shouldMove = true;  //  to track whether the mob should move
+    
+    private Transform playerTransform;
     private void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
         enemySpeed = GameParameters.SlimeSpeed;
         currentEnemySpeed = enemySpeed;
         detectionRadius = GameParameters.SlimeDetectionRadius;
@@ -28,17 +37,51 @@ public class RangedMob : Enemy
         freezeDuration = GameParameters.SlimeFreezeDuration;
     }
   
-    void Update()
+    protected override void FixedUpdate()
     {
-    
-        if(canInstantiateProjectile && !isShooting)
+        //ensuring inherited code is called (all the potential spell effects inflicted, or death
+        base.FixedUpdate();
+        
+        // Distance calculation to the player
+        float distanceToGambit = Vector2.Distance(transform.position, playerTransform.position);
+        print($"Distance to Gambit: {distanceToGambit}");
+
+        // Allow movement if not shooting (inherited movement)
+        if (distanceToGambit > maxDistanceToMoveToGambit && !isShooting)
         {
-            print("mob is shooting bc it is close enough");
-            print("slow poke is trying to stop to shoot projectile");
+            shouldMove = true;
+            print($"shouldMove set to true. Distance: {distanceToGambit}");
+        }
+        else if (distanceToGambit >= minShootDistance - shootTolerance && distanceToGambit <= maxShootDistance + shootTolerance && canInstantiateProjectile && !isShooting)
+        {
+            shouldMove = false;
+            print($"shouldMove set to false. Distance: {distanceToGambit}");
             StopMovingAndShootProjectile();
         }
-        
-        
+        else if (distanceToGambit > maxShootDistance + shootTolerance && distanceToGambit <= maxDistanceToMoveToGambit)
+        {
+            shouldMove = true;
+            print($"shouldMove set to true. Distance: {distanceToGambit}");
+        }
+        else
+        {
+            print($"No action taken. Distance: {distanceToGambit}");
+            StopMovingAndShootProjectile();
+        }
+    }
+
+    
+    //Li: this is being called in parent class's fixed update
+    //Li: method is called in parent class, but you can use "override" to change the logic only in the child class 
+    //Li: in this case im using a bool to dictate when i want to move the ranged mob (differently from slimes)
+    public override void MoveTowardsPlayer()
+    {
+       
+        if (shouldMove)
+        {
+            base.MoveTowardsPlayer();
+        }
+       
     }
 
     private void StopMovingAndShootProjectile()
@@ -46,7 +89,6 @@ public class RangedMob : Enemy
         //prevents repeated more shooting if  already shooting
         if (isShooting) return;
         
-        print("enemy should stop moving entirely");
         currentEnemySpeed = 0;
         
         isShooting = true;

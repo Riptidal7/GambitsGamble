@@ -2800,7 +2800,7 @@ MonoBehaviour:
   minSecondsUntilNextBurn: 0
   maxSecondsUntilNextBurn: 0
   burnDuration: 0
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  defaultColor: {r: 0.227451, g: 0.47450984, b: 0.73333335, a: 0}
   isSlowed: 0
   slowDuration: 0
   isFrozen: 0
@@ -2943,7 +2943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4225, y: 0.9212223}
   m_AnchorMax: {x: 0.5795625, y: 1}
-  m_AnchoredPosition: {x: 0.6499634, y: 4.450012}
+  m_AnchoredPosition: {x: 0.6499634, y: 4.449997}
   m_SizeDelta: {x: 1.3, y: 8.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141975584
