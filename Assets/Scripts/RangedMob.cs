@@ -8,7 +8,9 @@ public class RangedMob : Enemy
     public GameObject projectilePrefab;
 
     private bool canInstantiateProjectile = true;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private bool isShooting = false; //to track if the mob is alr shooting a projectle
+    
     private void Start()
     {
         enemySpeed = GameParameters.SlimeSpeed;
@@ -25,19 +27,33 @@ public class RangedMob : Enemy
         slowDuration = GameParameters.SlimeSlowDuration;
         freezeDuration = GameParameters.SlimeFreezeDuration;
     }
-    // Update is called once per frame
+  
     void Update()
     {
-        ///SET SPEED TO 0 RATHER THAN MAKING NEW MOVE METHOD
     
-        if(canInstantiateProjectile)
+        if(canInstantiateProjectile && !isShooting)
         {
             print("mob is shooting bc it is close enough");
-            InstantiateProjectile();
-            StartCoroutine(CooldownToInstantiateProjectile());
+            print("slow poke is trying to stop to shoot projectile");
+            StopMovingAndShootProjectile();
         }
         
         
+    }
+
+    private void StopMovingAndShootProjectile()
+    {
+        //prevents repeated more shooting if  already shooting
+        if (isShooting) return;
+        
+        print("enemy should stop moving entirely");
+        currentEnemySpeed = 0;
+        
+        isShooting = true;
+        
+        //starts delays within to make projectile shots feel good and timed
+        StartCoroutine(DelayAndShootProjectile());
+
     }
 
     private void InstantiateProjectile()
@@ -48,7 +64,21 @@ public class RangedMob : Enemy
     IEnumerator CooldownToInstantiateProjectile()
     {
         canInstantiateProjectile = false;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f); //put into game parameters
         canInstantiateProjectile = true;
+    }
+
+    private IEnumerator DelayAndShootProjectile()
+    {
+        yield return new WaitForSeconds(2f); //put into game parameters: delayTimeBeforeShooting
+        
+        InstantiateProjectile();
+        
+        yield return new WaitForSeconds(2f); //put into game paramenters: delayTimeAfterShooting
+
+        currentEnemySpeed = enemySpeed;
+        StartCoroutine(CooldownToInstantiateProjectile());
+
+        isShooting = false; //everything finished and can restart
     }
 }
