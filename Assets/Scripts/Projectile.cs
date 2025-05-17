@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
         Gambit = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         Vector3 directionToPlayer = (Gambit.transform.position - transform.position).normalized;
         //Vector2 direction=new Vector2(Gambit.transform.position.x,Gambit.transform.position.y); ///I think direction issue is here
-        float ProjectileSpeed = 350f; //game parameters
+        float ProjectileSpeed = GameParameters.ProjectileSpeed; //game parameters
         StartCoroutine(CountdownToDestroy());
         projectileBody.AddForce(directionToPlayer*ProjectileSpeed);
     }
@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
     
     IEnumerator CountdownToDestroy()
     {
-        yield return new WaitForSeconds(5f); //rename in game parameters as ProjectileLifespan
+        yield return new WaitForSeconds(GameParameters.ProjectileLifespan); //rename in game parameters as ProjectileLifespan
         Destroy(gameObject);
     }
     

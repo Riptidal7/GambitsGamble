@@ -85,4 +85,18 @@ public static class GameParameters
     public static float DiceSpellIconBuffer = 1f;
     
     public static float SpellCastWaitTime = 2f;
+    
+    //start of projectile and ranged parameters
+    public static float ProjectileSpeed = 350f;
+    public static float ProjectileLifespan = 5f;
+    public static float InstantiateProjectileCooldown = 8f;
+    public static float DelayTimeBeforeShooting = 2f;
+    public static float DelayTimeAfterShooting = 2f;
+    
+    public static float MinDistanceFromGambit = 3f;
+    public static float MaxDistanceToMoveToGambit = 6f; 
+    public static float MinShootDistance = 3f;
+    public static float MaxShootDistance = 3.5f;
+
+    public static float ShootTolerance = 1f; // buffer zone to avoid flickering btwn shoot conditions
 }

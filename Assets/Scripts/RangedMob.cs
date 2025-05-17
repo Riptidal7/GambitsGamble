@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class RangedMob : Enemy
 {
-    private float minDistanceFromGambit = 3f;  // Minimum distance the mob needs to be from the player to shoot
-    private float maxDistanceToMoveToGambit = 6f; // Maximum distance the mob is allowed to be from the player before it starts moving
-    private float minShootDistance = 3f;
-    private float maxShootDistance = 3.5f;
+    private float minDistanceFromGambit = GameParameters.MinDistanceFromGambit;  // unused, might use later if mobs retreat
+    private float maxDistanceToMoveToGambit = GameParameters.MaxDistanceToMoveToGambit; // Maximum distance the mob is allowed to be from the player before it starts moving
+    private float minShootDistance = GameParameters.MinShootDistance;
+    private float maxShootDistance = GameParameters.MaxShootDistance;
 
-    private float shootTolerance = 1f; // buffer zone to avoid flickering
+    private float shootTolerance = GameParameters.ShootTolerance; // buffer zone to avoid mob flickering between two positons
 
     public GameObject projectilePrefab;
     
     private bool canInstantiateProjectile = true;
     private bool isShooting = false; //to track if the mob is alr shooting a projectle
     private bool shouldMove = true;  //  to track whether the mob should move
+    
+    
     
     private Transform playerTransform;
     private void Start()
@@ -45,20 +47,29 @@ public class RangedMob : Enemy
         // Distance calculation to the player
         float distanceToGambit = Vector2.Distance(transform.position, playerTransform.position);
         print($"Distance to Gambit: {distanceToGambit}");
+        
+        //for readability of checks
+        bool isTooFarToShoot = distanceToGambit > maxDistanceToMoveToGambit && !isShooting;
+        bool isWithinShootRange = distanceToGambit >= minShootDistance - shootTolerance 
+                                  && distanceToGambit <= maxShootDistance + shootTolerance 
+                                  && canInstantiateProjectile 
+                                  && !isShooting;
+        bool isFarEnoughToMoveButNotShoot = distanceToGambit > maxShootDistance + shootTolerance 
+                                      && distanceToGambit <= maxDistanceToMoveToGambit;
 
         // Allow movement if not shooting (inherited movement)
-        if (distanceToGambit > maxDistanceToMoveToGambit && !isShooting)
+        if (isTooFarToShoot)
         {
             shouldMove = true;
             print($"shouldMove set to true. Distance: {distanceToGambit}");
         }
-        else if (distanceToGambit >= minShootDistance - shootTolerance && distanceToGambit <= maxShootDistance + shootTolerance && canInstantiateProjectile && !isShooting)
+        else if (isWithinShootRange)
         {
             shouldMove = false;
             print($"shouldMove set to false. Distance: {distanceToGambit}");
             StopMovingAndShootProjectile();
         }
-        else if (distanceToGambit > maxShootDistance + shootTolerance && distanceToGambit <= maxDistanceToMoveToGambit)
+        else if (isFarEnoughToMoveButNotShoot)
         {
             shouldMove = true;
             print($"shouldMove set to true. Distance: {distanceToGambit}");
@@ -106,17 +117,17 @@ public class RangedMob : Enemy
     IEnumerator CooldownToInstantiateProjectile()
     {
         canInstantiateProjectile = false;
-        yield return new WaitForSeconds(8f); //put into game parameters
+        yield return new WaitForSeconds(GameParameters.InstantiateProjectileCooldown); 
         canInstantiateProjectile = true;
     }
 
     private IEnumerator DelayAndShootProjectile()
     {
-        yield return new WaitForSeconds(2f); //put into game parameters: delayTimeBeforeShooting
+        yield return new WaitForSeconds(GameParameters.DelayTimeBeforeShooting); 
         
         InstantiateProjectile();
         
-        yield return new WaitForSeconds(2f); //put into game paramenters: delayTimeAfterShooting
+        yield return new WaitForSeconds(GameParameters.DelayTimeAfterShooting); 
 
         currentEnemySpeed = enemySpeed;
         StartCoroutine(CooldownToInstantiateProjectile());
