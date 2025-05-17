@@ -39,16 +39,21 @@ public class MeleeAttack : MonoBehaviour
 	        slime.HitPoints -= GameParameters.MeleeAttackDamage;
 	        
 	        KnockbackFeedback slimeKnockback = slime.GetComponent<KnockbackFeedback>();
-	        if (slimeKnockback != null)
+	        if (slimeKnockback != null )
 	        {
+		    
+		        
 		        slimeKnockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
 		        slimeKnockback.ApplyKnockback(direction, knockbackDirection);
+		        
+		    
 	        }
-	        else
+	       
 			if (slime.HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
 				Color defaultColor = slime.defaultColor;
+				
 				StartCoroutine(CountdownForDamageIndicator(spriteRenderer, defaultColor));
 			}
 			
@@ -66,7 +71,6 @@ public class MeleeAttack : MonoBehaviour
 		        slime1Knockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
 		        slime1Knockback.ApplyKnockback(direction, knockbackDirection);
 	        }
-	        else
 			if (slime1.HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
