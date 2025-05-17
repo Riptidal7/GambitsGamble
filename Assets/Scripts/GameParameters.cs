@@ -2,7 +2,6 @@ using UnityEngine;
 
 public static class GameParameters
 {
-  
     //Charlotte: I'm pretty sure knockback has to be greater than movespeed or he'll vibrate forward anyway
     public static float PlayerMoveSpeed = 5f;
     public static float PlayerConstraintKnockback = 0.05f;
@@ -19,22 +18,32 @@ public static class GameParameters
 
     public static float Mob2Speed = 3;
     public static float Mob2DetectionRange = 100;
+    
+    public static float RangedMobSpeed = 1.5f;
+    public static float RangedMobDetectionRadius = 100;
 
     public static int SlimeHP = 20;
 
     public static int Mob2HP = 20;
 
+    public static int RangedMobHP = 20;
+
     public static Color defaultSlimeColor = Color.white;
     public static Color defaultMob2Color = Color.magenta;
+    public static Color defaultRangedMobColor = Color.black;
 
     public static int SlimeBurnDuration = 5;
     public static int Mob2BurnDuration = 5;
+    public static int RangedMobBurnDuration = 5;
 
     public static int SlimeSlowDuration = 8;
     public static int Mob2SlowDuration = 8;
+    public static int RangedMobSlowDuration = 8;
+   
 
     public static int SlimeFreezeDuration = 5;
     public static int Mob2FreezeDuration = 5;
+    public static int RangedMobFreezeDuration = 5;
 
     public static int FireSpell1FlatDamage = 5;
     public static int IceSpell1FlatDamage = 5;
@@ -59,18 +68,27 @@ public static class GameParameters
     
     public static float MinSecondsBeforeNextMob2Burn = 1;
     public static float MaxSecondsBeforeNextMob2Burn = 3;
+    
+    public static float MinSecondsBeforeNextRangedMobBurn = 1;
+    public static float MaxSecondsBeforeNextRangedMobBurn = 3;
 
     public static int MinNumberSlimesPerWave = 1;
     public static int MaxNumberSlimesPerWave = 2;
-
+    
     public static int MinNumberMob2sPerWave = 0;
     public static int MaxNumberMob2sPerWave = 1;
-
+    
+    public static int MinNumberRangedMobsPerWave = 1;
+    public static int MaxNumberRangedMobsPerWave = 2;
+    
     public static float MinSecondsUntilSlimeFreeze = 3;
     public static float MaxSecondsUntilSlimeFreeze = 7;
 
     public static float MinSecondsUntilMob2Freeze = 5;
     public static float MaxSecondsUntilMob2Freeze = 10;
+    
+    public static float MinSecondsUntilRangedMobFreeze = 3;
+    public static float MaxSecondsUntilRangedMobFreeze = 7;
 
     public static float MapMinX = -20; //left
     public static float MapMaxX = 25; //right

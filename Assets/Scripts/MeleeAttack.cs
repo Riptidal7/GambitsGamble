@@ -42,13 +42,9 @@ public class MeleeAttack : MonoBehaviour
 	        if (slimeKnockback != null)
 	        {
 		        slimeKnockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
-		        Debug.Log("Applying knockback to Slime in direction: " + knockbackDirection);
 		        slimeKnockback.ApplyKnockback(direction, knockbackDirection);
 	        }
 	        else
-		        Debug.LogWarning("No KnockbackFeedback component found on the Slime!");
-
-
 			if (slime.HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
@@ -68,12 +64,9 @@ public class MeleeAttack : MonoBehaviour
 	        if (slime1Knockback != null)
 	        {
 		        slime1Knockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
-		        Debug.Log("Applying knockback to Slime1 in direction: " + knockbackDirection);
 		        slime1Knockback.ApplyKnockback(direction, knockbackDirection);
 	        }
 	        else
-		        Debug.LogWarning("No KnockbackFeedback component found on the Slime1!");
-	        
 			if (slime1.HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
@@ -82,6 +75,28 @@ public class MeleeAttack : MonoBehaviour
 			}
 			
 		}
+        
+        if (other.gameObject.CompareTag("RangedMob"))
+        {	
+	        RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
+	        rangedMob.HitPoints -= GameParameters.MeleeAttackDamage;
+
+	        // Get KnockbackFeedback component from the Slime1
+	        KnockbackFeedback rangedMobKnockback = rangedMob.GetComponent<KnockbackFeedback>();
+	        if (rangedMobKnockback != null)
+	        {
+		        rangedMobKnockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
+		        rangedMobKnockback.ApplyKnockback(direction, knockbackDirection);
+	        }
+	        
+	        if (rangedMob.HitPoints > 0)
+	        {
+		        SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
+		        Color defaultColor = rangedMob.defaultColor;
+		        StartCoroutine(CountdownForDamageIndicator(spriteRenderer, defaultColor));
+	        }
+			
+        }
     }
 
     IEnumerator CountdownUntilDisappear()

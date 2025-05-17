@@ -40,6 +40,12 @@ public  class WaveManager : MonoBehaviour
         WaveDisplayer.UpdateWaveCount(waveNumber);
         int numbSlimes = Random.Range(GameParameters.MinNumberSlimesPerWave, GameParameters.MaxNumberSlimesPerWave+1)/2 + waveNumber;
         int numbMob2s = 0;
+        int numbRangedMobs = 0; 
+            //
+        if (waveNumber >= 2)
+        {
+            numbRangedMobs = Random.Range(GameParameters.MinNumberRangedMobsPerWave, GameParameters.MaxNumberRangedMobsPerWave)/2 + waveNumber;  
+        }
         if(waveNumber % 3 == 0)
         {
             numbMob2s = waveNumber/3;
@@ -50,7 +56,7 @@ public  class WaveManager : MonoBehaviour
             //AddMob2s = true;
             //numbMob2s = waveNumber - 1;
         }
-        CurrentWave.CreateNewWave(numbSlimes,numbMob2s);
+        CurrentWave.CreateNewWave(numbSlimes,numbMob2s, numbRangedMobs);
         waveNumber++;
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using Color = System.Drawing.Color;
 
 public class RangedMob : Enemy
 {
@@ -24,19 +25,19 @@ public class RangedMob : Enemy
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         
-        enemySpeed = GameParameters.SlimeSpeed;
+        enemySpeed = GameParameters.RangedMobSpeed;
         currentEnemySpeed = enemySpeed;
-        detectionRadius = GameParameters.SlimeDetectionRadius;
-        minSecondsUntilFreeze = GameParameters.MinSecondsUntilSlimeFreeze;
-        maxSecondsUntilFreeze = GameParameters.MaxSecondsUntilSlimeFreeze;
-        HitPoints = GameParameters.SlimeHP;
-        minSecondsUntilNextBurn = GameParameters.MinSecondsBeforeNextSlimeBurn;
-        maxSecondsUntilNextBurn = GameParameters.MaxSecondsBeforeNextSlimeBurn;
-        burnDuration = GameParameters.SlimeBurnDuration;
-        defaultColor = GameParameters.defaultSlimeColor;
-        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
-        slowDuration = GameParameters.SlimeSlowDuration;
-        freezeDuration = GameParameters.SlimeFreezeDuration;
+        detectionRadius = GameParameters.RangedMobDetectionRadius;
+        minSecondsUntilFreeze = GameParameters.MinSecondsUntilRangedMobFreeze;
+        maxSecondsUntilFreeze = GameParameters.MaxSecondsUntilRangedMobFreeze;
+        HitPoints = GameParameters.RangedMobHP;
+        minSecondsUntilNextBurn = GameParameters.MinSecondsBeforeNextRangedMobBurn;
+        maxSecondsUntilNextBurn = GameParameters.MaxSecondsBeforeNextRangedMobBurn;
+        burnDuration = GameParameters.RangedMobBurnDuration;
+        defaultColor = GameParameters.defaultRangedMobColor;
+        gameObject.GetComponent<SpriteRenderer>().color = UnityEngine.Color.grey; //change later
+        slowDuration = GameParameters.RangedMobSlowDuration;
+        freezeDuration = GameParameters.RangedMobFreezeDuration;
     }
   
     protected override void FixedUpdate()
@@ -46,7 +47,6 @@ public class RangedMob : Enemy
         
         // Distance calculation to the player
         float distanceToGambit = Vector2.Distance(transform.position, playerTransform.position);
-        print($"Distance to Gambit: {distanceToGambit}");
         
         //for readability of checks
         bool isTooFarToShoot = distanceToGambit > maxDistanceToMoveToGambit && !isShooting;
@@ -61,18 +61,15 @@ public class RangedMob : Enemy
         if (isTooFarToShoot)
         {
             shouldMove = true;
-            print($"shouldMove set to true. Distance: {distanceToGambit}");
         }
         else if (isWithinShootRange)
         {
             shouldMove = false;
-            print($"shouldMove set to false. Distance: {distanceToGambit}");
             StopMovingAndShootProjectile();
         }
         else if (isFarEnoughToMoveButNotShoot)
         {
             shouldMove = true;
-            print($"shouldMove set to true. Distance: {distanceToGambit}");
         }
         else
         {

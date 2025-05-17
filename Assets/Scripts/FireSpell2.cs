@@ -30,6 +30,11 @@ public class FireSpell2 : MonoBehaviour
             other.gameObject.GetComponent<Slime1>().HitPoints -= GameParameters.FireSpell2FlatDamage;
             other.gameObject.GetComponent<Slime1>().isBurning = true;
         }
+        if (other.gameObject.tag == "RangedMob")
+        {
+            other.gameObject.GetComponent<RangedMob>().HitPoints -= GameParameters.FireSpell2FlatDamage;
+            other.gameObject.GetComponent<RangedMob>().isBurning = true;
+        }
     }
 
     IEnumerator CountdownUntilDisappear()

@@ -83,11 +83,6 @@ public class Enemy : MonoBehaviour
         {
             MoveTowardsPlayer();
             
-            /*
-             // Calculate the normalized direction vector from the enemy to the player
-             Vector3 direction = (player.position - transform.position).normalized;
-             // Moves enemy towards player
-             rb.MovePosition(transform.position + direction * currentEnemySpeed * Time.fixedDeltaTime); */
         }
         
     }

@@ -10,6 +10,7 @@ TagManager:
   - WaveManager
   - TutorialEnemy
   - EnemyProjectile
+  - RangedMob
   layers:
   - Default
   - TransparentFX
