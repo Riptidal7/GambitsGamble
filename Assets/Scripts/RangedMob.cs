@@ -35,7 +35,6 @@ public class RangedMob : Enemy
         maxSecondsUntilNextBurn = GameParameters.MaxSecondsBeforeNextRangedMobBurn;
         burnDuration = GameParameters.RangedMobBurnDuration;
         defaultColor = GameParameters.defaultRangedMobColor;
-        gameObject.GetComponent<SpriteRenderer>().color = UnityEngine.Color.grey; //change later
         slowDuration = GameParameters.RangedMobSlowDuration;
         freezeDuration = GameParameters.RangedMobFreezeDuration;
     }
@@ -73,7 +72,6 @@ public class RangedMob : Enemy
         }
         else
         {
-            print($"No action taken. Distance: {distanceToGambit}");
             StopMovingAndShootProjectile();
         }
     }
