@@ -128,35 +128,28 @@ public class Enemy : MonoBehaviour
     
     IEnumerator CountdownUntilBurningOver()
     {
-        gameObject.GetComponent<SpriteRenderer>().color=Color.red;
 		mobEffects.SendEvent("isBurning");
         yield return new WaitForSecondsWhileUnpaused(burnDuration);
-        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isBurning = false;
 		mobEffects.SendEvent("stopBurning");
     }
     
     IEnumerator CountdownUntilSlowOver()
     {
-        gameObject.GetComponent<SpriteRenderer>().color=Color.cyan;
         currentEnemySpeed = enemySpeed / 2;
 		mobEffects.SendEvent("isSlow");
         yield return new WaitForSecondsWhileUnpaused(slowDuration);
         currentEnemySpeed = enemySpeed;
-        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isSlowed = false;
 		mobEffects.SendEvent("stopSlow");
     }
 
     IEnumerator CountdownUntilFreezeOver()
     {
-        
-        gameObject.GetComponent<SpriteRenderer>().color=Color.blue;
         currentEnemySpeed = 0;
 		mobEffects.SendEvent("isFrozen");
         yield return new WaitForSecondsWhileUnpaused(freezeDuration);
         currentEnemySpeed = enemySpeed;
-        gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         isFrozen = false;
 		mobEffects.SendEvent("stopFrozen");
     }
