@@ -8,6 +8,7 @@ public class SpellParent : MonoBehaviour
     [NonSerialized]
     public int SpellFlatDamage;
     public int MaxEnemiesToHit = int.MaxValue;
+    public Health Health;
 
     protected virtual int SpellDuration => 1;
 
@@ -32,7 +33,8 @@ public class SpellParent : MonoBehaviour
         Enemy enemyComponent = target.GetComponent<Enemy>();
         if (enemyComponent != null)
         {
-            enemyComponent.HitPoints -= SpellFlatDamage;
+      //      Health.TakeDamage(enemyComponent.HitPoints, SpellFlatDamage); //THIS WAS CHANGED
+           // enemyComponent.HitPoints -= SpellFlatDamage;
             enemiesHit.Add(target);
             enemyComponentsHit.Add(enemyComponent);
             OnEnemyHit(enemyComponent); // Extension point for child classes

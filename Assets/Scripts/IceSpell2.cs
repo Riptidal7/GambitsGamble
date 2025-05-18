@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class IceSpell2 : MonoBehaviour
 {
+    public Health Health;
     void Start()
     {
 
@@ -19,20 +20,30 @@ public class IceSpell2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Slime")
         {
-            other.gameObject.GetComponent<Slime>().HitPoints-=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<Slime>().isFrozen = true;
+            Slime slime = other.gameObject.GetComponent<Slime>();
+            
+       //     Health.TakeDamage(slime.HitPoints, GameParameters.IceSpell2FlatDamage);
+            //slime.HitPoints-=GameParameters.IceSpell2FlatDamage;
+            slime.isFrozen = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
-            other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<Slime1>().isFrozen = true;
+            
+            Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
+            
+        //    Health.TakeDamage(slime1.HitPoints, GameParameters.IceSpell2FlatDamage);
+            //other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
+            slime1.isFrozen = true;
         }
         if (other.gameObject.tag == "RangedMob")
         {
-            other.gameObject.GetComponent<RangedMob>().HitPoints -=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<RangedMob>().isFrozen = true;
+            RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
+            
+      //      Health.TakeDamage(rangedMob.HitPoints, GameParameters.IceSpell2FlatDamage);
+            //rangedMob.HitPoints -=GameParameters.IceSpell2FlatDamage;
+            rangedMob.isFrozen = true;
         }
     }
 

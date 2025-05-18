@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour
 {
+	GameObject damageNumberPrefab;
 	public KnockbackFeedback knockbackFeedback;  // Only keep this one reference for KnockbackFeedback
 	public Player Gambit;
+	public Health Health;
+	public GameObject damageTextPrefab;
     
 	//public Color defaultColor;
 
@@ -12,6 +15,7 @@ public class MeleeAttack : MonoBehaviour
     {
 		// Ensure Gambit is properly assigned
 	    Gambit = GameObject.FindWithTag("Player").GetComponent<Player>();
+	    Health = GameObject.FindWithTag("Handler").GetComponent<Health>();
         StartCoroutine(CountdownUntilDisappear());
     }
     
@@ -35,7 +39,11 @@ public class MeleeAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Slime"))
         {
 	        Slime slime = other.gameObject.GetComponent<Slime>();
+
+	       // Health.TakeDamage(slime.HitPoints, GameParameters.MeleeAttackDamage); //NEW CODE ADDED HERE
 	        slime.HitPoints -= GameParameters.MeleeAttackDamage;
+	        
+	        Health.DisplayDamageNumber(GameParameters.MeleeAttackDamage, other.gameObject);
 	        
 	        if (!slime.canKnockback) //if slime can't knock back, stop here
 		        return;
@@ -64,7 +72,9 @@ public class MeleeAttack : MonoBehaviour
         if (other.gameObject.CompareTag("Mob2"))
         {	
 	        Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
-	        slime1.HitPoints -= GameParameters.MeleeAttackDamage;
+	        
+	      //  Health.TakeDamage(slime1.HitPoints, GameParameters.MeleeAttackDamage); //NEW CODE HERE 
+	        //slime1.HitPoints -= GameParameters.MeleeAttackDamage;
 	        
 	        if (!slime1.canKnockback) //if slime1/mob2 can't knock back, stop here
 		        return;
@@ -91,7 +101,9 @@ public class MeleeAttack : MonoBehaviour
         if (other.gameObject.CompareTag("RangedMob"))
         {	
 	        RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
-	        rangedMob.HitPoints -= GameParameters.MeleeAttackDamage;
+	        
+	    //    Health.TakeDamage(rangedMob.HitPoints, GameParameters.MeleeAttackDamage);
+	        //rangedMob.HitPoints -= GameParameters.MeleeAttackDamage;
 	        
 	        if (!rangedMob.canKnockback) //if rangedMob can't knock back, stop here
 		        return;

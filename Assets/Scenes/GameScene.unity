@@ -1551,6 +1551,8 @@ MonoBehaviour:
   diceFaceImages: []
   currentSpellSlots: []
   spellToBeApplied: 
+  isInTutorial: 0
+  hasSelectedSpell: 0
   HasBeenClicked: 0
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
@@ -2148,6 +2150,54 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &546850505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 546850507}
+  - component: {fileID: 546850506}
+  m_Layer: 0
+  m_Name: HealthHandler
+  m_TagString: Handler
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &546850506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546850505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faaa20385629ab148a0d11d61f5fd080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextPrefab: {fileID: 4029476065903085524, guid: 693be3d88a8b21343a372f7ae440fcc4, type: 3}
+  damageNumberOffset: {x: 0, y: 1, z: 0}
+  randomOffsetRangeX: 0.2
+  randomOffsetRangeY: 0.5
+--- !u!4 &546850507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546850505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &581866896 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1390088044457374705, guid: bbbdeec6364bc334fac700dc5d31c440, type: 3}
@@ -3128,7 +3178,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -3700,6 +3750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemiesToHit: 2147483647
+  Health: {fileID: 546850506}
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -4576,7 +4627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57da520ffe7e53f4ab9603fdbb786d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolballPrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
 --- !u!224 &1638036633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4815785561577794351, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
@@ -5689,6 +5739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemiesToHit: 2147483647
+  Health: {fileID: 546850506}
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0
@@ -6529,11 +6580,12 @@ SceneRoots:
   - {fileID: 2092239010}
   - {fileID: 1768509681}
   - {fileID: 1459683029}
-  - {fileID: 1193818370}
-  - {fileID: 1632105997}
   - {fileID: 731507112}
   - {fileID: 1386807739}
   - {fileID: 153058465}
   - {fileID: 1285578986}
   - {fileID: 1877778643}
   - {fileID: 1850827348}
+  - {fileID: 546850507}
+  - {fileID: 1632105997}
+  - {fileID: 1193818370}

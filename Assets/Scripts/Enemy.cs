@@ -53,7 +53,8 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(CountdownUntilFreezeRandomly());
         }
-
+        
+        //check for 0 hp happening in health class rn. might be able to delete.
         if (HitPoints <= 0)
         {
             Die();
