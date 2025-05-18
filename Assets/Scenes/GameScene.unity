@@ -524,6 +524,7 @@ MonoBehaviour:
   lightningSpell2Prefab: {fileID: 1939616645084462552, guid: e74b92c1c95504df285d5a075fc1f399, type: 3}
   attackSpellPrefab: {fileID: 2251005168890153831, guid: 949b84fee1f324aceaa1a5e0252fda1e, type: 3}
   attackSpell2Prefab: {fileID: 3845769887778746649, guid: 9af3544a726114a3398ed1b1f05dab09, type: 3}
+  windSpellPrefab: {fileID: 7730319968680474452, guid: bbb169f6c72d547f59867fccf7f033c1, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
@@ -897,7 +898,7 @@ MonoBehaviour:
   instantiateSpell: {fileID: 100894888}
   meleeAttackCooldownHandler: {fileID: 1193818369}
   PauseMenu: {fileID: 1645635871}
-  projectilePrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
+  projectilePrefab: {fileID: 0}
 --- !u!4 &182847311
 Transform:
   m_ObjectHideFlags: 0
@@ -1551,6 +1552,8 @@ MonoBehaviour:
   diceFaceImages: []
   currentSpellSlots: []
   spellToBeApplied: 
+  isInTutorial: 0
+  hasSelectedSpell: 0
   HasBeenClicked: 0
   IconFireSpell: {fileID: 601583398, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconFire2Spell: {fileID: -247116060, guid: 4cf98911cae4a2447912a4bb6db89c7b, type: 3}
@@ -1562,6 +1565,7 @@ MonoBehaviour:
   IconLightning2Spell: {fileID: 21300000, guid: aaa1253159ca0475085a4fcbc1347a66, type: 3}
   IconAttackBuffSpell: {fileID: 21300000, guid: 4dc82bca38429444f85d661400dad283, type: 3}
   IconAttackBuff2Spell: {fileID: 21300000, guid: 30bec38b20983439c81945904f7b45be, type: 3}
+  IconWindSpell: {fileID: 21300000, guid: 6f722fd5ee8534d79b28d576a00b05e4, type: 3}
   DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}
@@ -2136,6 +2140,7 @@ MonoBehaviour:
   IconHealSpell: {fileID: -1590634749, guid: 3dd39fbfb2d662c43bc1d649c5e59b7b, type: 3}
   IconLightningSpell: {fileID: 21300000, guid: 14eee7f74c9f64a65b87aa2aecc5a596, type: 3}
   IconAttackBuffSpell: {fileID: 21300000, guid: 4dc82bca38429444f85d661400dad283, type: 3}
+  IconWindSpell: {fileID: 21300000, guid: 6f722fd5ee8534d79b28d576a00b05e4, type: 3}
 --- !u!225 &509406405
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4576,7 +4581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57da520ffe7e53f4ab9603fdbb786d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolballPrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
 --- !u!224 &1638036633 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4815785561577794351, guid: d5b29b184d7556b4081ab131dacf3be5, type: 3}
