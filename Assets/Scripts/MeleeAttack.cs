@@ -12,7 +12,6 @@ public class MeleeAttack : MonoBehaviour
     {
 		// Ensure Gambit is properly assigned
 	    Gambit = GameObject.FindWithTag("Player").GetComponent<Player>();
-
         StartCoroutine(CountdownUntilDisappear());
     }
     
@@ -38,16 +37,19 @@ public class MeleeAttack : MonoBehaviour
 	        Slime slime = other.gameObject.GetComponent<Slime>();
 	        slime.HitPoints -= GameParameters.MeleeAttackDamage;
 	        
+	        if (!slime.canKnockback) //if slime can't knock back, stop here
+		        return;
+	        
 	        KnockbackFeedback slimeKnockback = slime.GetComponent<KnockbackFeedback>();
-	        if (slimeKnockback != null )
+	        if (slimeKnockback != null)
 	        {
-		    
 		        
 		        slimeKnockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
 		        slimeKnockback.ApplyKnockback(direction, knockbackDirection);
-		        
 		    
 	        }
+	        
+	        slime.StartKnockbackCooldown();
 	       
 			if (slime.HitPoints > 0)
 			{
@@ -63,6 +65,9 @@ public class MeleeAttack : MonoBehaviour
         {	
 	        Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
 	        slime1.HitPoints -= GameParameters.MeleeAttackDamage;
+	        
+	        if (!slime1.canKnockback) //if slime1/mob2 can't knock back, stop here
+		        return;
 
 	        // Get KnockbackFeedback component from the Slime1
 	        KnockbackFeedback slime1Knockback = slime1.GetComponent<KnockbackFeedback>();
@@ -71,6 +76,9 @@ public class MeleeAttack : MonoBehaviour
 		        slime1Knockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
 		        slime1Knockback.ApplyKnockback(direction, knockbackDirection);
 	        }
+	        
+	        slime1.StartKnockbackCooldown();
+	        
 			if (slime1.HitPoints > 0)
 			{
 				SpriteRenderer spriteRenderer = other.gameObject.GetComponent<SpriteRenderer>();
@@ -84,6 +92,9 @@ public class MeleeAttack : MonoBehaviour
         {	
 	        RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
 	        rangedMob.HitPoints -= GameParameters.MeleeAttackDamage;
+	        
+	        if (!rangedMob.canKnockback) //if rangedMob can't knock back, stop here
+		        return;
 
 	        // Get KnockbackFeedback component from the Slime1
 	        KnockbackFeedback rangedMobKnockback = rangedMob.GetComponent<KnockbackFeedback>();
@@ -92,6 +103,8 @@ public class MeleeAttack : MonoBehaviour
 		        rangedMobKnockback.AssignKnockbackDirection(direction, ref knockbackDirection);  // Pass by reference
 		        rangedMobKnockback.ApplyKnockback(direction, knockbackDirection);
 	        }
+	        
+	        rangedMob.StartKnockbackCooldown();
 	        
 	        if (rangedMob.HitPoints > 0)
 	        {

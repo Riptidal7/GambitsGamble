@@ -19,6 +19,9 @@ public class Slime1 : Enemy
         gameObject.GetComponent<SpriteRenderer>().color = defaultColor;
         slowDuration = GameParameters.Mob2SlowDuration;
         freezeDuration = GameParameters.Mob2FreezeDuration;
+        
+        canKnockback = GameParameters.CanKnockbackMob2;  
+        knockbackCooldown = GameParameters.Mob2KnockbackCooldown;
     }
     
     
