@@ -27,6 +27,10 @@ public class Enemy : MonoBehaviour
     public int freezeDuration;
     public bool struckByLightning;
     
+
+    public bool canKnockback;  
+    public float knockbackCooldown;  
+    
     private Rigidbody2D rb;
 
     public VisualEffect mobEffects;
@@ -86,6 +90,22 @@ public class Enemy : MonoBehaviour
         }
         
     }
+    
+    // Method to start knockback cooldown
+    public void StartKnockbackCooldown()
+    {
+        if (!canKnockback) return;  // If already in cooldown, don't start again
+        StartCoroutine(ResetKnockbackCooldown());
+    }
+
+    // Coroutine to reset the knockback flag after the cooldown
+    private IEnumerator ResetKnockbackCooldown()
+    {
+        canKnockback = false;  
+        yield return new WaitForSeconds(knockbackCooldown);  
+        canKnockback = true;  
+    }
+    
 
     //"virtual" allows a method to be overridden in child classes
     public virtual void MoveTowardsPlayer()

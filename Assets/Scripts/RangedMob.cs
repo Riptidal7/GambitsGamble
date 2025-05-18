@@ -37,6 +37,9 @@ public class RangedMob : Enemy
         defaultColor = GameParameters.defaultRangedMobColor;
         slowDuration = GameParameters.RangedMobSlowDuration;
         freezeDuration = GameParameters.RangedMobFreezeDuration;
+        
+        canKnockback = GameParameters.CanKnockbackRangedMob;  
+        knockbackCooldown = GameParameters.RangedMobKnockbackCooldown;
     }
   
     protected override void FixedUpdate()

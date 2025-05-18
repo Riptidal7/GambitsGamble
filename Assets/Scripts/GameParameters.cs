@@ -120,4 +120,14 @@ public static class GameParameters
     public static float MaxShootDistance = 3.5f;
 
     public static float ShootTolerance = 1f; // buffer zone to avoid flickering btwn shoot conditions
+    
+    public static bool CanKnockbackSlime = true;  
+    public static float SlimeKnockbackCooldown = 1f;
+    
+    public static bool CanKnockbackMob2 = true;
+    public static float Mob2KnockbackCooldown = 1f;
+    
+    public static bool CanKnockbackRangedMob = true;  
+    public static float RangedMobKnockbackCooldown = 1f;
+
 }
