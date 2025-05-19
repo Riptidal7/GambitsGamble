@@ -32,7 +32,7 @@ public class WindSpell : SpellParent
             KnockbackFeedback knockback = slime.GetComponent<KnockbackFeedback>();
             if (knockback != null)
             {
-                knockback.AssignKnockbackDirection(direction, ref knockbackDirection);
+                knockback.AssignAOEKnockbackDirection(Gambit.transform.position, slime.transform.position, ref knockbackDirection);
                 knockback.ApplyKnockback(direction, knockbackDirection);
             }
 
@@ -50,7 +50,7 @@ public class WindSpell : SpellParent
             KnockbackFeedback knockback = slime1.GetComponent<KnockbackFeedback>();
             if (knockback != null)
             {
-                knockback.AssignKnockbackDirection(direction, ref knockbackDirection);
+                knockback.AssignAOEKnockbackDirection(Gambit.transform.position, slime1.transform.position, ref knockbackDirection);
                 knockback.ApplyKnockback(direction, knockbackDirection);
             }
 
@@ -68,7 +68,7 @@ public class WindSpell : SpellParent
             KnockbackFeedback knockback = rangedMob.GetComponent<KnockbackFeedback>();
             if (knockback != null)
             {
-                knockback.AssignKnockbackDirection(direction, ref knockbackDirection);
+                knockback.AssignAOEKnockbackDirection(Gambit.transform.position, rangedMob.transform.position, ref knockbackDirection);
                 knockback.ApplyKnockback(direction, knockbackDirection);
             }
 
