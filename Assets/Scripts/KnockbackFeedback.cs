@@ -55,6 +55,13 @@ public class KnockbackFeedback : MonoBehaviour
                break;
        }
    }
+   
+   public void AssignAOEKnockbackDirection(Vector2 playerPosition, Vector2 enemyPosition, ref Vector2 direction)
+   {
+       // Calculate direction from player to enemy
+       direction = (enemyPosition - playerPosition).normalized;
+   }
+
 
 
  
