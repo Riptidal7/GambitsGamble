@@ -24,13 +24,15 @@ public class KeyboardInput : MonoBehaviour
         {
             Gambit.Move(new Vector2(0,1));
             Gambit.ChangeMovingStatus(true);
+            Gambit.ChangeMovingDown(true);
             //print("w");
         }
         if (Input.GetKey(KeyCode.S))
         {
             Gambit.Move(new Vector2(0,-1));
             Gambit.ChangeMovingStatus(true);
-           // print("s");
+            Gambit.ChangeMovingFront(true);
+            // print("s");
         }
         
         if (Input.GetKey(KeyCode.A))
@@ -55,6 +57,8 @@ public class KeyboardInput : MonoBehaviour
             !Input.GetKey(KeyCode.D))
         {
             Gambit.ChangeMovingStatus(false);
+            Gambit.ChangeMovingFront(false);
+            Gambit.ChangeMovingDown(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
