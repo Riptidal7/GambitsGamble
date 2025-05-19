@@ -524,7 +524,8 @@ MonoBehaviour:
   lightningSpell2Prefab: {fileID: 1939616645084462552, guid: e74b92c1c95504df285d5a075fc1f399, type: 3}
   attackSpellPrefab: {fileID: 2251005168890153831, guid: 949b84fee1f324aceaa1a5e0252fda1e, type: 3}
   attackSpell2Prefab: {fileID: 3845769887778746649, guid: 9af3544a726114a3398ed1b1f05dab09, type: 3}
-  windSpellPrefab: {fileID: 7730319968680474452, guid: bbb169f6c72d547f59867fccf7f033c1, type: 3}
+  windSpellPrefab: {fileID: 3997130521812540224, guid: c78fa006dc18043b586c279a8896e30a, type: 3}
+  windSpell2Prefab: {fileID: 3318690523486593295, guid: 77d7556526efb46ecbbf57667531ebe6, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
 --- !u!4 &100894889
@@ -1566,6 +1567,7 @@ MonoBehaviour:
   IconAttackBuffSpell: {fileID: 21300000, guid: 4dc82bca38429444f85d661400dad283, type: 3}
   IconAttackBuff2Spell: {fileID: 21300000, guid: 30bec38b20983439c81945904f7b45be, type: 3}
   IconWindSpell: {fileID: 21300000, guid: 6f722fd5ee8534d79b28d576a00b05e4, type: 3}
+  IconWind2Spell: {fileID: 21300000, guid: 5ef31a978734c4af9856f5b8110bf98c, type: 3}
   DiceFace1Image: {fileID: 2003475491}
   DiceFace2Image: {fileID: 1656968892}
   DiceFace3Image: {fileID: 1620669072}

@@ -34,6 +34,7 @@ public class DiceFaceChoiceMenu : MonoBehaviour
     public Sprite IconAttackBuffSpell;
     public Sprite IconAttackBuff2Spell;
     public Sprite IconWindSpell;
+    public Sprite IconWind2Spell;
     
   
    public Image DiceFace1Image;
@@ -74,7 +75,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {"Lightning Spell2", IconLightning2Spell},
             {"Attack Buff Spell", IconAttackBuffSpell},
             {"Attack Buff Spell2", IconAttackBuff2Spell},
-            {"Wind Spell", IconWindSpell}
+            {"Wind Spell", IconWindSpell},
+            {"Wind Spell2", IconWind2Spell}
             
         };
 
@@ -90,7 +92,8 @@ public class DiceFaceChoiceMenu : MonoBehaviour
             {"Lightning Spell2", new Action(() => instantiateSpell.InstantiateLightning2()) },
             {"Attack Buff Spell", new Action(() => instantiateSpell.InstantiateAttackBuff1())},
             {"Attack Buff Spell2", new Action(() => instantiateSpell.InstantiateAttackBuff2())},
-            {"Wind Spell", new Action(() => instantiateSpell.InstantiateWind1())}
+            {"Wind Spell", new Action(() => instantiateSpell.InstantiateWind1())},
+            {"Wind Spell2", new Action(() => instantiateSpell.InstantiateWind2())}
         };
     }
 
