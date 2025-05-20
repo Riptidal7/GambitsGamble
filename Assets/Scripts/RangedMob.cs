@@ -13,6 +13,7 @@ public class RangedMob : Enemy
     private float shootTolerance = GameParameters.ShootTolerance; // buffer zone to avoid mob flickering between two positons
 
     public GameObject projectilePrefab;
+    public Animator animator;
     
     private bool canInstantiateProjectile = true;
     private bool isShooting = false; //to track if the mob is alr shooting a projectle
@@ -23,7 +24,9 @@ public class RangedMob : Enemy
     private Transform playerTransform;
     private void Start()
     {
+        animator = GetComponent<Animator>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
         
         enemySpeed = GameParameters.RangedMobSpeed;
         currentEnemySpeed = enemySpeed;
@@ -121,6 +124,8 @@ public class RangedMob : Enemy
 
     private IEnumerator DelayAndShootProjectile()
     {
+        print("I am trying to play shooting animation");
+        animator.SetBool("isShooting", true);
         yield return new WaitForSeconds(GameParameters.DelayTimeBeforeShooting); 
         
         InstantiateProjectile();
@@ -131,5 +136,7 @@ public class RangedMob : Enemy
         StartCoroutine(CooldownToInstantiateProjectile());
 
         isShooting = false; //everything finished and can restart
+        print("I am trying to play walking animation");
+        animator.SetBool("isShooting", false);
     }
 }

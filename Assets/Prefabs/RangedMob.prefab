@@ -86,7 +86,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -314591111, guid: c225f9d730f0c4418bb7e00e864005b3, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.96361184, b: 0.96361184, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -179,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 3845882319545647403}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f3b3e30e84cec478fafc66787e92caa6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 130a9ffd68742e742837982a6e554840, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -414,4 +414,6 @@ MonoBehaviour:
   canKnockback: 0
   knockbackCooldown: 0
   mobEffects: {fileID: 4586009021162201231}
+  damageHandler: {fileID: 0}
   projectilePrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
+  animator: {fileID: 0}
