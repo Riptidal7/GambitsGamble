@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
 	public DirectionType direction;
 	public bool isMoving;
+	public bool isMovingFront;
+	public bool isMovingBack;
 	public Animator animator;
     
     
@@ -133,6 +135,20 @@ public class Player : MonoBehaviour
 			animator.SetBool("isMoving", false);
 		}
 	}
+
+	public void ChangeMovingFront(bool isMovingFront)
+	{
+		this.isMovingFront = isMovingFront;
+		animator.SetBool("isRunningFront", isMovingFront);
+	}
+
+	public void ChangeMovingDown(bool isMovingBack)
+	{
+		this.isMovingBack = isMovingBack;
+		animator.SetBool("isRunningBack", isMovingBack);
+	}
+	
+	//addin moving down
 
     public void OnTriggerEnter2D(Collider2D other)
     {
