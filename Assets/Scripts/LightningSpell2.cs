@@ -48,6 +48,7 @@ public class LightningSpell2 : SpellParent
             GameObject selectedObj = potentialTargetObjects[randIndex];
 
             // Deal damage
+            damageHandler.DisplayDamageNumber(SpellFlatDamage, selectedObj);
             selected.HitPoints -= SpellFlatDamage;
             enemiesHit.Add(selectedObj);
             enemyComponentsHit.Add(selected);
