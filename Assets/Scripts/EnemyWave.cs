@@ -10,6 +10,7 @@ public class EnemyWave : MonoBehaviour
     public int NumberOfMob2s;
     public int NumberofRangedMobs; //will def need this
     public GameObject SlimePrefab;
+    public List<GameObject> ColoredSlimePrefabs;
     public List<GameObject> enemies;
     public GameObject Mob2Prefab;
     public Player Gambit;
@@ -31,7 +32,8 @@ public class EnemyWave : MonoBehaviour
                 SlimeSpawnLocation = new Vector3(Random.Range(GameParameters.MapMinX, GameParameters.MapMaxX),
                     Random.Range(GameParameters.MapMinY, GameParameters.MapMaxY), 0);
             }
-            GameObject tempSlime=Instantiate(SlimePrefab, SlimeSpawnLocation, Quaternion.identity);
+            int randomColoredSlimeIndex = Random.Range(0, ColoredSlimePrefabs.Count);
+            GameObject tempSlime=Instantiate(ColoredSlimePrefabs[randomColoredSlimeIndex], SlimeSpawnLocation, Quaternion.identity);
             enemies.Add(tempSlime);
         } 
         for (int a = 0; a < NumberOfMob2s;a++)
