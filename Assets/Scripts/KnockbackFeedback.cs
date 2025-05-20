@@ -78,7 +78,7 @@ public class KnockbackFeedback : MonoBehaviour
        // Normalize the direction to ensure the knockback is consistent
        Vector2 knockbackDirection = direction.normalized;
       
-       Debug.Log("Applying Knockback - Direction: " + knockbackDirection + ", Strength: " + strength);
+       
 
 
        // Apply an impulse force to the Rigidbody2D in the opposite direction of the player's movement

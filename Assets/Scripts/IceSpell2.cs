@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class IceSpell2 : MonoBehaviour
 {
+    [FormerlySerializedAs("Health")] public DamageHandler damageHandler;
     void Start()
     {
-
+        GetComponent<DamageHandler>();
+        
         StartCoroutine(CountdownUntilDisappear());
     }
 
@@ -19,20 +22,33 @@ public class IceSpell2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Slime")
         {
-            other.gameObject.GetComponent<Slime>().HitPoints-=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<Slime>().isFrozen = true;
+            Slime slime = other.gameObject.GetComponent<Slime>();
+            
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
+            slime.HitPoints-=GameParameters.IceSpell2FlatDamage;
+
+            slime.isFrozen = true;
          
         }
         
         if (other.gameObject.tag == "Mob2")
         {
+            
+            Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
+            
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
             other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<Slime1>().isFrozen = true;
+
+            slime1.isFrozen = true;
         }
         if (other.gameObject.tag == "RangedMob")
         {
-            other.gameObject.GetComponent<RangedMob>().HitPoints -=GameParameters.IceSpell2FlatDamage;
-            other.gameObject.GetComponent<RangedMob>().isFrozen = true;
+            RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
+            
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
+            rangedMob.HitPoints -=GameParameters.IceSpell2FlatDamage;
+
+            rangedMob.isFrozen = true;
         }
     }
 

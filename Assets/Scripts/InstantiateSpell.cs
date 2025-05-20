@@ -25,6 +25,7 @@ public class InstantiateSpell : MonoBehaviour
     
     public HealSpell HealSpell;
     public GameObject healAnimation;
+    public DamageHandler damageHandler;
     
     public Action SlotOneCast;
     public Action SlotTwoCast;
@@ -93,6 +94,7 @@ public class InstantiateSpell : MonoBehaviour
     public void InstantiateASpell(GameObject spellPrefab, string spellSoundEffectName)
     {
         GameObject spell = Instantiate(spellPrefab, Gambit.transform.position, Quaternion.identity);
+        damageHandler = GameObject.FindWithTag("Handler").GetComponent<DamageHandler>();
         spell.transform.SetParent(Gambit.transform);
         SFXManager.Play(spellSoundEffectName);
     }

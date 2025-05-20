@@ -34,11 +34,15 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
 
     public VisualEffect mobEffects;
+
+    public DamageHandler damageHandler;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy
         player = GameObject.FindWithTag("Player").transform;
+        
+        damageHandler = GameObject.FindWithTag("Handler").GetComponent<DamageHandler>();
         waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
         isWaitingToFreezeRandomly = false;
         isBurning = false;
@@ -53,7 +57,8 @@ public class Enemy : MonoBehaviour
         {
             StartCoroutine(CountdownUntilFreezeRandomly());
         }
-
+        
+        //check for 0 hp happening in health class rn. might be able to delete.
         if (HitPoints <= 0)
         {
             Die();
@@ -63,7 +68,9 @@ public class Enemy : MonoBehaviour
         {
             if(canTakeBurnDamage)
             {
+                damageHandler.DisplayDamageNumber(1, gameObject);
                 HitPoints--;
+
                 canTakeBurnDamage = false;
                 StartCoroutine(CountdownUntilNextBurnDamage());
                 StartCoroutine(CountdownUntilBurningOver());
