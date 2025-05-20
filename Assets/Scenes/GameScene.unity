@@ -2325,8 +2325,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Wave Clear!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e980f4d60f6cf45a0b97403eb201dbfd, type: 2}
-  m_sharedMaterial: {fileID: -4745018257843853400, guid: e980f4d60f6cf45a0b97403eb201dbfd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
