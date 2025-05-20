@@ -14,7 +14,7 @@ public class DamageNumber : MonoBehaviour
         // Try to find the TMP_Text component in the children (if it's not on the same GameObject)
         damageText = GetComponent<TMP_Text>();  
         damageText.fontSize = 10;
-        damageText.color = Color.red;
+       // damageText.color = Color.red;
         StartCoroutine(MoveAndFade());
         if (damageText == null)
         {

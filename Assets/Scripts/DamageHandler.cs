@@ -25,6 +25,7 @@ public class DamageHandler : MonoBehaviour
 
     public void DisplayDamageNumber(int damageAmount, GameObject objectTakingDamage)
     {
+       
         // Calculate random offsets for the position
         float randomX = Random.Range(-randomOffsetRangeX, randomOffsetRangeX);
         float randomY = Random.Range(-randomOffsetRangeY, randomOffsetRangeY);
@@ -34,6 +35,15 @@ public class DamageHandler : MonoBehaviour
 
         // Instantiate the damage text prefab at the calculated position
         Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
+        if (objectTakingDamage.CompareTag("Player"))
+        {
+            damageTextPrefab.GetComponent<TMP_Text>().color = Color.white;
+        }
+        else
+        {
+            damageTextPrefab.GetComponent<TMP_Text>().color = Color.red;
+        }
+        
 
 
         //Set text to the damage amount

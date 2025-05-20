@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();   // Initializes the Rigidbody component attached to the enemy
         player = GameObject.FindWithTag("Player").transform;
         
-        damageHandler = GameObject.FindWithTag("Player").GetComponent<DamageHandler>();
+        damageHandler = GameObject.FindWithTag("Handler").GetComponent<DamageHandler>();
         waveManager = GameObject.FindWithTag("WaveManager").GetComponent<WaveManager>();
         isWaitingToFreezeRandomly = false;
         isBurning = false;
