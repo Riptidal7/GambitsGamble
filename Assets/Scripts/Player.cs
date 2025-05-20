@@ -190,16 +190,20 @@ public class Player : MonoBehaviour
 	IEnumerator CountdownUntilInvulnerabilityOver()
 	{
 		// repetitive code, possible to fix?
-		animator.SetBool("isTakingDamage", true);
+		//animator.SetBool("isTakingDamage", true);
+		GambitSpriteRenderer.color = Color.red;
 		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
 		
-		animator.SetBool("isTakingDamage", false);
+		//animator.SetBool("isTakingDamage", false);
+		GambitSpriteRenderer.color = Color.white;
 		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
 		
-		animator.SetBool("isTakingDamage", true);
+		//animator.SetBool("isTakingDamage", true);
+		GambitSpriteRenderer.color = Color.red;
 		yield return new WaitForSeconds(GameParameters.SecondsOfDamageIndicator);
 
 		animator.SetBool("isTakingDamage", false);
+		GambitSpriteRenderer.color = Color.white;
 
 		float timeSpentFlashingRed = GameParameters.SecondsOfDamageIndicator * 3;
 		float timeLeftUntilInvulnerabilityOver = GameParameters.SecondsOfInvulnerabilityAfterDamage - timeSpentFlashingRed;
