@@ -897,6 +897,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 199d4a62be51941ffaf4a015713f2d7b, type: 3}
   - name: Success
     clip: {fileID: 8300000, guid: 9dfd1ed6d8f464d6388cb345e06035d8, type: 3}
+  - name: LightningSpell
+    clip: {fileID: 8300000, guid: ad6247718e3a84627817e3eca8513eb0, type: 3}
+  - name: WindSpell
+    clip: {fileID: 8300000, guid: 6ec57339025da4d619feae87ab05fea2, type: 3}
 --- !u!4 &153058465
 Transform:
   m_ObjectHideFlags: 0
