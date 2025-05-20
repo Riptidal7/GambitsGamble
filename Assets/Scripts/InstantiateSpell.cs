@@ -121,12 +121,12 @@ public class InstantiateSpell : MonoBehaviour
 
     public void InstantiateLightning1()
     {
-        InstantiateASpell(lightningSpellPrefab, "Explosion");
+        InstantiateASpell(lightningSpellPrefab, "LightningSpell");
     }
 
     public void InstantiateLightning2()
     {
-        InstantiateASpell(lightningSpell2Prefab, "Explosion");
+        InstantiateASpell(lightningSpell2Prefab, "LightningSpell");
     }
 
     public void InstantiateAttackBuff1()
@@ -141,12 +141,12 @@ public class InstantiateSpell : MonoBehaviour
 
     public void InstantiateWind1()
     {
-        InstantiateASpell(windSpellPrefab, "IceSpell");
+        InstantiateASpell(windSpellPrefab, "WindSpell");
     }
     
     public void InstantiateWind2()
     {
-        InstantiateASpell(windSpell2Prefab, "IceSpell");
+        InstantiateASpell(windSpell2Prefab, "WindSpell");
     }
     
     public void InstantiateHeal1()
