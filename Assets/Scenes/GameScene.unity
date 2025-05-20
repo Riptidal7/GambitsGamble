@@ -526,6 +526,7 @@ MonoBehaviour:
   attackSpell2Prefab: {fileID: 3845769887778746649, guid: 9af3544a726114a3398ed1b1f05dab09, type: 3}
   HealSpell: {fileID: 1459683028}
   healAnimation: {fileID: 4651019490346653764, guid: 8737c49c043f1e14bbc45a4419c935e9, type: 3}
+  damageHandler: {fileID: 546850506}
 --- !u!4 &100894889
 Transform:
   m_ObjectHideFlags: 0
@@ -2161,7 +2162,7 @@ GameObject:
   - component: {fileID: 546850507}
   - component: {fileID: 546850506}
   m_Layer: 0
-  m_Name: HealthHandler
+  m_Name: DamageHandler
   m_TagString: Handler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3750,7 +3751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemiesToHit: 2147483647
-  Health: {fileID: 546850506}
+  damageHandler: {fileID: 546850506}
   Player: {fileID: 1808506182}
   HPDisplayer: {fileID: 1734434230}
   HealAmount: 0
@@ -5035,6 +5036,7 @@ MonoBehaviour:
   direction: 0
   isMoving: 0
   animator: {fileID: 1808506187}
+  damageHandler: {fileID: 546850506}
 --- !u!212 &1808506183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5739,7 +5741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEnemiesToHit: 2147483647
-  Health: {fileID: 546850506}
+  damageHandler: {fileID: 546850506}
 --- !u!4 &1877778643
 Transform:
   m_ObjectHideFlags: 0

@@ -21,8 +21,9 @@ public class Player : MonoBehaviour
 	public DirectionType direction;
 	public bool isMoving;
 	public Animator animator;
-    
-    
+
+	public DamageHandler damageHandler;
+	
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,7 +63,11 @@ public class Player : MonoBehaviour
     {
 	    
 	    // Apply the damage and play sound
+	    
+	    //i think if the object is destroyed too fast, the damage numbers wont appear
+	    damageHandler.DisplayDamageNumber(damage, gameObject);
 	    HitPoints -= damage;
+
 	    SFXManager.Play("PlayerTakesDamage");
 	    HpDisplayer.UpdateHP(HitPoints);
 

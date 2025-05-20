@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpellParent : MonoBehaviour
 {
     [NonSerialized]
     public int SpellFlatDamage;
     public int MaxEnemiesToHit = int.MaxValue;
-    public Health Health;
+    public DamageHandler damageHandler;
 
     protected virtual int SpellDuration => 1;
 
@@ -17,11 +18,13 @@ public class SpellParent : MonoBehaviour
 
     protected virtual void Start()
     {
+        damageHandler = GameObject.FindWithTag("Handler").GetComponent<DamageHandler>();
         StartCoroutine(CountdownUntilDisappear(SpellDuration));
     }
 
     protected virtual void OnTriggerStay2D(Collider2D other)
     {
+        
         if (enemiesHit.Count >= MaxEnemiesToHit)
             return;
         
@@ -33,8 +36,8 @@ public class SpellParent : MonoBehaviour
         Enemy enemyComponent = target.GetComponent<Enemy>();
         if (enemyComponent != null)
         {
-      //      Health.TakeDamage(enemyComponent.HitPoints, SpellFlatDamage); //THIS WAS CHANGED
-           // enemyComponent.HitPoints -= SpellFlatDamage;
+            damageHandler.DisplayDamageNumber(SpellFlatDamage, other.gameObject);
+            enemyComponent.HitPoints -= SpellFlatDamage;
             enemiesHit.Add(target);
             enemyComponentsHit.Add(enemyComponent);
             OnEnemyHit(enemyComponent); // Extension point for child classes

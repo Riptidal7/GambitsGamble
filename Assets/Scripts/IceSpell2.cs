@@ -1,12 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class IceSpell2 : MonoBehaviour
 {
-    public Health Health;
+    [FormerlySerializedAs("Health")] public DamageHandler damageHandler;
     void Start()
     {
-
+        GetComponent<DamageHandler>();
+        
         StartCoroutine(CountdownUntilDisappear());
     }
 
@@ -22,8 +24,9 @@ public class IceSpell2 : MonoBehaviour
         {
             Slime slime = other.gameObject.GetComponent<Slime>();
             
-       //     Health.TakeDamage(slime.HitPoints, GameParameters.IceSpell2FlatDamage);
-            //slime.HitPoints-=GameParameters.IceSpell2FlatDamage;
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
+            slime.HitPoints-=GameParameters.IceSpell2FlatDamage;
+
             slime.isFrozen = true;
          
         }
@@ -33,16 +36,18 @@ public class IceSpell2 : MonoBehaviour
             
             Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
             
-        //    Health.TakeDamage(slime1.HitPoints, GameParameters.IceSpell2FlatDamage);
-            //other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
+            other.gameObject.GetComponent<Slime1>().HitPoints -=GameParameters.IceSpell2FlatDamage;
+
             slime1.isFrozen = true;
         }
         if (other.gameObject.tag == "RangedMob")
         {
             RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
             
-      //      Health.TakeDamage(rangedMob.HitPoints, GameParameters.IceSpell2FlatDamage);
-            //rangedMob.HitPoints -=GameParameters.IceSpell2FlatDamage;
+            damageHandler.DisplayDamageNumber(GameParameters.IceSpell2FlatDamage, other.gameObject);
+            rangedMob.HitPoints -=GameParameters.IceSpell2FlatDamage;
+
             rangedMob.isFrozen = true;
         }
     }

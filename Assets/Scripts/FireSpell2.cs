@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FireSpell2 : MonoBehaviour
 {
-    public Health Health;
+    [FormerlySerializedAs("Health")] public DamageHandler damageHandler;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        GetComponent<DamageHandler>();
         StartCoroutine(CountdownUntilDisappear());
     }
 
@@ -23,8 +24,9 @@ public class FireSpell2 : MonoBehaviour
         {
             Slime slime = other.gameObject.GetComponent<Slime>();
             
-     //       Health.TakeDamage(slime.HitPoints, GameParameters.FireSpell2FlatDamage);
-            //other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell2FlatDamage;
+            damageHandler.DisplayDamageNumber(GameParameters.FireSpell2FlatDamage, other.gameObject);
+            other.gameObject.GetComponent<Slime>().HitPoints -= GameParameters.FireSpell2FlatDamage;
+
             slime.isBurning = true;
          
         }
@@ -32,17 +34,19 @@ public class FireSpell2 : MonoBehaviour
         if (other.gameObject.tag == "Mob2")
         {
             Slime1 slime1 = other.gameObject.GetComponent<Slime1>();
-            
-        //    Health.TakeDamage(slime1.HitPoints, GameParameters.FireSpell2FlatDamage);
-            //slime1.HitPoints -= GameParameters.FireSpell2FlatDamage;
+          
+            damageHandler.DisplayDamageNumber(GameParameters.FireSpell2FlatDamage, other.gameObject);
+            slime1.HitPoints -= GameParameters.FireSpell2FlatDamage;
+
             slime1.isBurning = true;
         }
         if (other.gameObject.tag == "RangedMob")
         {
             RangedMob rangedMob = other.gameObject.GetComponent<RangedMob>();
             
-        //    Health.TakeDamage(rangedMob.HitPoints, GameParameters.FireSpell2FlatDamage);
-            //rangedMob.HitPoints -= GameParameters.FireSpell2FlatDamage;
+            damageHandler.DisplayDamageNumber(GameParameters.FireSpell2FlatDamage, other.gameObject);
+            rangedMob.HitPoints -= GameParameters.FireSpell2FlatDamage;
+
             rangedMob.isBurning = true;
         }
     }
