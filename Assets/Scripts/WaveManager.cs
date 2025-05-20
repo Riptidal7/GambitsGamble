@@ -13,8 +13,6 @@ public  class WaveManager : MonoBehaviour
     public PowerUpChoiceMenu powerUpChoiceMenu;
     public WaveDisplayer WaveDisplayer;
 
-    public GameObject tutorialBackground;
-
     public bool waveClearedSwitch;
     
     public SFXManager sfxManager;
@@ -73,10 +71,6 @@ public  class WaveManager : MonoBehaviour
 
     IEnumerator ClearWave()
     {
-        if (waveNumber == 3)
-        {
-            Destroy(tutorialBackground);
-        }
         waveClearedSwitch = true;
         //PLAY WAVE CLEAR SOUND
         waveClearDisplayer.ShowWaveClearPanel();

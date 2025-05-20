@@ -411,5 +411,7 @@ MonoBehaviour:
   isFrozen: 0
   freezeDuration: 0
   struckByLightning: 0
-  mobEffects: {fileID: 0}
+  canKnockback: 0
+  knockbackCooldown: 0
+  mobEffects: {fileID: 4586009021162201231}
   projectilePrefab: {fileID: 3879151138222042870, guid: 9e6b332b2c4ede44db7cb8caed100b8b, type: 3}
