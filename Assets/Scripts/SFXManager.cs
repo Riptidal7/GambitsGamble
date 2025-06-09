@@ -11,11 +11,14 @@ public class SFXManager : MonoBehaviour
     {
         public string name;
         public AudioClip clip;
+        public float cooldown;
     }
     
     public NamedSFX[] soundEffects;
     
     private static Dictionary<string, AudioClip> sfxDict;
+    private static Dictionary<string, float> sfxCooldownDict;
+    private static Dictionary<string, float> lastPlayTimeDict;
 
     void Awake()
     {
@@ -24,9 +27,13 @@ public class SFXManager : MonoBehaviour
             instance = this;
             sfxSource = GetComponent<AudioSource>();
             sfxDict = new Dictionary<string, AudioClip>();
+            sfxCooldownDict = new Dictionary<string, float>();
+            lastPlayTimeDict = new Dictionary<string, float>();
             foreach (NamedSFX s in soundEffects)
             {
                 sfxDict[s.name] = s.clip;
+                sfxCooldownDict[s.name] = s.cooldown;
+                lastPlayTimeDict[s.name] = -Mathf.Infinity;
             }        
         }
         
@@ -42,7 +49,14 @@ public class SFXManager : MonoBehaviour
         
         if (sfxDict.ContainsKey(sfxName))
         {
-            sfxSource.PlayOneShot(sfxDict[sfxName]);
+            float lastPlayed = lastPlayTimeDict[sfxName];
+            float cooldown = sfxCooldownDict[sfxName];
+
+            if (Time.time >= lastPlayed + cooldown)
+            {
+                sfxSource.PlayOneShot(sfxDict[sfxName]);
+                lastPlayTimeDict[sfxName] = Time.time;
+            }
         }
 
         else
