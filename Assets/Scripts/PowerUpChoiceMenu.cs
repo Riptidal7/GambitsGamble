@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,8 @@ public class PowerUpChoiceMenu : MonoBehaviour
     public WaveManager waveManager;
     public DiceFaceChoiceMenu diceFaceChoiceMenu;
 
+    public Dictionary<string, Sprite> spellSprites; 
+    
     public Sprite IconIceSpell;
     public Sprite IconFireSpell;
     public Sprite IconHealSpell;
@@ -35,7 +38,21 @@ public class PowerUpChoiceMenu : MonoBehaviour
 
     void Start()
     {
+        InitializeDictionaries();
         StartHidePowerUpChoiceMenu();
+    }
+
+    void InitializeDictionaries()
+    {
+        spellSprites = new Dictionary<string, Sprite>
+        {
+            { "Ice Spell", IconIceSpell },
+            { "Fire Spell", IconFireSpell },
+            { "Heal Spell", IconHealSpell },
+            { "Lightning Spell", IconLightningSpell },
+            { "Attack Buff Spell", IconAttackBuffSpell },
+            { "Wind Spell", IconWindSpell },
+        };
     }
 
     public void OnChoice1ButtonClick()
@@ -104,29 +121,9 @@ public class PowerUpChoiceMenu : MonoBehaviour
 
     public void DisplayChosenChoiceIcon(string choiceNumber, Image choiceIcon)
     {
-        if (choiceNumber == "Fire Spell")
+        if (spellSprites.TryGetValue(choiceNumber, out Sprite sprite))
         {
-            choiceIcon.sprite = IconFireSpell;
-        }
-        else if (choiceNumber == "Ice Spell")
-        {
-            choiceIcon.sprite = IconIceSpell;
-        }
-        else if (choiceNumber == "Heal Spell")
-        {
-            choiceIcon.sprite = IconHealSpell;
-        }
-        else if (choiceNumber == "Lightning Spell")
-        {
-            choiceIcon.sprite = IconLightningSpell;
-        }
-        else if (choiceNumber == "Attack Buff Spell")
-        {
-            choiceIcon.sprite = IconAttackBuffSpell;
-        }
-        else if (choiceNumber == "Wind Spell")
-        {
-            choiceIcon.sprite = IconWindSpell;
+            choiceIcon.sprite = sprite;
         }
         else
         {
