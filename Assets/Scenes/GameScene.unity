@@ -859,48 +859,70 @@ MonoBehaviour:
   soundEffects:
   - name: Bane
     clip: {fileID: 8300000, guid: d9a913c0f507340729549fbb57576993, type: 3}
+    cooldown: 0
   - name: Boon
     clip: {fileID: 8300000, guid: 638a9b09a121541b39065444bde7c66d, type: 3}
+    cooldown: 0
   - name: CasinoAmbiance
     clip: {fileID: 8300000, guid: 8f8b05a180a4f4f528c2fc606afff3b3, type: 3}
+    cooldown: 0
   - name: ChaChing
     clip: {fileID: 8300000, guid: 75f23339afb374a519562c92e72c9258, type: 3}
+    cooldown: 0
   - name: CoinsJingling
     clip: {fileID: 8300000, guid: 9522f1ef74baa4441b1a075e98d8dcb2, type: 3}
+    cooldown: 0
   - name: DiceRolling1
     clip: {fileID: 8300000, guid: aae86eae05e2f4f72acf28878b60a52c, type: 3}
+    cooldown: 0
   - name: DiceRolling2
     clip: {fileID: 8300000, guid: 34a51ca274f8b4bed93bd9003961b254, type: 3}
+    cooldown: 0
   - name: EnemyTakesMeleeDamage
     clip: {fileID: 8300000, guid: cfdfb75b37bd34d5280b864596f81036, type: 3}
+    cooldown: 0.5
   - name: EnemyTakesSpellDamage
     clip: {fileID: 8300000, guid: 891ea9bc78be647f2944d01d4bd4ae18, type: 3}
+    cooldown: 0.5
   - name: Explosion
     clip: {fileID: 8300000, guid: 2d6fae556c0b044e58257086e27f4fe9, type: 3}
+    cooldown: 0
   - name: FailedDiceRoll1
     clip: {fileID: 8300000, guid: c891d365aafe246aeb87403080aa5f00, type: 3}
+    cooldown: 0
   - name: FailedDiceRoll2
     clip: {fileID: 8300000, guid: d5692e8d8ee2c437d83401ad65c657a6, type: 3}
+    cooldown: 0
   - name: FireSpell
     clip: {fileID: 8300000, guid: a931d1bbaa7134903a5a102d48dbbd38, type: 3}
+    cooldown: 0
   - name: Footsteps
     clip: {fileID: 8300000, guid: 2ed2bfad1e93d411b80e1130ff3946f3, type: 3}
+    cooldown: 0
   - name: GameOver
     clip: {fileID: 8300000, guid: 4432e7de568334e43b0c719db72d1e37, type: 3}
+    cooldown: 0
   - name: HealSpell
     clip: {fileID: 8300000, guid: ac99d34b4dce744d5ab8d59f2b9238d3, type: 3}
+    cooldown: 0
   - name: IceSpell
     clip: {fileID: 8300000, guid: d9db2a58942c244cc99a7bf152099f56, type: 3}
+    cooldown: 0
   - name: PlayerTakesDamage
     clip: {fileID: 8300000, guid: 9b55d3fd72ade49a8a0035e5c44e632f, type: 3}
+    cooldown: 0
   - name: SelectEffect
     clip: {fileID: 8300000, guid: 199d4a62be51941ffaf4a015713f2d7b, type: 3}
+    cooldown: 0
   - name: Success
     clip: {fileID: 8300000, guid: 9dfd1ed6d8f464d6388cb345e06035d8, type: 3}
+    cooldown: 0
   - name: LightningSpell
     clip: {fileID: 8300000, guid: ad6247718e3a84627817e3eca8513eb0, type: 3}
+    cooldown: 0
   - name: WindSpell
     clip: {fileID: 8300000, guid: 6ec57339025da4d619feae87ab05fea2, type: 3}
+    cooldown: 0
 --- !u!4 &153058465
 Transform:
   m_ObjectHideFlags: 0
