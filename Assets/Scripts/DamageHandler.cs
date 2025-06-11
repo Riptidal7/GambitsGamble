@@ -33,22 +33,26 @@ public class DamageHandler : MonoBehaviour
         // Calculate the spawn position in world space, above the mob
         Vector3 spawnPosition = objectTakingDamage.transform.position;
 
-        // Instantiate the damage text prefab at the calculated position
-        Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
-        if (objectTakingDamage.CompareTag("Player"))
+        // Instantiate the damage text prefab at the calculated position and store the instance
+        GameObject instance = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
+        
+        // Get the TMP_Text and set color based on tag
+        TMP_Text tmp = instance.GetComponent<TMP_Text>();
+        if (tmp != null)
         {
-            damageTextPrefab.GetComponent<TMP_Text>().color = Color.white;
+            tmp.color = objectTakingDamage.CompareTag("Player") ? Color.white : Color.red;
+        }
+        
+        // Set the damage amount on the instance
+        DamageNumber damageNumber = instance.GetComponent<DamageNumber>();
+        if (damageNumber != null)
+        {
+            damageNumber.Setup(damageAmount);
         }
         else
         {
-            damageTextPrefab.GetComponent<TMP_Text>().color = Color.red;
+            Debug.LogError("DamageNumber component missing on damageTextPrefab!");
         }
-        
-
-
-        //Set text to the damage amount
-        print(damageTextPrefab.ToString());
-        damageTextPrefab.GetComponent<DamageNumber>().Setup(damageAmount);
     }
     
 }
